@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="doutv.github.io">
-  <title>Tag: Data Structure | Jason&#39;s Blog</title>
+  <title>二叉树的垂序遍历 | Jason&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Jason&#39;s Blog">
-<meta property="og:url" content="doutv.github.io/tags/Data-Structure/index.html">
+  <meta name="description" content="偶然打开面试页面发现的一道好题：二叉树的垂序遍历  思路  1. 一开始看题，很简单嘛，dfs走起，算出每个点的X，加到数组里面就完事了，而且树的结点数介于 1 和 1000 之间，开个vector res[2005]即可  2. 提交后发现不对劲，原来还有一个条件：如果两个结点位置相同，则首先报告的结点值较小。  3. 想了一想，直觉判断一波，同一层（Y相等）最多存在2个点的X相等，那改成bfs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树的垂序遍历">
+<meta property="og:url" content="doutv.github.io/2020/07/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
+<meta property="og:description" content="偶然打开面试页面发现的一道好题：二叉树的垂序遍历  思路  1. 一开始看题，很简单嘛，dfs走起，算出每个点的X，加到数组里面就完事了，而且树的结点数介于 1 和 1000 之间，开个vector res[2005]即可  2. 提交后发现不对劲，原来还有一个条件：如果两个结点位置相同，则首先报告的结点值较小。  3. 想了一想，直觉判断一波，同一层（Y相等）最多存在2个点的X相等，那改成bfs">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-03T16:12:34.000Z">
+<meta property="article:modified_time" content="2020-07-03T16:32:33.359Z">
 <meta property="article:author" content="Jason">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="STL">
+<meta property="article:tag" content="Tree">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Jason&#39;s Blog" type="application/atom+xml">
@@ -132,36 +139,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-二叉树的垂序遍历" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class=" article-header">
     
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-hexo">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/25/2019/11.25/" class="archive-article-date">
-  	<time datetime="2019-11-25T04:00:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/25/2019/11.25/">11.25 Notes</a>
+    <h1 class="article-title" itemprop="name">
+      二叉树的垂序遍历
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+    
+    <a href="/2020/07/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2020-07-03T16:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
+</a>
+    
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        
+        <p>偶然打开<a href="https://leetcode-cn.com/interview/" target="_blank" rel="noopener">面试页面</a>发现的一道好题：<a href="https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/" target="_blank" rel="noopener">二叉树的垂序遍历</a></p>
+<a id="more"></a>
+
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><ol>
+<li>一开始看题，很简单嘛，dfs走起，算出每个点的X，加到数组里面就完事了，而且树的结点数介于 1 和 1000 之间，开个<code>vector&lt;int&gt; res[2005]</code>即可</li>
+<li>提交后发现不对劲，原来还有一个条件：如果两个结点位置相同，则首先报告的结点值较小。</li>
+<li>想了一想，直觉判断一波，同一层（Y相等）最多存在2个点的X相等，那改成bfs就好了啊，层序遍历<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (!q.empty())</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">auto</span> [x,y,cur]=q.front();</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">if</span> (cur==<span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">auto</span> [nx,ny,nxt]=q.front();</span><br><span class="line">    <span class="keyword">if</span> (nxt!=<span class="literal">nullptr</span>&amp;&amp;x==nx&amp;&amp;y==ny)</span><br><span class="line">    &#123;</span><br><span class="line">        q.pop();</span><br><span class="line">        ans[x+<span class="number">1000</span>].push_back(min(cur-&gt;val,nxt-&gt;val));</span><br><span class="line">        ans[x+<span class="number">1000</span>].push_back(max(cur-&gt;val,nxt-&gt;val));</span><br><span class="line">        q.push(&#123;x<span class="number">-1</span>,y+<span class="number">1</span>,cur-&gt;left&#125;);</span><br><span class="line">        q.push(&#123;x+<span class="number">1</span>,y+<span class="number">1</span>,cur-&gt;right&#125;);</span><br><span class="line">        q.push(&#123;x<span class="number">-1</span>,y+<span class="number">1</span>,nxt-&gt;left&#125;);</span><br><span class="line">        q.push(&#123;x+<span class="number">1</span>,y+<span class="number">1</span>,nxt-&gt;right&#125;);</span><br><span class="line">        <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ans[x+<span class="number">1000</span>].push_back(cur-&gt;val);</span><br><span class="line">    q.push(&#123;x<span class="number">-1</span>,y+<span class="number">1</span>,cur-&gt;left&#125;);</span><br><span class="line">    q.push(&#123;x+<span class="number">1</span>,y+<span class="number">1</span>,cur-&gt;right&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>交上去还是不对，想了想，原来是bfs有点小问题，同一层两个X相等的点并不一定相邻，中间可能隔了空节点。所以要保证队列中的节点不是空节点</li>
+<li>加完特判之后还是不对，再看了看错了的那组数据，原来同一层可以存在多个（&gt;2）点的X相等，于是滚去看题解了~</li>
+<li>最后在评论区发现一种比较简洁的<a href="https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/comments/364408" target="_blank" rel="noopener">解法</a>，<code>map</code>里面套一个<code>set</code>，当然<code>map</code>也可以换成<code>array</code>。关键是<code>set</code>中存储的元素是由<code>node-&gt;val</code>与<code>y</code>拼接而成的，起到了先按<code>y</code>升序排序，再按<code>val</code>升序排序的作用，十分巧妙且运行速度很快。</li>
+<li>最终代码：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">map</span>&lt;<span class="keyword">int</span>,<span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;&gt; m;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">verticalTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">queue</span>&lt;tuple&lt;<span class="keyword">int</span>,<span class="keyword">int</span>,TreeNode*&gt;&gt; q;</span><br><span class="line">        q.push(&#123;<span class="number">0</span>,<span class="number">0</span>,root&#125;);</span><br><span class="line">        <span class="keyword">while</span> (!q.empty())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> [x,y,cur]=q.front();</span><br><span class="line">            q.pop();</span><br><span class="line">            <span class="keyword">if</span> (cur==<span class="literal">nullptr</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            m[x].insert(y*<span class="number">10000</span>+cur-&gt;val);</span><br><span class="line">            q.push(&#123;x<span class="number">-1</span>,y+<span class="number">1</span>,cur-&gt;left&#125;);</span><br><span class="line">            q.push(&#123;x+<span class="number">1</span>,y+<span class="number">1</span>,cur-&gt;right&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> each:m)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; tmp;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">auto</span> y:each.second)</span><br><span class="line">                tmp.push_back(y%<span class="number">10000</span>);</span><br><span class="line">            ans.push_back(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+        
+
+        
+    </div>
+    <div class="article-info article-info-index">
+        
+        
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -171,33 +189,128 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STL</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Pygame</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+        
 
+        
+
+        
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
-</article>
-  
-  
-    </div></section>
-  
+</div>
 
-    
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:doutv.github.io/2020/07/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+        
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/28/2020/6-28/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">6.28 Notes</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -220,9 +333,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
