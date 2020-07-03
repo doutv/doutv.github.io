@@ -188,7 +188,7 @@
 </ol>
 <p>估计一下这样做的时间复杂度：<br>$O(n^2)$求LIS，$O(n<em>k)$求出现过的元素个数，其中$k=LISLength</em>LISNumber$<br>总的时间复杂度为$O(n^2)$</p>
 <p>看起来没问题，但其实问题很大：<br><strong>长度为3的递增序列</strong>可以不出现在LIS中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line">1 1000 1001 2 3 4 5 6</span><br><span class="line">(1,1000,1001)就没有出现在LIS(1,2,3,4,5,6)中</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line"><span class="number">1</span> <span class="number">1000</span> <span class="number">1001</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">(<span class="number">1</span>,<span class="number">1000</span>,<span class="number">1001</span>)就没有出现在LIS(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)中</span><br></pre></td></tr></table></figure>
 <p>所以这题跟LIS一点关系都没有！</p>
 <p>我还是去看<a href="https://leetcode-cn.com/problems/count-number-of-teams/solution/tong-ji-zuo-zhan-dan-wei-shu-by-leetcode-solution/" target="_blank" rel="noopener">官方题解</a>吧  </p>
 <ol>
