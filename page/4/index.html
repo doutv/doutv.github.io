@@ -6,17 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="doutv.github.io">
-  <title>2019/10.20 | Jason&#39;s Blog</title>
+  <title>Jason&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="10.14-10.20 Learning NotesSequelizehttps:&#x2F;&#x2F;itfun.tv&#x2F;courses&#x2F;12   model &amp; tables模型是单数表是复数 migrationsmodelsroutesseedersNodejshttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av38925557 自定义模块要让外部访问模块里面的方法 模块文件中：用expo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="2019&#x2F;10.20">
-<meta property="og:url" content="doutv.github.io/2020/06/22/2019/10.20/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Jason&#39;s Blog">
+<meta property="og:url" content="doutv.github.io/page/4/index.html">
 <meta property="og:site_name" content="Jason&#39;s Blog">
-<meta property="og:description" content="10.14-10.20 Learning NotesSequelizehttps:&#x2F;&#x2F;itfun.tv&#x2F;courses&#x2F;12   model &amp; tables模型是单数表是复数 migrationsmodelsroutesseedersNodejshttps:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;av38925557 自定义模块要让外部访问模块里面的方法 模块文件中：用expo">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-22T04:09:06.477Z">
-<meta property="article:modified_time" content="2020-02-27T10:21:50.669Z">
 <meta property="article:author" content="Jason">
 <meta name="twitter:card" content="summary">
   
@@ -154,14 +150,306 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2019/10.20" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-2020/6-28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      2019/10.20
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/22/2020/6-28/">2020/6-28</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/22/2020/6-28/" class="archive-article-date">
+  	<time datetime="2020-06-22T04:09:06.420Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="6-22-6-28-Learning-Notes"><a href="#6-22-6-28-Learning-Notes" class="headerlink" title="6.22-6.28 Learning Notes"></a>6.22-6.28 Learning Notes</h1><h1 id="Leetcode"><a href="#Leetcode" class="headerlink" title="Leetcode"></a>Leetcode</h1><h1 id="MST"><a href="#MST" class="headerlink" title="MST"></a><a href="https://leetcode-cn.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/" target="_blank" rel="noopener">MST</a></h1><p>请你找到给定图中最小生成树的所有关键边和伪关键边。如果最小生成树中删去某条边，会导致最小生成树的权值和增加，那么我们就说它是一条关键边。伪关键边则是可能会出现在某些最小生成树中但不会出现在所有最小生成树中的边。</p>
+<p>题目数据范围很小，可以暴力判断每条边是关键边/伪关键边/其他的。</p>
+<p>[<a href="https://leetcode-cn.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/solution/shan-chu-bian-yu-jia-ru-bian-zui-xiao-sheng-cheng-/" target="_blank" rel="noopener">参考题解</a></p>
+<ol>
+<li>先求MST。</li>
+<li>对于原图中的每条边：<ol>
+<li>如果边在MST中，计算去掉该边后的MST权值，如果比原来的大，那么当前边是伪关键边；如果相等，那么它是关键边。</li>
+<li>如果边不在MST中，计算强制加入当前边后的MST权值，如果相等，则当前边是伪关键边。<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Graph</span></span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="class"><span class="keyword">struct</span> <span class="title">Edge</span></span></span><br><span class="line"><span class="class">        &#123;</span></span><br><span class="line">            <span class="keyword">int</span> u, v, w;</span><br><span class="line">            <span class="keyword">int</span> num;</span><br><span class="line">        &#125; e[<span class="number">205</span>];</span><br><span class="line">        <span class="keyword">bool</span> inmst[<span class="number">205</span>];</span><br><span class="line">        <span class="keyword">int</span> size;</span><br><span class="line">        Graph() &#123; size = <span class="number">0</span>; &#125;;</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Edge a, Edge b)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.w &lt; b.w;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            ++size;</span><br><span class="line">            e[size].u = u;</span><br><span class="line">            e[size].v = v;</span><br><span class="line">            e[size].w = w;</span><br><span class="line">            e[size].num = size - <span class="number">1</span>;</span><br><span class="line">            inmst[size] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">sorted</span><span class="params">()</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            sort(e + <span class="number">1</span>, e + size + <span class="number">1</span>, cmp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    Graph G;</span><br><span class="line">    <span class="keyword">int</span> fa[<span class="number">105</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x != fa[x])</span><br><span class="line">            fa[x] = find(fa[x]);</span><br><span class="line">        <span class="keyword">return</span> fa[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">combine</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> xx = find(x);</span><br><span class="line">        <span class="keyword">int</span> yy = find(y);</span><br><span class="line">        <span class="keyword">if</span> (xx != yy)</span><br><span class="line">            fa[xx] = yy;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">include_mst_weight</span><span class="params">(<span class="keyword">int</span> inc, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mstw = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            fa[i] = i;</span><br><span class="line">        <span class="keyword">int</span> u = G.e[inc].u;</span><br><span class="line">        <span class="keyword">int</span> v = G.e[inc].v;</span><br><span class="line">        <span class="keyword">int</span> w = G.e[inc].w;</span><br><span class="line">        <span class="keyword">if</span> (find(u) != find(v))</span><br><span class="line">        &#123;</span><br><span class="line">            combine(u, v);</span><br><span class="line">            ++cnt;</span><br><span class="line">            mstw += w;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= G.size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == inc)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> u = G.e[i].u;</span><br><span class="line">            <span class="keyword">int</span> v = G.e[i].v;</span><br><span class="line">            <span class="keyword">int</span> w = G.e[i].w;</span><br><span class="line">            <span class="keyword">if</span> (find(u) != find(v))</span><br><span class="line">            &#123;</span><br><span class="line">                combine(u, v);</span><br><span class="line">                ++cnt;</span><br><span class="line">                mstw += w;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cnt == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt &lt; n)</span><br><span class="line">            mstw = INT32_MAX;</span><br><span class="line">        <span class="keyword">return</span> mstw;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">exclude_mst_weight</span><span class="params">(<span class="keyword">int</span> exc, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> mstw = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            fa[i] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= G.size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (i == exc)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">int</span> u = G.e[i].u;</span><br><span class="line">            <span class="keyword">int</span> v = G.e[i].v;</span><br><span class="line">            <span class="keyword">int</span> w = G.e[i].w;</span><br><span class="line">            <span class="keyword">if</span> (find(u) != find(v))</span><br><span class="line">            &#123;</span><br><span class="line">                combine(u, v);</span><br><span class="line">                ++cnt;</span><br><span class="line">                mstw += w;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cnt == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt &lt; n)</span><br><span class="line">            mstw = INT32_MAX;</span><br><span class="line">        <span class="keyword">return</span> mstw;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">findCriticalAndPseudoCriticalEdges</span><span class="params">(<span class="keyword">int</span> n, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; &amp;edges)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            fa[i] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> each : edges)</span><br><span class="line">        &#123;</span><br><span class="line">            G.addedge(each[<span class="number">0</span>], each[<span class="number">1</span>], each[<span class="number">2</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        G.sorted();</span><br><span class="line">        <span class="keyword">int</span> mstw = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= G.size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> u = G.e[i].u;</span><br><span class="line">            <span class="keyword">int</span> v = G.e[i].v;</span><br><span class="line">            <span class="keyword">int</span> w = G.e[i].w;</span><br><span class="line">            <span class="keyword">if</span> (find(u) != find(v))</span><br><span class="line">            &#123;</span><br><span class="line">                combine(u, v);</span><br><span class="line">                mstw += w;</span><br><span class="line">                G.inmst[i] = <span class="number">1</span>;</span><br><span class="line">                ++cnt;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cnt == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; key_edge;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; fkey_edge;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= G.size; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (G.inmst[i])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> new_mstw = exclude_mst_weight(i, n);</span><br><span class="line">                <span class="keyword">if</span> (new_mstw &gt; mstw)</span><br><span class="line">                    key_edge.push_back(G.e[i].num);</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    fkey_edge.push_back(G.e[i].num);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> new_mstw = include_mst_weight(i, n);</span><br><span class="line">                <span class="keyword">if</span> (new_mstw == mstw)</span><br><span class="line">                    fkey_edge.push_back(G.e[i].num);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;key_edge, fkey_edge&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/22/2020/6-28/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2020/6-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/22/2020/6-7/">2020/6-7</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/22/2020/6-7/" class="archive-article-date">
+  	<time datetime="2020-06-22T04:09:06.424Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="6-1-6-7-Learning-Notes"><a href="#6-1-6-7-Learning-Notes" class="headerlink" title="6.1-6.7 Learning Notes"></a>6.1-6.7 Learning Notes</h1><h1 id="TXAD-2020"><a href="#TXAD-2020" class="headerlink" title="TXAD 2020"></a>TXAD 2020</h1><ul>
+<li>lightgbm for GBDT(Gradient Boosting Decision Tree) <ul>
+<li><a href="https://lightgbm.readthedocs.io/en/latest/index.html" target="_blank" rel="noopener">https://lightgbm.readthedocs.io/en/latest/index.html</a></li>
+<li><a href="https://blog.csdn.net/u012735708/article/details/83749703" target="_blank" rel="noopener">https://blog.csdn.net/u012735708/article/details/83749703</a></li>
+<li><a href="https://www.cnblogs.com/bjwu/p/9307344.html" target="_blank" rel="noopener">https://www.cnblogs.com/bjwu/p/9307344.html</a></li>
+</ul>
+</li>
+<li>Embedding<ul>
+<li>tf-idf<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31197209" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31197209</a></li>
+<li><a href="https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction" target="_blank" rel="noopener">https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction</a></li>
+<li><a href="https://blog.csdn.net/Eastmount/article/details/50323063" target="_blank" rel="noopener">https://blog.csdn.net/Eastmount/article/details/50323063</a></li>
+</ul>
+</li>
+<li>Word2vec<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/26306795" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26306795</a></li>
+<li><a href="https://www.tensorflow.org/tutorials/text/word_embeddings" target="_blank" rel="noopener">https://www.tensorflow.org/tutorials/text/word_embeddings</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/53194407" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/53194407</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/46016518" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/46016518</a></li>
+<li><a href="https://www.zhihu.com/question/32275069" target="_blank" rel="noopener">https://www.zhihu.com/question/32275069</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transformer<ul>
+<li><a href="https://github.com/huggingface/transformers#installation" target="_blank" rel="noopener">https://github.com/huggingface/transformers#installation</a></li>
+<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">https://jalammar.github.io/illustrated-transformer/</a></li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/22/2020/6-7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019/10.13" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/22/2019/10.13/">2019/10.13</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/22/2019/10.13/" class="archive-article-date">
+  	<time datetime="2020-06-22T04:09:06.461Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="10-7-10-13-Learning-Notes"><a href="#10-7-10-13-Learning-Notes" class="headerlink" title="10.7-10.13 Learning Notes"></a>10.7-10.13 Learning Notes</h1><p>by Huang Yongjin</p>
+<h1 id="JS-Learning"><a href="#JS-Learning" class="headerlink" title="JS Learning"></a>JS Learning</h1><p><a href="https://wangdoc.com/javascript/index.html" target="_blank" rel="noopener">https://wangdoc.com/javascript/index.html</a><br><a href="http://es6.ruanyifeng.com/#docs/style#Class" target="_blank" rel="noopener">http://es6.ruanyifeng.com/#docs/style#Class</a>  </p>
+<h2 id="变量提升（hoisting）"><a href="#变量提升（hoisting）" class="headerlink" title="变量提升（hoisting）"></a>变量提升（hoisting）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先解析代码，获取所有被声明的变量，然后再一行一行地运行</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="use-let-instead-of-var"><a href="#use-let-instead-of-var" class="headerlink" title="use let instead of var"></a><strong>use let instead of var</strong></h2><h3 id="let-不会变量提升"><a href="#let-不会变量提升" class="headerlink" title="let 不会变量提升"></a>let 不会变量提升</h3><h3 id="let-只在块级作用域中有效"><a href="#let-只在块级作用域中有效" class="headerlink" title="let 只在块级作用域中有效"></a>let 只在块级作用域中有效</h3><h3 id="let-暂时性死区"><a href="#let-暂时性死区" class="headerlink" title="let 暂时性死区"></a>let 暂时性死区</h3><p>ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tmp = <span class="number">123</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="keyword">let</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="严格相等运算符-amp-相等运算符"><a href="#严格相等运算符-amp-相等运算符" class="headerlink" title="严格相等运算符 &amp; 相等运算符"></a>严格相等运算符 &amp; 相等运算符</h2><p>相等运算符会自动转换变量类型，造成很多意想不到的情况。<br><strong>因此，建议不要使用相等运算符（==），只使用严格相等运算符（===）。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>==<span class="string">'1'</span> <span class="comment">//return true</span></span><br><span class="line"><span class="number">1</span>===<span class="string">'1'</span> <span class="comment">//return false</span></span><br></pre></td></tr></table></figure>
+<h2 id="check-var"><a href="#check-var" class="headerlink" title="check var"></a>check var</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误的写法</span></span><br><span class="line"><span class="keyword">if</span> (v) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ReferenceError: v is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确的写法</span></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> v === <span class="string">"undefined"</span>) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="int-float64"><a href="#int-float64" class="headerlink" title="int? float64!"></a>int? float64!</h2><p>JavaScript 内部，所有数字都是以64位浮点数形式储存，即使整数也是如此。所以，1与1.0是相同的，是同一个数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> === <span class="number">1.0</span> <span class="comment">// true</span></span><br><span class="line"><span class="comment">//这就是说，JavaScript 语言的底层根本没有整数，所有数字都是小数（64位浮点数）</span></span><br></pre></td></tr></table></figure>
+<h2 id="object"><a href="#object" class="headerlink" title="object"></a>object</h2><p>什么是对象？  简单说，对象就是一组“键值对”（key-value）的集合，是一种无序的复合数据集合。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  foo: <span class="string">'Hello'</span>,<span class="comment">//use , to separate</span></span><br><span class="line">  bar: <span class="string">'World'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(obj);</span><br><span class="line"><span class="comment">//['foo','bar']</span></span><br><span class="line"><span class="keyword">delete</span> obj.foo;</span><br><span class="line">obj.foo</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//遍历对象自身的属性，不包括继承的</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(key)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(key);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>function命令声明的代码区块，就是一个函数。function命令后面是函数名，函数名后面是一对圆括号，里面是传入函数的参数。函数体放在大括号里面。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//一是可以在函数体内部调用自身，二是方便除错（除错工具显示函数调用栈时，将显示函数名，而不再显示这里是一个匿名函数）</span></span><br><span class="line"><span class="keyword">var</span> print = <span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> x);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">x</span><br><span class="line"><span class="comment">// ReferenceError: x is not defined</span></span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line"><span class="comment">// function</span></span><br></pre></td></tr></table></figure>
+<p>函数与其它值（数值、字符串、布尔值等等）地位相同</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  return x ## y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将函数赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> operator = add;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将函数作为参数和返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">op</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> op;</span><br><span class="line">&#125;</span><br><span class="line">a(add)(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p>函数作用域（scope）<br>函数执行时所在的作用域，是定义时的作用域，而不是调用时所在的作用域。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">  x();</span><br><span class="line">&#125;</span><br><span class="line">f() <span class="comment">// return 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">y</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">  f();</span><br><span class="line">&#125;</span><br><span class="line">y(x)</span><br><span class="line"><span class="comment">// ReferenceError: a is not defined</span></span><br></pre></td></tr></table></figure>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> n = <span class="number">999</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(n);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> result = f1();</span><br><span class="line">result(); <span class="comment">// 999</span></span><br></pre></td></tr></table></figure>
+<p>闭包就是函数f2，即能够读取其他函数内部变量的函数。由于在 JavaScript 语言中，只有函数内部的子函数才能读取内部变量，因此可以把闭包简单理解成“定义在一个函数内部的函数”。闭包最大的特点，就是它可以“记住”诞生的环境，比如f2记住了它诞生的环境f1，所以从f2可以得到f1的内部变量。在本质上，闭包就是将函数内部和函数外部连接起来的一座桥梁。  </p>
+<p>闭包的最大用处有两个，一个是可以读取函数内部的变量，另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。请看下面的例子，闭包使得内部变量记住上一次调用时的运算结果。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createIncrementor</span>(<span class="params">start</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> start++;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> inc = createIncrementor(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">inc() <span class="comment">// 5</span></span><br><span class="line">inc() <span class="comment">// 6</span></span><br><span class="line">inc() <span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+<p>闭包的另一个用处，是封装对象的私有属性和私有方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _age;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setAge</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">    _age = n;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getAge</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> _age;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: name,</span><br><span class="line">    getAge: getAge,</span><br><span class="line">    setAge: setAge</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = Person(<span class="string">'张三'</span>);</span><br><span class="line">p1.setAge(<span class="number">25</span>);</span><br><span class="line">p1.getAge() <span class="comment">// 25</span></span><br></pre></td></tr></table></figure>
+<h2 id="错误处理机制"><a href="#错误处理机制" class="headerlink" title="错误处理机制"></a>错误处理机制</h2><p>throw</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//自定义error</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">UserError</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.message = message || <span class="string">'默认信息'</span>;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'UserError'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> UserError(<span class="string">'出错了！'</span>);</span><br><span class="line"><span class="comment">// Uncaught UserError &#123;message: "出错了！", name: "UserError"&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//实际上，throw可以抛出任何类型的值</span></span><br><span class="line"><span class="comment">// 抛出一个字符串</span></span><br><span class="line"><span class="keyword">throw</span> <span class="string">'Error！'</span>;</span><br><span class="line"><span class="comment">// Uncaught Error！</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 抛出一个数值</span></span><br><span class="line"><span class="keyword">throw</span> <span class="number">42</span>;</span><br><span class="line"><span class="comment">// Uncaught 42</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 抛出一个布尔值</span></span><br><span class="line"><span class="keyword">throw</span> <span class="literal">true</span>;</span><br><span class="line"><span class="comment">// Uncaught true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 抛出一个对象</span></span><br><span class="line"><span class="keyword">throw</span> &#123;</span><br><span class="line">  toString: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Error!'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Uncaught &#123;toString: ƒ&#125;</span></span><br></pre></td></tr></table></figure>
+<p>try…catch<br>如果你不确定某些代码是否会报错，就可以把它们放在try…catch代码块之中，便于进一步对错误进行处理</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  f();</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"catch error"</span>)t</span><br><span class="line">  <span class="comment">// 处理错误</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//try代码块抛出的错误，被catch代码块捕获后，程序会继续向下执行。</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"continue"</span>);</span><br></pre></td></tr></table></figure>
+<p>try…catch…finally</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">openFile();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  writeFile(Data);</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  handleError(e);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  closeFile();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码首先打开一个文件，然后在try代码块中写入文件，如果没有发生错误，则运行finally代码块关闭文件；一旦发生错误，则先使用catch代码块处理错误，再使用finally代码块关闭文件。</p>
+<h2 id="console"><a href="#console" class="headerlink" title="console"></a>console</h2><p>console.log</p>
+<ul>
+<li>%s 字符串</li>
+<li>%d 整数</li>
+<li>%f 浮点数</li>
+<li>%o 对象的链接</li>
+<li>%c CSS 格式字符串<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">' %s + %s = %s'</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="comment">//  1 + 1 = 2</span></span><br></pre></td></tr></table></figure>
+console.warn() &amp; console.error()<br>特殊图标</li>
+</ul>
+<p>console.count()<br>count方法用于计数，输出它被调用了多少次。</p>
+<p>console.time() &amp; console.timeEnd()<br>计算程序运行时间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">'Array initialize'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> array= <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1000000</span>);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = array.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">  array[i] = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'Array initialize'</span>);</span><br><span class="line"><span class="comment">// Array initialize: 1914.481ms</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="install-mysql"><a href="#install-mysql" class="headerlink" title="install mysql"></a>install mysql</h1><p><a href="https://zhuanlan.zhihu.com/p/42583126" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/42583126</a><br>my.ini中的目录要填对<br>学会看错误信息</p>
+<h1 id="Sequelize"><a href="#Sequelize" class="headerlink" title="Sequelize"></a>Sequelize</h1><p><a href="https://juejin.im/post/5c259cf46fb9a049eb3bff49" target="_blank" rel="noopener">https://juejin.im/post/5c259cf46fb9a049eb3bff49</a><br><a href="https://github.com/demopark/sequelize-docs-Zh-CN" target="_blank" rel="noopener">https://github.com/demopark/sequelize-docs-Zh-CN</a></p>
+<h2 id="connection"><a href="#connection" class="headerlink" title="connection"></a>connection</h2><p>Problem One:<br>Please install mysql2 package manually<br><a href="https://stackoverflow.com/questions/17667368/sequelize-js-you-need-to-install-mysql-package-manually" target="_blank" rel="noopener">https://stackoverflow.com/questions/17667368/sequelize-js-you-need-to-install-mysql-package-manually</a></p>
+<p>Problem Two:<br>Client does not support authentication protocol requested by server<br><a href="https://blog.csdn.net/u013700358/article/details/80306560" target="_blank" rel="noopener">https://blog.csdn.net/u013700358/article/details/80306560</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Sequelize = <span class="built_in">require</span>(<span class="string">'sequelize'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sequelize = <span class="keyword">new</span> Sequelize(</span><br><span class="line">    <span class="string">'test'</span>,</span><br><span class="line">    <span class="string">'root'</span>,</span><br><span class="line">    <span class="string">'112233asd'</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        host: <span class="string">'localhost'</span>,</span><br><span class="line">        dialect: <span class="string">'mysql'</span>,</span><br><span class="line">        pool: &#123;</span><br><span class="line">            max: <span class="number">5</span>,</span><br><span class="line">            min: <span class="number">0</span>,</span><br><span class="line">            acquire: <span class="number">30000</span>,</span><br><span class="line">            idle: <span class="number">10000</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试连接</span></span><br><span class="line">sequelize</span><br><span class="line">    .authenticate()</span><br><span class="line">    .then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Connection has been established successfully.'</span>);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">'Unable to connect to the database:'</span>, err);</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="module"><a href="#module" class="headerlink" title="module"></a>module</h2><p>一个模型类对应一个表，一个模型实例对象（DAO）就是一条对应的表记录  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建模型实例对象 public static build(options: Object): Model | Model[]</span></span><br><span class="line"><span class="comment">// options：一个对象，对应的就是表中的字段（模型中定义的属性），需要注意的是对该对象的操作不会立即反应到实际的数据库中，需要通过后续的操作进行同步比如save</span></span><br><span class="line">attr= &#123;</span><br><span class="line">    id:<span class="string">"test"</span>,</span><br><span class="line">    content:<span class="string">"iscontent"</span>,</span><br><span class="line">    titile:<span class="string">"istitle"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> projectInstance = Project.build(attr) <span class="comment">// 创建实例对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实例方法</span></span><br><span class="line">projectInstance.save() <span class="comment">// 验证该实例，如果通过验证，则持久化到数据库中</span></span><br><span class="line">projectInstance.update(updates: <span class="built_in">Object</span>) <span class="comment">// updates：要更新的字段，调用该方法等同于调用.set()然后.save()</span></span><br><span class="line">projectInstance.destroy() <span class="comment">// 销毁该实例（假删除或真删除）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//  public static create(values: Object, options: Object): Promise&lt;Model&gt;</span></span><br><span class="line"><span class="comment">// 构建一个新的模型实例，并进行保存。与build()方法不同的是，此方法除创建新实例外，还会将其保存到对应数据库表中。</span></span><br><span class="line"><span class="keyword">await</span> Project.create(attr)</span><br></pre></td></tr></table></figure>
+<h1 id="Use-Latex-to-write-mathematic-formula"><a href="#Use-Latex-to-write-mathematic-formula" class="headerlink" title="Use Latex to write mathematic formula"></a>Use Latex to write mathematic formula</h1><h2 id="install-latex"><a href="#install-latex" class="headerlink" title="install latex"></a>install latex</h2><p><a href="https://zhuanlan.zhihu.com/p/38178015" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/38178015</a><br>texlive default installation and use eduroam</p>
+<h2 id="latex-markdown"><a href="#latex-markdown" class="headerlink" title="latex+markdown"></a>latex+markdown</h2><h3 id="single"><a href="#single" class="headerlink" title="single $"></a>single $</h3><h3 id="pi"><a href="#pi" class="headerlink" title="$\pi$"></a>$\pi$</h3><h3 id="double"><a href="#double" class="headerlink" title="double $$"></a>double $$</h3><p>$$x^3+2x=1$$  </p>
+<h2 id="basic-grammar"><a href="#basic-grammar" class="headerlink" title="basic grammar"></a>basic grammar</h2><h3 id="换行"><a href="#换行" class="headerlink" title="\\ 换行"></a>\\ 换行</h3><h3 id="公式"><a href="#公式" class="headerlink" title="$ $ 公式"></a>$ $ 公式</h3><h3 id="begin-equation-end-equation-公式块"><a href="#begin-equation-end-equation-公式块" class="headerlink" title="\begin{equation} \end{equation} 公式块"></a>\begin{equation} \end{equation} 公式块</h3><h3 id="frac-1-x"><a href="#frac-1-x" class="headerlink" title="frac{1}{x}"></a>frac{1}{x}</h3><p>$$\frac{1}{x}$$</p>
+<h3 id="sqrt-3-x"><a href="#sqrt-3-x" class="headerlink" title="sqrt[3]{x}"></a>sqrt[3]{x}</h3><p>$$\sqrt[3]{x}$$</p>
+<h3 id="lim-x-to-infty-frac-1-x"><a href="#lim-x-to-infty-frac-1-x" class="headerlink" title="lim_{x \to \infty}\frac{1}{x}"></a>lim_{x \to \infty}\frac{1}{x}</h3><p>$$lim_{x \to \infty}\frac{1}{x}$$</p>
+<h3 id="x-n"><a href="#x-n" class="headerlink" title="x_n"></a>x_n</h3><p>$$x_n$$</p>
+<h3 id="x-quad-y"><a href="#x-quad-y" class="headerlink" title="x\quad y"></a>x\quad y</h3><p>$$x\quad y$$</p>
+<h3 id="begin-cases-end-cases"><a href="#begin-cases-end-cases" class="headerlink" title="\begin{cases} \end{cases}"></a>\begin{cases} \end{cases}</h3><p>$$f(s)=\begin{cases}<br>\frac{s^3-1}{s^2-1},\quad s\not=\pm1 \<br>\frac{3}{2},\quad s=1<br>\end{cases}$$</p>
+<h2 id="pandoc"><a href="#pandoc" class="headerlink" title="pandoc"></a>pandoc</h2><h3 id="save-as-pdf"><a href="#save-as-pdf" class="headerlink" title="save as .pdf"></a>save as .pdf</h3><p>–pdf-engine=xelatex </p>
+<h3 id="docx-html"><a href="#docx-html" class="headerlink" title=".docx .html"></a>.docx .html</h3><h1 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a>Arduino</h1><h2 id="connect-arduino-nano-to-computer"><a href="#connect-arduino-nano-to-computer" class="headerlink" title="connect arduino nano to computer"></a>connect arduino nano to computer</h2><p><a href="https://www.arduino.cc/en/Guide/ArduinoNano" target="_blank" rel="noopener">https://www.arduino.cc/en/Guide/ArduinoNano</a><br>use ATmega328P (Old Bootloader)</p>
+<h2 id="让舵机转起来"><a href="#让舵机转起来" class="headerlink" title="让舵机转起来"></a>让舵机转起来</h2><p><a href="https://blog.csdn.net/xieyan0811/article/details/56012044" target="_blank" rel="noopener">https://blog.csdn.net/xieyan0811/article/details/56012044</a></p>
+<h1 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h1><p>$O(n^c)&lt;O(2^n)$<br>$O(\log^c n)&lt;O(n^\epsilon)$  </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/22/2019/10.13/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019/10.20" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/22/2019/10.20/">2019/10.20</a>
     </h1>
   
 
@@ -195,27 +483,6 @@
       
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
     </div>
     <div class="article-info article-info-index">
       
@@ -223,84 +490,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/22/2019/10.20/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:doutv.github.io/2020/06/22/2019/10.20/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/06/22/2019/10.27/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2019/10.27
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/06/22/2019/10.13/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">2019/10.13</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -315,32 +514,139 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#10-14-10-20-Learning-Notes"><span class="toc-number">1.</span> <span class="toc-text">10.14-10.20 Learning Notes</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sequelize"><span class="toc-number">2.</span> <span class="toc-text">Sequelize</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#model-amp-tables"><span class="toc-number">2.1.</span> <span class="toc-text">model &amp; tables</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#migrations"><span class="toc-number">2.2.</span> <span class="toc-text">migrations</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#models"><span class="toc-number">2.3.</span> <span class="toc-text">models</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#routes"><span class="toc-number">2.4.</span> <span class="toc-text">routes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#seeders"><span class="toc-number">2.5.</span> <span class="toc-text">seeders</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nodejs"><span class="toc-number">3.</span> <span class="toc-text">Nodejs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义模块"><span class="toc-number">3.1.</span> <span class="toc-text">自定义模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模块文件中：用exports-amp-module-exports暴露方法"><span class="toc-number">3.1.1.</span> <span class="toc-text">模块文件中：用exports &amp; module.exports暴露方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需要访问模块的文件中：require-‘model’"><span class="toc-number">3.1.2.</span> <span class="toc-text">需要访问模块的文件中：require(‘model’);</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#require"><span class="toc-number">3.1.3.</span> <span class="toc-text">require</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodemon"><span class="toc-number">3.2.</span> <span class="toc-text">nodemon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-number">3.3.</span> <span class="toc-text">http</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs"><span class="toc-number">3.4.</span> <span class="toc-text">fs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#find-all-directories-in-one-directory"><span class="toc-number">3.4.1.</span> <span class="toc-text">find all directories in one directory</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let-amp-var"><span class="toc-number">3.5.</span> <span class="toc-text">let &amp; var</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数"><span class="toc-number">3.6.</span> <span class="toc-text">箭头函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pygame"><span class="toc-number">3.7.</span> <span class="toc-text">Pygame</span></a></li></ol></li></ol>
-                    </div>
-                </span>
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-2019/10.27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/22/2019/10.27/">2019/10.27</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/22/2019/10.27/" class="archive-article-date">
+  	<time datetime="2020-06-22T04:09:06.516Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="10-21-10-27-Learning-Notes"><a href="#10-21-10-27-Learning-Notes" class="headerlink" title="10.21-10.27 Learning Notes"></a>10.21-10.27 Learning Notes</h1><h1 id="printf-amp-scanf-in-c"><a href="#printf-amp-scanf-in-c" class="headerlink" title="printf &amp; scanf in c++"></a>printf &amp; scanf in c++</h1><p><a href="https://stackoverflow.com/questions/4264127/correct-format-specifier-for-double-in-printf" target="_blank" rel="noopener">https://stackoverflow.com/questions/4264127/correct-format-specifier-for-double-in-printf</a></p>
+<h2 id="printf-“-f”-printf-“-lf-”"><a href="#printf-“-f”-printf-“-lf-”" class="headerlink" title="printf(“%f”)==printf(“%lf%”)"></a>printf(“%f”)==printf(“%lf%”)</h2><p>Only use %f is OK</p>
+<h2 id="scanf-“-f”-scanf-“-lf”"><a href="#scanf-“-f”-scanf-“-lf”" class="headerlink" title="scanf(“%f”)!=scanf(“%lf”)"></a>scanf(“%f”)!=scanf(“%lf”)</h2><p>“%f” is the (or at least one) correct format for a double. There is no format for a float, because if you attempt to pass a float to printf, it’ll be promoted to double before printf receives it. “%lf” is also acceptable under the current standard – the l is specified as having no effect if followed by the f conversion specifier (among others).</p>
+<p>Note that this is one place that printf format strings differ substantially from scanf (and fscanf, etc.) format strings. For output, you’re passing a value, which will be promoted from float to double when passed as a variadic parameter. For input you’re passing a pointer, which is not promoted, so you have to tell scanf whether you want to read a float or a double, so for scanf, %f means you want to read a float and %lf means you want to read a double (and, for what it’s worth, for a long double, you use %Lf for either printf or scanf).</p>
+<h1 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h1><p><a href="https://gitbook.cn/gitchat/column/5d9efd3feb954a204f3ab13d" target="_blank" rel="noopener">https://gitbook.cn/gitchat/column/5d9efd3feb954a204f3ab13d</a>  </p>
+<h2 id="PDF：probability-density-function-概率密度函数"><a href="#PDF：probability-density-function-概率密度函数" class="headerlink" title="PDF：probability density function 概率密度函数"></a>PDF：probability density function 概率密度函数</h2><p>在数学中，连续型随机变量的概率密度函数（在不至于混淆时可以简称为密度函数）是一个描述这个随机变量的输出值，在某个确定的取值点附近的可能性的函数。</p>
+<h2 id="PMF-probability-mass-function概率质量函数"><a href="#PMF-probability-mass-function概率质量函数" class="headerlink" title="PMF: probability mass function概率质量函数"></a>PMF: probability mass function概率质量函数</h2><p>在概率论中，概率质量函数是离散随机变量在各特定取值上的概率。</p>
+<h2 id="CDF-cumulative-distribution-function累积分布函数"><a href="#CDF-cumulative-distribution-function累积分布函数" class="headerlink" title="CDF :cumulative distribution function累积分布函数"></a>CDF :cumulative distribution function累积分布函数</h2><p>是概率密度函数的积分，能完整描述一个实随机变量X的概率分布。</p>
+<h2 id="Why-use-fig-ax-plt-subplots-3-1"><a href="#Why-use-fig-ax-plt-subplots-3-1" class="headerlink" title="Why use fig, ax = plt.subplots(3, 1)"></a>Why use fig, ax = plt.subplots(3, 1)</h2><p><a href="https://stackoverflow.com/questions/34162443/why-do-many-examples-use-fig-ax-plt-subplots-in-matplotlib-pyplot-python" target="_blank" rel="noopener">https://stackoverflow.com/questions/34162443/why-do-many-examples-use-fig-ax-plt-subplots-in-matplotlib-pyplot-python</a><br>plt.subplots() is a function that returns a tuple containing a figure and axes object(s). Thus when using fig, ax = plt.subplots() you unpack this tuple into the variables fig and ax. Having fig is useful if you want to change figure-level attributes or save the figure as an image file later (e.g. with fig.savefig(‘yourfilename.png’)).</p>
+<h2 id="Binominal-Distribution"><a href="#Binominal-Distribution" class="headerlink" title="Binominal Distribution"></a>Binominal Distribution</h2><p>$$P(X=k)=C_n^kp^k(1-p)^{n-k}$$<br>Draw PMF Graph:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> binom</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn</span><br><span class="line">seaborn.set()</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">x = range(<span class="number">0</span>, <span class="number">11</span>)</span><br><span class="line"></span><br><span class="line">binom_rv = binom(n=<span class="number">10</span>, p=<span class="number">0.25</span>)</span><br><span class="line">ax.plot(x, binom_rv.pmf(x), <span class="string">'bo'</span>, ms=<span class="number">8</span>)</span><br><span class="line">ax.vlines(x, <span class="number">0</span>, binom_rv.pmf(x), colors=<span class="string">'b'</span>, lw=<span class="number">3</span>)</span><br><span class="line">ax.set_xlim(<span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line">ax.set_ylim(<span class="number">0</span>, <span class="number">0.35</span>)</span><br><span class="line">ax.set_xticks(x)</span><br><span class="line">ax.set_yticks([<span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>Simulate:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">binom_rvs = binom_rv.rvs(size=<span class="number">100000</span>)</span><br><span class="line">E_sim = np.mean(binom_rvs)  <span class="comment"># 期望</span></span><br><span class="line">S_sim = np.std(binom_rvs)  <span class="comment"># 标准差</span></span><br><span class="line">V_sim = S_sim * S_sim  <span class="comment"># 方差</span></span><br></pre></td></tr></table></figure>
+<h2 id="Geometric-Distribution"><a href="#Geometric-Distribution" class="headerlink" title="Geometric Distribution"></a>Geometric Distribution</h2><p>$$P(X=k)=(1-p)^{k-1}p$$</p>
+<h2 id="为什么样本方差是除以n-1"><a href="#为什么样本方差是除以n-1" class="headerlink" title="为什么样本方差是除以n-1"></a>为什么样本方差是除以n-1</h2><p>$$S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\overline{X})^2$$</p>
+<h3 id="一个好的估计量应具有无偏性"><a href="#一个好的估计量应具有无偏性" class="headerlink" title="一个好的估计量应具有无偏性"></a>一个好的估计量应具有无偏性</h3><p>估计误差的期望为0</p>
+<h3 id="用python模拟"><a href="#用python模拟" class="headerlink" title="用python模拟"></a>用python模拟</h3><p>从均值为 0，标准差为 1的标准正态分布中获取样本，每次获取 100个样本值，我们重复实验 100万次，把 100万次得到的统计量绘制成直方图，看看它们的分布，并与真实的总体方差进行比较。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> seaborn</span><br><span class="line"></span><br><span class="line">seaborn.set()</span><br><span class="line"></span><br><span class="line">norm_rv = norm(loc=<span class="number">0</span>, scale=<span class="number">1</span>)</span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">sample_n = <span class="number">100</span></span><br><span class="line">s_array = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000000</span>):</span><br><span class="line">    norm_rvs = norm_rv.rvs(size=sample_n)</span><br><span class="line">    x_bar = sum(norm_rvs) / float(sample_n)</span><br><span class="line">    s = sum(np.square((norm_rvs - x_bar))) / float(sample_n)</span><br><span class="line">    s_array.append(s)</span><br><span class="line"></span><br><span class="line">print(np.mean(s_array))</span><br><span class="line">plt.hist(s_array, bins=<span class="number">100</span>, normed=<span class="literal">True</span>, alpha=<span class="number">0.6</span>)</span><br><span class="line">plt.axvline(<span class="number">1</span>, ymax=<span class="number">0.8</span>, color=<span class="string">'r'</span>)</span><br><span class="line">plt.gca().axes.set_xlim(<span class="number">0.4</span>, <span class="number">1.6</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h3 id="数学证明"><a href="#数学证明" class="headerlink" title="数学证明"></a>数学证明</h3><p><a href="https://www.zhihu.com/question/20099757/answer/26586088" target="_blank" rel="noopener">https://www.zhihu.com/question/20099757/answer/26586088</a></p>
+<h1 id="Nodejs-Static-html"><a href="#Nodejs-Static-html" class="headerlink" title="Nodejs Static html"></a>Nodejs Static html</h1><ul>
+<li>设置首页  </li>
+<li>404页面  </li>
+<li>识别文件类型并正确显示</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">./model/FromFileGetExtname.js</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">exports.getMime = <span class="function"><span class="keyword">function</span> (<span class="params">fs, extname</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//异步程序</span></span><br><span class="line">    <span class="comment">// fs.readFile('./mime.json', (err, data) =&gt; &#123;</span></span><br><span class="line">    <span class="comment">//     if (err) &#123;</span></span><br><span class="line">    <span class="comment">//         console.log('not exist');</span></span><br><span class="line">    <span class="comment">//         return false;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">//     let Mime = JSON.parse(data.toString());</span></span><br><span class="line">    <span class="comment">//     return Mime[extname];</span></span><br><span class="line">    <span class="comment">// &#125;)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//改成同步读取</span></span><br><span class="line">    <span class="keyword">let</span> data = fs.readFileSync(<span class="string">'./mime.json'</span>);</span><br><span class="line">    <span class="keyword">let</span> Mimes = <span class="built_in">JSON</span>.parse(data.toString());<span class="comment">//convert json into object</span></span><br><span class="line">    <span class="keyword">return</span> Mimes[extname];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">let</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">let</span> extnameModel = <span class="built_in">require</span>(<span class="string">'./model/FromFileGetExtname.js'</span>);</span><br><span class="line"></span><br><span class="line">http.createServer(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> pathname = url.parse(req.url).pathname;<span class="comment">//获取url请求</span></span><br><span class="line">    <span class="keyword">if</span> (pathname == <span class="string">'/'</span>) &#123;</span><br><span class="line">        pathname = <span class="string">'/index.html'</span>;<span class="comment">//设置首页</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> extname = path.extname(pathname);</span><br><span class="line">    <span class="keyword">if</span> (pathname != <span class="string">'/favicon.ico'</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(pathname);</span><br><span class="line">        fs.readFile(<span class="string">'static/'</span> + pathname, (err, result) =&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="built_in">console</span>.error(<span class="string">'404'</span>);</span><br><span class="line"></span><br><span class="line">                fs.readFile(<span class="string">'static/404.html'</span>, (err, errorData) =&gt; &#123;<span class="comment">//404 page</span></span><br><span class="line">                    res.writeHead(<span class="number">404</span>, &#123; <span class="string">"Content-Type"</span>: <span class="string">"text/html;charset='utf-8'"</span> &#125;);</span><br><span class="line">                    res.write(errorData);</span><br><span class="line">                    res.end();</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> name = extnameModel.getMime(fs,extname);<span class="comment">//识别文件类型</span></span><br><span class="line">                res.writeHead(<span class="number">200</span>, &#123; <span class="string">"Content-Type"</span>: <span class="string">""</span> + name + <span class="string">";charset='utf-8'"</span> &#125;);</span><br><span class="line">                res.write(result);</span><br><span class="line">                res.end();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).listen(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="ES6-Style"><a href="#ES6-Style" class="headerlink" title="ES6 Style"></a>ES6 Style</h1><h2 id="let-const-replace-var"><a href="#let-const-replace-var" class="headerlink" title="let+const replace var"></a>let+const replace var</h2><p>不需要改变的量用<code>const</code><br>其余用<code>let</code></p>
+<h2 id="解构赋值"><a href="#解构赋值" class="headerlink" title="解构赋值"></a>解构赋值</h2><p>本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。  </p>
+<h3 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a>数组解构</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [foo, [[bar], baz]] = [<span class="number">1</span>, [[<span class="number">2</span>], <span class="number">3</span>]];</span><br><span class="line">foo <span class="comment">// 1</span></span><br><span class="line">bar <span class="comment">// 2</span></span><br><span class="line">baz <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//不完全解构</span></span><br><span class="line"><span class="keyword">let</span> [x, y] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">x <span class="comment">// 1</span></span><br><span class="line">y <span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> [a, [b], d] = [<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>], <span class="number">4</span>];</span><br><span class="line">a <span class="comment">// 1</span></span><br><span class="line">b <span class="comment">// 2</span></span><br><span class="line">d <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//默认值</span></span><br><span class="line"><span class="keyword">let</span> [foo = <span class="literal">true</span>] = []; <span class="comment">//foo=true</span></span><br><span class="line"><span class="keyword">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>]; <span class="comment">// x='a', y='b'</span></span><br><span class="line"><span class="keyword">let</span> [x, y = <span class="string">'b'</span>] = [<span class="string">'a'</span>, <span class="literal">undefined</span>]; <span class="comment">// x='a', y='b'</span></span><br></pre></td></tr></table></figure>
+<h3 id="对象解构"><a href="#对象解构" class="headerlink" title="对象解构"></a>对象解构</h3><p>对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; bar, foo &#125; = &#123; <span class="attr">foo</span>: <span class="string">'aaa'</span>, <span class="attr">bar</span>: <span class="string">'bbb'</span> &#125;;</span><br><span class="line">foo <span class="comment">// "aaa"</span></span><br><span class="line">bar <span class="comment">// "bbb"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; baz &#125; = &#123; <span class="attr">foo</span>: <span class="string">'aaa'</span>, <span class="attr">bar</span>: <span class="string">'bbb'</span> &#125;;</span><br><span class="line">baz <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="优先使用解构赋值"><a href="#优先使用解构赋值" class="headerlink" title="优先使用解构赋值"></a>优先使用解构赋值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用数组成员对变量赋值时，优先使用解构赋值。</span></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">const</span> first = arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">const</span> second = arr[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">const</span> [first, second] = arr;</span><br><span class="line"></span><br><span class="line"><span class="comment">//函数的参数如果是对象的成员，优先使用解构赋值。</span></span><br><span class="line"><span class="keyword">let</span> Vip = &#123; <span class="attr">firstName</span>: <span class="string">"V"</span>, <span class="attr">lastName</span>: <span class="string">"ip"</span> &#125;;</span><br><span class="line"><span class="comment">//bad</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">user</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> firstName = user.firstName;</span><br><span class="line">    <span class="keyword">const</span> lastName = user.lastName;</span><br><span class="line">    <span class="built_in">console</span>.log(firstName);</span><br><span class="line">    <span class="built_in">console</span>.log(lastName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//good</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFullName</span>(<span class="params">&#123; firstName, lastName &#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(firstName);</span><br><span class="line">    <span class="built_in">console</span>.log(lastName);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getFullName(Vip);</span><br></pre></td></tr></table></figure>
+<h2 id="什么时候使用箭头函数？"><a href="#什么时候使用箭头函数？" class="headerlink" title="什么时候使用箭头函数？"></a>什么时候使用箭头函数？</h2><p><a href="https://jingsam.github.io/2016/12/08/things-you-should-know-about-arrow-functions.html" target="_blank" rel="noopener">https://jingsam.github.io/2016/12/08/things-you-should-know-about-arrow-functions.html</a><br>箭头函数没有this</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">let</span> b = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="keyword">this</span>.a)<span class="comment">//引用了父级作用域中的foo().a</span></span><br><span class="line">    b()</span><br><span class="line">&#125;</span><br><span class="line">foo()  <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/10/27/SPkonK85Y7EqV4N.png" alt="20191027164045.png"></p>
+<h2 id="Module语法"><a href="#Module语法" class="headerlink" title="Module语法"></a>Module语法</h2><p>使用<code>import</code>代替<code>require</code><br>使用<code>export</code>取代<code>module.exports</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonJS的写法</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Breadcrumbs = React.createClass(&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">nav</span> /&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = Breadcrumbs;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6的写法</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Breadcrumbs</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">nav</span> /&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Breadcrumbs;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Sequelize"><a href="#Sequelize" class="headerlink" title="Sequelize"></a>Sequelize</h1><p><a href="https://www.bilibili.com/video/av59809408" target="_blank" rel="noopener">https://www.bilibili.com/video/av59809408</a><br><a href="https://itbilu.com/nodejs/npm/VyqgRUVf7.html" target="_blank" rel="noopener">https://itbilu.com/nodejs/npm/VyqgRUVf7.html</a></p>
+<h2 id="optional-install-cnpm-国内镜像"><a href="#optional-install-cnpm-国内镜像" class="headerlink" title="(optional) install cnpm(国内镜像)"></a>(optional) install cnpm(国内镜像)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="build-environment"><a href="#build-environment" class="headerlink" title="build environment"></a>build environment</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cnpm i sequelize -s</span><br><span class="line">cnpm i sequelize-cli -s 命令行工具</span><br><span class="line">cnpm i mysql2 -s</span><br><span class="line">sequelize init</span><br></pre></td></tr></table></figure>
+<h2 id="create-database"><a href="#create-database" class="headerlink" title="create database"></a>create database</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequelize db:create</span><br></pre></td></tr></table></figure>
+<p>按/config/config.json中的配置来建立数据库连接</p>
+<h2 id="create-model-amp-table"><a href="#create-model-amp-table" class="headerlink" title="create model&amp;table"></a>create model&amp;table</h2><h3 id="relation-between-model-and-table"><a href="#relation-between-model-and-table" class="headerlink" title="relation between model and table"></a>relation between model and table</h3><p>ORM框架的作用就是就是可以把关系型数据库表结构映射为javascript对象<br>每一个模型对象表示数据库中的一个表，后续对数据库的操作都是通过对应的模型对象来完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sequelize model:generate --name renters --attributes username:string,password:string --force</span><br><span class="line">--force            Forcefully re-creates model with the same name</span><br></pre></td></tr></table></figure>
+<p><strong>在sequelize中，模型是单数，表是复数</strong><br>生成了模型文件models\renter.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">sequelize, DataTypes</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> renter = sequelize.define(<span class="string">'renter'</span>, &#123;</span><br><span class="line">    title: DataTypes.STRING,</span><br><span class="line">    context: DataTypes.TEXT</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">  renter.associate = <span class="function"><span class="keyword">function</span>(<span class="params">models</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// associations can be defined here</span></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> renter;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>也生成了迁移文件migrations\20191027094449-create-renter.js  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">//sequelize db:migrate</span></span><br><span class="line">  up: <span class="function">(<span class="params">queryInterface, Sequelize</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> queryInterface.createTable(<span class="string">'renters'</span>, &#123;</span><br><span class="line">      id: &#123;</span><br><span class="line">        allowNull: <span class="literal">false</span>,<span class="comment">//不允许空值</span></span><br><span class="line">        autoIncrement: <span class="literal">true</span>,<span class="comment">//自增</span></span><br><span class="line">        primaryKey: <span class="literal">true</span>,<span class="comment">//主键</span></span><br><span class="line">        type: Sequelize.INTEGER</span><br><span class="line">      &#125;,</span><br><span class="line">      title: &#123;</span><br><span class="line">        type: Sequelize.STRING</span><br><span class="line">      &#125;,</span><br><span class="line">      context: &#123;</span><br><span class="line">        type: Sequelize.TEXT</span><br><span class="line">      &#125;,</span><br><span class="line">      createdAt: &#123;</span><br><span class="line">        allowNull: <span class="literal">false</span>,</span><br><span class="line">        type: Sequelize.DATE</span><br><span class="line">      &#125;,</span><br><span class="line">      updatedAt: &#123;</span><br><span class="line">        allowNull: <span class="literal">false</span>,</span><br><span class="line">        type: Sequelize.DATE</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//sequelize db:migrate:undo 迁移记录在就可以撤销迁移操作 </span></span><br><span class="line">  down: <span class="function">(<span class="params">queryInterface, Sequelize</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> queryInterface.dropTable(<span class="string">'renters'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>会迁移/migrations下的<strong>还未执行的</strong>迁移文件<br>数据库中有一个名为SequelizeMeta的表，此表用于记录在当前数据库上运行的迁移</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequelize db:migrate</span><br></pre></td></tr></table></figure>
+<h2 id="create-seeders"><a href="#create-seeders" class="headerlink" title="create seeders"></a>create seeders</h2><p>种子文件表示数据的一些变化，可用于使用样本数据或测试数据填充数据库表。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequelize seed:generate --name demo-renter</span><br></pre></td></tr></table></figure>
+<p>编辑种子文件\seeders\20191027112628-demo-renter.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    up: <span class="function">(<span class="params">queryInterface, Sequelize</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queryInterface.bulkInsert(<span class="string">'renters'</span>, [&#123;</span><br><span class="line">            title: <span class="string">'Rent'</span>,</span><br><span class="line">            context: <span class="string">'Whatever you want'</span>,</span><br><span class="line">            createdAt: <span class="string">'2019.10.27'</span>,</span><br><span class="line">            updatedAt: <span class="string">'2019.10.27'</span>,</span><br><span class="line">        &#125;], &#123;&#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    down: <span class="function">(<span class="params">queryInterface, Sequelize</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queryInterface.bulkDelete(<span class="string">'renters'</span>, <span class="literal">null</span>, &#123;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sequelize db:seed:all</span><br></pre></td></tr></table></figure>
+<h2 id="sequelize-cli"><a href="#sequelize-cli" class="headerlink" title="sequelize-cli"></a>sequelize-cli</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">sequelize [命令]</span><br><span class="line"></span><br><span class="line">命令：</span><br><span class="line">  sequelize db:migrate                        运行待执行的迁移</span><br><span class="line">  sequelize db:migrate:schema:timestamps:add  更新迁移表以获取时间戳</span><br><span class="line">  sequelize db:migrate:status                 列出所有迁移的状态</span><br><span class="line">  sequelize db:migrate:undo                   恢复迁移</span><br><span class="line">  sequelize db:migrate:undo:all               恢复所有迁移</span><br><span class="line">  sequelize db:seed                           运行指定的种子</span><br><span class="line">  sequelize db:seed:undo                      撤消最近执行的种子</span><br><span class="line">  sequelize db:seed:all                       运行所有种子</span><br><span class="line">  sequelize db:seed:undo:all                  撤消所有已执行的种子</span><br><span class="line">  sequelize db:create                         创建配置中指定的数据库</span><br><span class="line">  sequelize db:drop                           删除配置中指定的数据库</span><br><span class="line">  sequelize init                              初始化项目</span><br><span class="line">  sequelize init:config                       初始化配置</span><br><span class="line">  sequelize init:migrations                   初始化迁移</span><br><span class="line">  sequelize init:models                       初始化模型</span><br><span class="line">  sequelize init:seeders                      初始化种子</span><br><span class="line">  sequelize migration:generate                生成新的迁移文件                         [aliases: migration:create]</span><br><span class="line">  sequelize model:generate                    生成一个模型及迁移文件                 [aliases: model:create]</span><br><span class="line">  sequelize seed:generate                     生成一个新的种子文件                      [aliases: seed:create]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">  --help     显示帮助信息                                                              [布尔]</span><br><span class="line">  --version  显示版本号                                                                [布尔]</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2019/10/27/Z1IuR3P7ixG24ep.png" alt="20191027193126.png"></p>
+<h1 id="安利一个VSCODE插件：PicGo"><a href="#安利一个VSCODE插件：PicGo" class="headerlink" title="安利一个VSCODE插件：PicGo"></a>安利一个VSCODE插件：PicGo</h1><p>在Markdown中快速插入图片，自动上传到图床</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/22/2019/10.27/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
             </div>
         </div>
+        
         
     </div>
 </aside>
 
 
 
-  
-  
-  
 
   
-
   
-
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
+    </nav>
   
 
 
@@ -363,8 +669,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
