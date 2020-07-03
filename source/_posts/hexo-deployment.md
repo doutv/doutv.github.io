@@ -29,3 +29,6 @@ deploy:
   target_branch: master 
   local-dir: public
 ```
+
+# 文章截断
+似乎没有自动截断的功能，需要手动截断，在截断的地方加`<!-- more -->`

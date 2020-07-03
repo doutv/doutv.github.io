@@ -2,6 +2,7 @@
 (或者)
 > hexo n 文章名称
 在线预览
+> hexo clean
 > hexo server
 > hexo s
 一键部署
