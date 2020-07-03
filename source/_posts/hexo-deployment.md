@@ -2,7 +2,7 @@
 layout: hexo
 title: hexo-deployment
 date: 2020-06-22 12:00:28
-tags:
+tags: hexo
 ---
 
 # .travis.yml

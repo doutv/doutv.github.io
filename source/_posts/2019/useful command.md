@@ -1,4 +1,11 @@
-# Some usual commands
+---
+layout: hexo
+title: Useful Commands
+date: 2019-12-24 12:00:28
+tags: 
+    - Tools
+---
+# Some Useful Commands
 # Linux
 + touch newfile.md
 + leafpad
