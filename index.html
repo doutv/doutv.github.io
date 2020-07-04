@@ -134,26 +134,114 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-二叉树的垂序遍历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2020/将有序数组转换为二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树的垂序遍历</a>
+      <a class="article-title" href="/2020/07/04/2020/%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">将有序数组转换为二叉搜索树</a>
     </h1>
   
 
     
-    <a href="/2020/07/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
-  	<time datetime="2020-07-03T16:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
+    <a href="/2020/07/04/2020/%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-07-04T00:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
 </a>
     
     </header>
     
     <div class="article-entry" itemprop="articleBody">
         
+        108. 将有序数组转换为二叉搜索树，这是一道有趣的树上递归题
+
+ 1. 乍一看，这题不很简单嘛，直接递推就好了，nums[mid]的左边是左子树，右边是右子树，最终树的形状是一个人字形
+ 2. 原来这个条件本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。每个节点都要满足，那应该要用上递归了。
+ 3. 递归算法的设计： 1. 其实蛮套路的，树上递归的题目代码都很短，基本就是处理左子树–>处理右子树–>合并左右子树
+     2. 我是先用直觉写出递归，然后手推一下样例看看对不对，发现问题后再修改递归
+     3. 每个$[L,R]$区间的处理方式与
+        
+        <a class="article-more-a" href="/2020/07/04/2020/%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/#more">more >></a>
+        
+        
+
+        
+    </div>
+    <div class="article-info article-info-index">
+        
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Recursion</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+        
+
+        
+        <p class="article-more-link">
+            <a class="article-more-a" href="/2020/07/04/2020/%E5%B0%86%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91/">展开全文 >></a>
+        </p>
+        
+
+        
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-2020/二叉树的垂序遍历" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/04/2020/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/">二叉树的垂序遍历</a>
+    </h1>
+  
+
+    
+    <a href="/2020/07/04/2020/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/" class="archive-article-date">
+  	<time datetime="2020-07-03T16:12:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-04</time>
+</a>
+    
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
         
         偶然打开面试页面发现的一道好题：二叉树的垂序遍历
 
@@ -175,6 +263,8 @@
     13
     14
  
+        
+        <a class="article-more-a" href="/2020/07/04/2020/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/#more">more >></a>
         
         
 
@@ -206,7 +296,7 @@
 
         
         <p class="article-more-link">
-            <a class="article-more-a" href="/2020/07/04/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/">展开全文 >></a>
+            <a class="article-more-a" href="/2020/07/04/2020/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%9E%82%E5%BA%8F%E9%81%8D%E5%8E%86/">展开全文 >></a>
         </p>
         
 
@@ -255,7 +345,6 @@
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         6.22-6.28 Learning Notes
 Leetcode
 MST
@@ -268,6 +357,8 @@ MST
  1. 先求MST。
  2. 对于原图中的每条边： 1. 如果边在MST中，计算去掉该边后的MST权值，如果比原来的大，那么当前边是伪关键边；如果相等，那么它是关键边。
      2. 如果边不在MST中，计算强制加入当前边后的
+        
+        <a class="article-more-a" href="/2020/06/28/2020/6-28/#more">more >></a>
         
         
 
@@ -324,26 +415,25 @@ MST
 
 
   
-    <article id="hexo-hexo-deployment" class="article article-type-hexo  article-index" itemscope itemprop="blogPost">
+    <article id="hexo-2020/hexo-deployment" class="article article-type-hexo  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class=" article-header">
     
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/22/hexo-deployment/">hexo-deployment</a>
+      <a class="article-title" href="/2020/06/22/2020/hexo-deployment/">hexo-deployment</a>
     </h1>
   
 
     
-    <a href="/2020/06/22/hexo-deployment/" class="archive-article-date">
+    <a href="/2020/06/22/2020/hexo-deployment/" class="archive-article-date">
   	<time datetime="2020-06-22T04:00:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-22</time>
 </a>
     
     </header>
     
     <div class="article-entry" itemprop="articleBody">
-        
         
         .travis.yml
 官方教程有点问题，因为现在Github Pages只能部署在master分支上，所以源文件(markdown/theme)要放在其他分支(hexo)，使用Travis CL或者其他CL自动化部署时，要将目标分支target_branch设为master。
@@ -378,6 +468,8 @@ branches:
   only:
     - hexo  #
         
+        <a class="article-more-a" href="/2020/06/22/2020/hexo-deployment/#more">more >></a>
+        
         
 
         
@@ -400,7 +492,7 @@ branches:
 
         
         <p class="article-more-link">
-            <a class="article-more-a" href="/2020/06/22/hexo-deployment/">展开全文 >></a>
+            <a class="article-more-a" href="/2020/06/22/2020/hexo-deployment/">展开全文 >></a>
         </p>
         
 
@@ -449,7 +541,6 @@ branches:
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         6.1-6.7 Learning Notes
 TXAD 2020
  * lightgbm for GBDT(Gradient Boosting Decision Tree)  * https://lightgbm.readthedocs.io/en/latest/index.html
@@ -458,6 +549,8 @@ TXAD 2020
    
    
  * Embedding * tf-idf * https://zhu
+        
+        <a class="article-more-a" href="/2020/06/07/2020/6-7/#more">more >></a>
         
         
 
@@ -534,7 +627,6 @@ TXAD 2020
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         5.18-5.24 Learning Notes
 Leetcode
 状态压缩+前缀和+哈希表
@@ -588,6 +680,8 @@ Leetcode
 41
 
         
+        <a class="article-more-a" href="/2020/05/24/2020/5-24/#more">more >></a>
+        
         
 
         
@@ -604,11 +698,11 @@ Leetcode
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -675,7 +769,6 @@ Leetcode
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         4.20-5.3 Learning Notes
 Huawei Sofeware Competition
 First Round
@@ -700,6 +793,8 @@ First Round
    5
    6
 
+        
+        <a class="article-more-a" href="/2020/05/24/2020/5-3/#more">more >></a>
         
         
 
@@ -780,7 +875,6 @@ First Round
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         5.11-5.17 Learning Notes
 CART
 CSC1001 project
@@ -796,6 +890,8 @@ Gini Index计算
 
 $$ GiniIndex(D,a)=\sum^V_{v=1}\frac{|D^V|}{|D|}Gini(D^v) $$
 $$ Gini(D)=1-\sum^K_{k=1}(\frac{|C_k|}{|D|}
+        
+        <a class="article-more-a" href="/2020/05/17/2020/5-17/#more">more >></a>
         
         
 
@@ -876,7 +972,6 @@ $$ Gini(D)=1-\sum^K_{k=1}(\frac{|C_k|}{|D|}
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         5.4-5.10 Learning Notes
 Leetcode
 跳跃游戏
@@ -905,6 +1000,8 @@ I
    12
    13
  
+        
+        <a class="article-more-a" href="/2020/05/10/2020/5-10/#more">more >></a>
         
         
 
@@ -981,7 +1078,6 @@ I
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         4.13-4.19 Learning Notes
 Leetcode
 一道较难的dp题:鸡蛋掉落
@@ -1026,6 +1122,8 @@ dp
    
    // init
    for (int k = 1; k <=
+        
+        <a class="article-more-a" href="/2020/04/19/2020/4-19/#more">more >></a>
         
         
 
@@ -1110,7 +1208,6 @@ dp
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         4.6-4.12 Learning Notes
 Leetcode
 两种缓存算法
@@ -1129,6 +1226,8 @@ Leetcode
 
 From here
 “那么，什么数据结构同时符合上述条件呢？哈希表查找快，但是数据无固定顺序；链表有顺序之分，插入删除快，但是查找慢。所以结合一下，形成一种新的数据结构：哈希链表。” 
+        
+        <a class="article-more-a" href="/2020/04/12/2020/4-12/#more">more >></a>
         
         
 
@@ -1205,7 +1304,6 @@ From here
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         3.30-4.5 Learning Notes
 python unpacking
 create a list using range
@@ -1242,6 +1340,8 @@ combine 2 dictionaries
 >>> a = {"a":1, "b":2}
 >
         
+        <a class="article-more-a" href="/2020/04/05/2020/4-5/#more">more >></a>
+        
         
 
         
@@ -1254,11 +1354,11 @@ combine 2 dictionaries
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1321,7 +1421,6 @@ combine 2 dictionaries
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         3.23-3.29 Learning Notes
 Leetcode
 使数组唯一的最小增量
@@ -1374,6 +1473,8 @@ class Solution
 public:
     int bucket[80005];
     int minIncrementForUniq
+        
+        <a class="article-more-a" href="/2020/03/29/2020/3-29/#more">more >></a>
         
         
 
@@ -1466,7 +1567,6 @@ public:
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         3.16-3.22 Learning Notes
 Leetcode
 逆序对
@@ -1503,6 +1603,8 @@ code
 21
 22
         
+        <a class="article-more-a" href="/2020/03/22/2020/3-22/#more">more >></a>
+        
         
 
         
@@ -1523,11 +1625,11 @@ code
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Google Kick Start</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Google Kick Start</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1594,7 +1696,6 @@ code
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         3.9-3.15 Learning Notes
 Leetcode Algorithm
 不使用额外空间
@@ -1610,6 +1711,8 @@ Leetcode Algorithm
 这题不能直接套优先队列（堆）模板，因为这里面的pop_front是要返回原队列的头部，不是优先队列的头部(max/min)。但是max_value又需要在O(1)内完成查询，所以只用一个队列肯定不行。
 
 于是我们需要用到
+        
+        <a class="article-more-a" href="/2020/03/15/2020/3-15/#more">more >></a>
         
         
 
@@ -1627,11 +1730,11 @@ Leetcode Algorithm
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1702,7 +1805,6 @@ Leetcode Algorithm
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         3.2-3.8 Learning Notes
 CSAPP
 int compare with unsigned int
@@ -1719,6 +1821,8 @@ signed values implicitly cast to unsigned
 Expanding
  * Unsigned: add zeros
  * Signed: sign extension:convert w-bit signed int x to w+k-bit int with same
+        
+        <a class="article-more-a" href="/2020/03/08/2020/3-8/#more">more >></a>
         
         
 
@@ -1791,7 +1895,6 @@ Expanding
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         1.13-3.1 Learning Notes
 一眨眼，就鸽了一个多月了……
 
@@ -1837,6 +1940,8 @@ Selenium
 32
 33
 
+        
+        <a class="article-more-a" href="/2020/03/01/2020/3-1/#more">more >></a>
         
         
 
@@ -1913,7 +2018,6 @@ Selenium
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         1.6-1.12 Learning Notes
 python spider
 https://segmentfault.com/blog/papapa
@@ -1943,6 +2047,8 @@ def cookie_to_dict(cookie):
     cookie_dict = {}
     items = cookie.split(';')
 
+        
+        <a class="article-more-a" href="/2020/01/12/2020/1-6/#more">more >></a>
         
         
 
@@ -2015,7 +2121,6 @@ def cookie_to_dict(cookie):
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         Some Useful Commands
 Linux
  * touch newfile.md
@@ -2036,6 +2141,8 @@ Linux
    
  * cd\ 根目录
  * c
+        
+        <a class="article-more-a" href="/2019/12/24/2019/useful%20command/#more">more >></a>
         
         
 
@@ -2108,7 +2215,6 @@ Linux
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         12.16-12.22 Learning Notes
 Mongodb
 set up server on AWS EC2
@@ -2129,6 +2235,8 @@ exit
 if not properly closed:
 Run
 ps -eaf | grep mongod to find the running 
+        
+        <a class="article-more-a" href="/2019/12/22/2019/12.16/#more">more >></a>
         
         
 
@@ -2205,7 +2313,6 @@ ps -eaf | grep mongod to find the running
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         12.9-12.15 Learning Notes
 Final来了
 
@@ -2230,6 +2337,8 @@ really hard to learn
 https://coolshell.cn/articles/5426.html
 
 run mysq
+        
+        <a class="article-more-a" href="/2019/12/09/2019/12.9/#more">more >></a>
         
         
 
@@ -2306,7 +2415,6 @@ run mysq
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         12.2-12.8 Learning Notes
 Java
 变量
@@ -2356,6 +2464,8 @@ SecondMST
 30
 31
 3
+        
+        <a class="article-more-a" href="/2019/12/02/2019/12.2/#more">more >></a>
         
         
 
@@ -2440,7 +2550,6 @@ SecondMST
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         11.25-12.1 Learning Notes
 pygame
 read Snake Game program
@@ -2456,6 +2565,8 @@ https://stackoverflow.com/questions/2709821/what-is-the-purpose-of-the-word-self
 
 Let’s say you have a class ClassA which contains a method methodA defined a
         
+        <a class="article-more-a" href="/2019/11/25/2019/11.25/#more">more >></a>
+        
         
 
         
@@ -2468,10 +2579,6 @@ Let’s say you have a class ClassA which contains a method methodA defined a
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		 
@@ -2481,6 +2588,10 @@ Let’s say you have a class ClassA which contains a method methodA defined a
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Data Structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
         		</li>
       		
 		</ul>
@@ -2539,7 +2650,6 @@ Let’s say you have a class ClassA which contains a method methodA defined a
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         11.18-11.24 Learning Notes
 async & await
 1
@@ -2583,6 +2693,8 @@ async function main() {
 
     
         
+        <a class="article-more-a" href="/2019/11/18/2019/11.18/#more">more >></a>
+        
         
 
         
@@ -2595,11 +2707,11 @@ async function main() {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		
 		</ul>
@@ -2658,7 +2770,6 @@ async function main() {
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         10.28-11.3 Learning Notes
 Sequelize
 将renter项目中的sql全部改成sequelize
@@ -2678,6 +2789,8 @@ table是复数
 e.g user是模型名称,users是表名称
 默认主键是id
 默认添加两个元素：cr
+        
+        <a class="article-more-a" href="/2019/11/03/2019/11.3/#more">more >></a>
         
         
 
@@ -2754,7 +2867,6 @@ e.g user是模型名称,users是表名称
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         10.21-10.27 Learning Notes
 printf & scanf in c++
 https://stackoverflow.com/questions/4264127/correct-format-specifier-for-double-in-printf
@@ -2764,6 +2876,8 @@ Only use %f is OK
 
 scanf(“%f”)!=scanf(“%lf”)
 “%f” is the (or at least one) correct format for a double. There is no format for a fl
+        
+        <a class="article-more-a" href="/2019/10/27/2019/10.27/#more">more >></a>
         
         
 
@@ -2777,19 +2891,19 @@ scanf(“%f”)!=scanf(“%lf”)
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Machine Learning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -2852,7 +2966,6 @@ scanf(“%f”)!=scanf(“%lf”)
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         10.14-10.20 Learning Notes
 Sequelize
 https://itfun.tv/courses/12 
@@ -2891,6 +3004,8 @@ exports与module.exports的不同:
 15
 1
         
+        <a class="article-more-a" href="/2019/10/20/2019/10.20/#more">more >></a>
+        
         
 
         
@@ -2903,11 +3018,11 @@ exports与module.exports的不同:
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		
 		</ul>
@@ -2966,7 +3081,6 @@ exports与module.exports的不同:
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         10.7-10.13 Learning Notes
 by Huang Yongjin
 
@@ -2990,6 +3104,8 @@ let 不会变量提升
 let 只在块级作用域中有效
 let 暂时性死区
 ES6 明确规定，如果区块中存
+        
+        <a class="article-more-a" href="/2019/10/13/2019/10.13/#more">more >></a>
         
         
 
@@ -3074,7 +3190,6 @@ ES6 明确规定，如果区块中存
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         10.4-10.10 Learning Notes
 .gitignore
 https://www.cnblogs.com/kevingrace/p/5690241.html
@@ -3095,6 +3210,8 @@ git commit -m "delete xxx"
 为什么我增加了 .gitignore 里的规则却没有效果？
 
 这是因为我们误解了 .gi
+        
+        <a class="article-more-a" href="/2019/10/10/2019/10.10/#more">more >></a>
         
         
 
@@ -3167,7 +3284,6 @@ git commit -m "delete xxx"
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         9.25-10.6 Learning Notes
 by Huang Yongjin
 
@@ -3184,6 +3300,8 @@ reading nodejs program
  * function
  * requir
         
+        <a class="article-more-a" href="/2019/10/06/2019/10.6/#more">more >></a>
+        
         
 
         
@@ -3196,11 +3314,11 @@ reading nodejs program
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Mysql</a>
         		</li>
       		
 		</ul>
@@ -3345,23 +3463,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">gitignore</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sequelize</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3369,23 +3475,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gitignore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Self-Driving Boat Project</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sequelize</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3401,15 +3491,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Self-Driving Boat Project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3418,6 +3516,54 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Python Spider</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">The Missing Semester（各种常用工具Vim/shell...)</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Competition</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3437,39 +3583,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python Spider</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">The Missing Semester（各种常用工具Vim/shell...)</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Competition</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Google Kick Start</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3478,6 +3592,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Google Kick Start</a>
               </li>
              
               <li class="article-tag-list-item">

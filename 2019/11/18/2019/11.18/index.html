@@ -18,8 +18,8 @@
 <meta property="article:published_time" content="2019-11-18T04:00:28.000Z">
 <meta property="article:modified_time" content="2020-07-03T01:35:00.756Z">
 <meta property="article:author" content="Jason">
-<meta property="article:tag" content="Node.js">
 <meta property="article:tag" content="Sequelize">
+<meta property="article:tag" content="Node.js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Jason&#39;s Blog" type="application/atom+xml">
@@ -158,7 +158,6 @@
     
     <div class="article-entry" itemprop="articleBody">
         
-        
         <h1 id="11-18-11-24-Learning-Notes"><a href="#11-18-11-24-Learning-Notes" class="headerlink" title="11.18-11.24 Learning Notes"></a>11.18-11.24 Learning Notes</h1><h1 id="async-amp-await"><a href="#async-amp-await" class="headerlink" title="async &amp; await"></a>async &amp; await</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多个await 顺序执行</span></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> val1 = <span class="keyword">await</span> firstStep();</span><br><span class="line">    <span class="keyword">const</span> val2 = <span class="keyword">await</span> secondStep(val1);</span><br><span class="line">    <span class="keyword">const</span> val3 = <span class="keyword">await</span> thirdStep(val1, val2);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Final: '</span>, val3);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// for循环内部的await</span></span><br><span class="line"><span class="keyword">const</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent'</span>);</span><br><span class="line"><span class="keyword">const</span> NUM_RETRIES = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> i;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; NUM_RETRIES; ++i) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">await</span> superagent.get(<span class="string">'http://google.com/this-throws-an-error'</span>);</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span>(err) &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(i); <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 <h3 id="await应该放在try–catch结构里面，以免出错"><a href="#await应该放在try–catch结构里面，以免出错" class="headerlink" title="await应该放在try–catch结构里面，以免出错"></a>await应该放在try–catch结构里面，以免出错</h3><h1 id="sequelize"><a href="#sequelize" class="headerlink" title="sequelize"></a>sequelize</h1><h2 id="operators-逻辑运算符"><a href="#operators-逻辑运算符" class="headerlink" title="operators 逻辑运算符"></a>operators 逻辑运算符</h2><p><a href="https://sequelize.org/master/manual/querying.html#operators" target="_blank" rel="noopener">https://sequelize.org/master/manual/querying.html#operators</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Op.or]</span><br><span class="line">[Op.like]</span><br></pre></td></tr></table></figure>
@@ -178,11 +177,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		
 		</ul>
@@ -414,23 +413,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">gitignore</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">STL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sequelize</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -438,23 +425,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gitignore</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Self-Driving Boat Project</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Opencv</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sequelize</a>
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -470,15 +441,23 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Self-Driving Boat Project</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Opencv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,6 +466,54 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">AWS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Python Spider</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">The Missing Semester（各种常用工具Vim/shell...)</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Competition</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">STL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,39 +533,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Python Spider</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">The Missing Semester（各种常用工具Vim/shell...)</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Competition</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Codeforces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Google Kick Start</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,6 +542,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">dp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Codeforces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Google Kick Start</a>
               </li>
              
               <li class="article-tag-list-item">
