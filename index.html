@@ -134,6 +134,190 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-2020/子矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/05/2020/%E5%AD%90%E7%9F%A9%E9%98%B5/">子矩阵</a>
+    </h1>
+  
+
+    
+    <a href="/2020/07/05/2020/%E5%AD%90%E7%9F%A9%E9%98%B5/" class="archive-article-date">
+  	<time datetime="2020-07-05T05:59:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+</a>
+    
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        5454. 统计全 1 子矩形
+
+给你一个只包含 0 和 1 的 rows * columns 矩阵 mat ，请你返回有多少个 子矩形 的元素全部都是 1 。
+
+ 1. 这题比较像dp（直觉），矩形这类问题挺套路的，基本状态定义都是以当前坐标为右下角
+ 2. 二维的情况不好入手，那我就先从一维的情况开始想：dp[i]表示以mat[i]为最右侧矩形的全为1的子矩形个数，$dp[i]=\sum_{i=1}^{dp[i-1]} if \quad mat[i]=1,dp[i]=0 \quad if \quad mat[i]=0$
+ 3. 但是这个结论似乎无法推广到二维，于是我又想到了另一种方法： 1
+        
+        <a class="article-more-a" href="/2020/07/05/2020/%E5%AD%90%E7%9F%A9%E9%98%B5/#more">more >></a>
+        
+        
+
+        
+    </div>
+    <div class="article-info article-info-index">
+        
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+        
+
+        
+        <p class="article-more-link">
+            <a class="article-more-a" href="/2020/07/05/2020/%E5%AD%90%E7%9F%A9%E9%98%B5/">展开全文 >></a>
+        </p>
+        
+
+        
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-2020/最多K次交换相邻数位后得到的最小整数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/05/2020/%E6%9C%80%E5%A4%9AK%E6%AC%A1%E4%BA%A4%E6%8D%A2%E7%9B%B8%E9%82%BB%E6%95%B0%E4%BD%8D%E5%90%8E%E5%BE%97%E5%88%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B4%E6%95%B0/">最多K次交换相邻数位后得到的最小整数</a>
+    </h1>
+  
+
+    
+    <a href="/2020/07/05/2020/%E6%9C%80%E5%A4%9AK%E6%AC%A1%E4%BA%A4%E6%8D%A2%E7%9B%B8%E9%82%BB%E6%95%B0%E4%BD%8D%E5%90%8E%E5%BE%97%E5%88%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B4%E6%95%B0/" class="archive-article-date">
+  	<time datetime="2020-07-05T05:14:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-05</time>
+</a>
+    
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        5455. 最多 K 次交换相邻数位后得到的最小整数
+
+给你一个字符串 num 和一个整数 k 。其中，num 表示一个很大的整数，字符串中的每个字符依次对应整数上的各个数位 。
+你可以交换这个整数相邻数位的数字 最多 k 次。
+请你返回你能得到的最小整数，并以字符串形式返回。
+
+ 1. 我第一反应是冒泡排序，因为只能交换相邻元素。
+ 2. 敲完冒泡排序发现样例1过不去，手推了一会，发现是因为冒泡排序可能会在某一轮中断。
+ 3. 然后我想到了先贪心后冒泡排序，冒泡排序的交换次数$\sum_{i=n-1}^x i<k$（后来发现这个交换次数是错误的，这只是交换次数的上界），先找到满足不等式最大的
+        
+        <a class="article-more-a" href="/2020/07/05/2020/%E6%9C%80%E5%A4%9AK%E6%AC%A1%E4%BA%A4%E6%8D%A2%E7%9B%B8%E9%82%BB%E6%95%B0%E4%BD%8D%E5%90%8E%E5%BE%97%E5%88%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B4%E6%95%B0/#more">more >></a>
+        
+        
+
+        
+    </div>
+    <div class="article-info article-info-index">
+        
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">sort</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">greedy</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+        
+
+        
+        <p class="article-more-link">
+            <a class="article-more-a" href="/2020/07/05/2020/%E6%9C%80%E5%A4%9AK%E6%AC%A1%E4%BA%A4%E6%8D%A2%E7%9B%B8%E9%82%BB%E6%95%B0%E4%BD%8D%E5%90%8E%E5%BE%97%E5%88%B0%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B4%E6%95%B0/">展开全文 >></a>
+        </p>
+        
+
+        
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-2020/将有序数组转换为二叉搜索树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,6 +361,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -279,6 +467,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -607,6 +799,112 @@ TXAD 2020
 
 
   
+    <article id="hexo-2020/5-3" class="article article-type-hexo  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class=" article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/24/2020/5-3/">5.24 Notes</a>
+    </h1>
+  
+
+    
+    <a href="/2020/05/24/2020/5-3/" class="archive-article-date">
+  	<time datetime="2020-05-24T04:00:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
+</a>
+    
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+        
+        4.20-5.3 Learning Notes
+Huawei Sofeware Competition
+First Round
+成功水进复赛
+
+
+思路：
+
+ * 三邻域剪枝
+ * 6+1
+ * 向量改数组
+
+感谢：
+
+ * https://zhuanlan.zhihu.com/p/125764650
+ * https://blog.csdn.net/zhangruijerry/article/details/105268377
+ * https://github.com/byl0561/HWcode2020-TestDatacode
+   1
+   2
+   3
+   4
+   5
+   6
+
+        
+        <a class="article-more-a" href="/2020/05/24/2020/5-3/#more">more >></a>
+        
+        
+
+        
+    </div>
+    <div class="article-info article-info-index">
+        
+        
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Competition</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+        
+
+        
+        <p class="article-more-link">
+            <a class="article-more-a" href="/2020/05/24/2020/5-3/">展开全文 >></a>
+        </p>
+        
+
+        
+        <div class="clearfix"></div>
+    </div>
+    </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="hexo-2020/5-24" class="article article-type-hexo  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -721,112 +1019,6 @@ Leetcode
         
         <p class="article-more-link">
             <a class="article-more-a" href="/2020/05/24/2020/5-24/">展开全文 >></a>
-        </p>
-        
-
-        
-        <div class="clearfix"></div>
-    </div>
-    </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="hexo-2020/5-3" class="article article-type-hexo  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class=" article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/24/2020/5-3/">5.24 Notes</a>
-    </h1>
-  
-
-    
-    <a href="/2020/05/24/2020/5-3/" class="archive-article-date">
-  	<time datetime="2020-05-24T04:00:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
-    
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-        
-        4.20-5.3 Learning Notes
-Huawei Sofeware Competition
-First Round
-成功水进复赛
-
-
-思路：
-
- * 三邻域剪枝
- * 6+1
- * 向量改数组
-
-感谢：
-
- * https://zhuanlan.zhihu.com/p/125764650
- * https://blog.csdn.net/zhangruijerry/article/details/105268377
- * https://github.com/byl0561/HWcode2020-TestDatacode
-   1
-   2
-   3
-   4
-   5
-   6
-
-        
-        <a class="article-more-a" href="/2020/05/24/2020/5-3/#more">more >></a>
-        
-        
-
-        
-    </div>
-    <div class="article-info article-info-index">
-        
-        
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Algorithm</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Leetcode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Competition</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-        
-
-        
-        <p class="article-more-link">
-            <a class="article-more-a" href="/2020/05/24/2020/5-3/">展开全文 >></a>
         </p>
         
 
@@ -1145,11 +1337,11 @@ dp
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Google Code Jam</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Google Code Jam</a>
         		</li>
       		
 		</ul>
@@ -2707,11 +2899,11 @@ async function main() {
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		
 		</ul>
@@ -2891,11 +3083,11 @@ scanf(“%f”)!=scanf(“%lf”)
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -3018,11 +3210,11 @@ exports与module.exports的不同:
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Node.js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Sequelize</a>
         		</li>
       		
 		</ul>
@@ -3467,11 +3659,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Sequelize</a>
+                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Node.js</a>
+                <a href="javascript:void(0)" class="js-tag color5">Sequelize</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3495,6 +3687,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Database</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
@@ -3507,10 +3707,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Database</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Cloud Server</a>
               </li>
              
@@ -3519,15 +3715,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Python Spider</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Tools</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3539,15 +3731,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Machine Learning</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Competition</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Leetcode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3563,7 +3755,27 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Recursion</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sort</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">greedy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3579,19 +3791,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Google Code Jam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
               </li>
              
               <li class="article-tag-list-item">
