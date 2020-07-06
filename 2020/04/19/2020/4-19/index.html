@@ -443,21 +443,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-03
+                    2020-07-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    9 分
                 </div>
                 
 
@@ -480,60 +480,58 @@
 <li>0个蛋</li>
 <li>1个蛋</li>
 <li>0层楼</li>
-<li>1层楼<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// init</span>
+<li>1层楼</li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// init</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> K<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
-      dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> INF<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
+        dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> INF<span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> K<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
-  dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-  dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    dp<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
-</li>
-</ul>
-<p>for (int k = 2; k &lt;= K; k++)<br>{<br>    for (int n = 2; n &lt;= N; n++)<br>    {<br>        for (int x = 1; x &lt;= n; x++)<br>        {<br>            dp[k][n] = min(dp[k][n], max(dp[k - 1][x - 1], dp[k][n - x]) + 1);<br>        }<br>    }<br>}</p>
-<pre><code>## dp+二分搜索
-[还是这个题解](https://leetcode-cn.com/problems/super-egg-drop/solution/ji-ben-dong-tai-gui-hua-jie-fa-by-labuladong/)  
-![4-19-2020-04-13-15-09-05](https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-09-05)
 
-[官方题解中的解释更科学](https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-by-leetcode-solution/)  
-![4-19-2020-04-13-15-21-06](https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-21-06)  
-
-二分搜索出$X_0$后，$X_1=X_0+1$，最后我们要取$min\{max(T_1(X_0),T_2(X_0)),max(T_1(X_1),T_2(X_1))\}$  
-显然$T_1(X_0)&lt;=T_2(X_0)$，$T_1(X_1)&gt;T_2(X_1)$  
-所以最后取$min(T_2(X_0),T_1(X_1))$
-
-因此我们可以把第三层的循环改成二分搜索求山谷值`valley`，二分搜索求山谷值是一个难点:  
-
-[浅谈二分的边界问题](https://zhuanlan.zhihu.com/p/40579713)  
-![4-19-2020-04-13-15-12-53](https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-12-53)  
-这里的中点要取靠右的中点`mid=(l+r+1)/2`
-```cpp
-for (int k = 2; k &lt;= K; k++)
-{
-    for (int n = 2; n &lt;= N; n++)
-    {
-        int le = 1, ri = n;
-        while (le &lt; ri)
-        {
-            // 取靠右的中点
-            int mid = (le + ri + 1) / 2;
-            // 表示能AK
-            // 取等时也算不能AK
-            if (dp[k - 1][mid - 1] &gt; dp[k][n - mid])
-                ri = mid - 1;
-            else
-                le = mid;
-        }
-        dp[k][n] = min(dp[k][n - le], dp[k - 1][le]) + 1;
-    }
-}</code></pre><h2 id="dp-决策单调性"><a href="#dp-决策单调性" class="headerlink" title="dp+决策单调性"></a>dp+决策单调性</h2><p><a href="https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-xiang-jie-by-shellbye/" target="_blank" rel="noopener">来自此题解</a><br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-26-50" alt="4-19-2020-04-13-15-26-50"></p>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> K<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> x <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> x<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token function">max</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>x <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n <span class="token operator">-</span> x<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="dp-二分搜索"><a href="#dp-二分搜索" class="headerlink" title="dp+二分搜索"></a>dp+二分搜索</h2><p><a href="https://leetcode-cn.com/problems/super-egg-drop/solution/ji-ben-dong-tai-gui-hua-jie-fa-by-labuladong/" target="_blank" rel="noopener">还是这个题解</a><br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-09-05" alt="4-19-2020-04-13-15-09-05"></p>
+<p><a href="https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-by-leetcode-solution/" target="_blank" rel="noopener">官方题解中的解释更科学</a><br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-21-06" alt="4-19-2020-04-13-15-21-06">  </p>
+<p>二分搜索出$X_0$后，$X_1=X_0+1$，最后我们要取$min{max(T_1(X_0),T_2(X_0)),max(T_1(X_1),T_2(X_1))}$<br>显然$T_1(X_0)&lt;=T_2(X_0)$，$T_1(X_1)&gt;T_2(X_1)$<br>所以最后取$min(T_2(X_0),T_1(X_1))$</p>
+<p>因此我们可以把第三层的循环改成二分搜索求山谷值<code>valley</code>，二分搜索求山谷值是一个难点:  </p>
+<p><a href="https://zhuanlan.zhihu.com/p/40579713" target="_blank" rel="noopener">浅谈二分的边界问题</a><br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-12-53" alt="4-19-2020-04-13-15-12-53"><br>这里的中点要取靠右的中点<code>mid=(l+r+1)/2</code></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> K<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> n <span class="token operator">&lt;=</span> N<span class="token punctuation">;</span> n<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> le <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> ri <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>le <span class="token operator">&lt;</span> ri<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 取靠右的中点</span>
+            <span class="token keyword">int</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>le <span class="token operator">+</span> ri <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 表示能AK</span>
+            <span class="token comment" spellcheck="true">// 取等时也算不能AK</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">></span> dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n <span class="token operator">-</span> mid<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                ri <span class="token operator">=</span> mid <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span>
+                le <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>dp<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">[</span>n <span class="token operator">-</span> le<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>le<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="dp-决策单调性"><a href="#dp-决策单调性" class="headerlink" title="dp+决策单调性"></a>dp+决策单调性</h2><p><a href="https://leetcode-cn.com/problems/super-egg-drop/solution/ji-dan-diao-luo-xiang-jie-by-shellbye/" target="_blank" rel="noopener">来自此题解</a><br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/4-19-2020-04-13-15-26-50" alt="4-19-2020-04-13-15-26-50"></p>
 <p>k一定，n增大，$T_2(x)=dp(k,n-x)$向上移动，$T_1(x)=dp(k-1,x-1)$不动，每次只需要从上一个n得到的x出发即可。</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> k <span class="token operator">&lt;=</span> K<span class="token punctuation">;</span> k<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -789,27 +787,33 @@ T <span class="token operator">=</span> int<span class="token punctuation">(</sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/10/2020/5-10/">
+                <a href="/2020/05/03/2020/5-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="5.10 Notes">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="5.3 Notes">
                         
-                        <span class="card-title">5.10 Notes</span>
+                        <span class="card-title">5.3 Notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            5.4-5.10 Learning NotesLeetcode跳跃游戏第一题求能否到达终点，第二题求到达终点的最小步数两题都可以用贪心做
-I题解  
+                            4.20-5.3 Learning NotesHuawei Sofeware CompetitionFirst Round成功水进复赛
+思路：
 
-如果某一个作为起跳点的格子可以跳跃的距离是 3，那么表示后面3 个格子都可以作为 起跳点
+三邻域剪枝
+6+1
+向量改数组
+
+感谢：
+
+https://zhuanlan.zhihu.co
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-03
                         </span>
                         <span class="publish-author">
                             
@@ -828,6 +832,10 @@ I题解
                     
                     <a href="/tags/Leetcode/">
                         <span class="chip bg-color">Leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/Competition/">
+                        <span class="chip bg-color">Competition</span>
                     </a>
                     
                 </div>
@@ -1057,6 +1065,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] }
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
@@ -1071,7 +1085,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.2k</span>&nbsp;字
+                class="white-color">34.9k</span>&nbsp;字
             
             
             

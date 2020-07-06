@@ -435,21 +435,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-03
+                    2020-07-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    6 分
                 </div>
                 
 
@@ -478,7 +478,9 @@
 <li>初始化<code>nullptr</code></li>
 <li><code>lift_now_to_head</code>把<code>now</code>节点插入到链表头部</li>
 <li><code>unordered_map</code>直接用下标访问<code>m[key]</code></li>
-<li><code>m.erase(last-&gt;key)</code>+<code>delete last</code>释放空间<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
+<li><code>m.erase(last-&gt;key)</code>+<code>delete last</code>释放空间</li>
+</ol>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;vector></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unordered_map></span></span>
@@ -486,290 +488,283 @@
 <span class="token keyword">class</span> <span class="token class-name">MyListNode</span>
 <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
- <span class="token keyword">int</span> key<span class="token punctuation">;</span>
- <span class="token keyword">int</span> val<span class="token punctuation">;</span>
- MyListNode <span class="token operator">*</span>pre<span class="token punctuation">;</span>
- MyListNode <span class="token operator">*</span>nxt<span class="token punctuation">;</span>
- <span class="token function">MyListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-     key <span class="token operator">=</span> k<span class="token punctuation">;</span>
-     val <span class="token operator">=</span> v<span class="token punctuation">;</span>
-     pre <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
-     nxt <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> key<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
+    MyListNode <span class="token operator">*</span>pre<span class="token punctuation">;</span>
+    MyListNode <span class="token operator">*</span>nxt<span class="token punctuation">;</span>
+    <span class="token function">MyListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        key <span class="token operator">=</span> k<span class="token punctuation">;</span>
+        val <span class="token operator">=</span> v<span class="token punctuation">;</span>
+        pre <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        nxt <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">class</span> <span class="token class-name">LRUCache</span>
 <span class="token punctuation">{</span>
 <span class="token keyword">public</span><span class="token operator">:</span>
- MyListNode <span class="token operator">*</span>head<span class="token punctuation">;</span>
- MyListNode <span class="token operator">*</span>tail<span class="token punctuation">;</span>
- unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> MyListNode <span class="token operator">*</span><span class="token operator">></span> m<span class="token punctuation">;</span>
- <span class="token keyword">int</span> cap<span class="token punctuation">;</span>
- <span class="token keyword">int</span> now_size<span class="token punctuation">;</span>
- <span class="token function">LRUCache</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-     now_size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-     cap <span class="token operator">=</span> capacity<span class="token punctuation">;</span>
-     head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MyListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     tail <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MyListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-     head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> tail<span class="token punctuation">;</span>
-     tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
- <span class="token keyword">void</span> <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>MyListNode <span class="token operator">*</span>now<span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-     <span class="token keyword">if</span> <span class="token punctuation">(</span>now<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">!=</span> <span class="token keyword">nullptr</span> <span class="token operator">&amp;&amp;</span> now<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span>
-     <span class="token punctuation">{</span>
-         now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
-         now<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     now<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
-     now<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
-     head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token punctuation">;</span>
-     head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
- <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-     <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-     <span class="token punctuation">{</span>
-         <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     MyListNode <span class="token operator">*</span>now <span class="token operator">=</span> m<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
-     <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token keyword">return</span> now<span class="token operator">-</span><span class="token operator">></span>val<span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
- <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span>
- <span class="token punctuation">{</span>
-     MyListNode <span class="token operator">*</span>now<span class="token punctuation">;</span>
-     <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-     <span class="token punctuation">{</span>
-         now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MyListNode</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-         <span class="token keyword">if</span> <span class="token punctuation">(</span>now_size <span class="token operator">&lt;</span> cap<span class="token punctuation">)</span>
-         <span class="token punctuation">{</span>
-             now_size<span class="token operator">++</span><span class="token punctuation">;</span>
-             m<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> now<span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-         <span class="token keyword">else</span>
-         <span class="token punctuation">{</span>
-             MyListNode <span class="token operator">*</span>last <span class="token operator">=</span> tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
-             last<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> tail<span class="token punctuation">;</span>
-             tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> last<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
-             m<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>last<span class="token operator">-</span><span class="token operator">></span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-             <span class="token keyword">delete</span> last<span class="token punctuation">;</span>
-             m<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> now<span class="token punctuation">;</span>
-         <span class="token punctuation">}</span>
-     <span class="token punctuation">}</span>
-     <span class="token keyword">else</span>
-     <span class="token punctuation">{</span>
-         now <span class="token operator">=</span> m<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
-         now<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">=</span> value<span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
- <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
+    MyListNode <span class="token operator">*</span>head<span class="token punctuation">;</span>
+    MyListNode <span class="token operator">*</span>tail<span class="token punctuation">;</span>
+    unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> MyListNode <span class="token operator">*</span><span class="token operator">></span> m<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> cap<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> now_size<span class="token punctuation">;</span>
+    <span class="token function">LRUCache</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        now_size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        cap <span class="token operator">=</span> capacity<span class="token punctuation">;</span>
+        head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MyListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        tail <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MyListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> tail<span class="token punctuation">;</span>
+        tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>MyListNode <span class="token operator">*</span>now<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>now<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">!=</span> <span class="token keyword">nullptr</span> <span class="token operator">&amp;&amp;</span> now<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
+            now<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        now<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token punctuation">;</span>
+        head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        MyListNode <span class="token operator">*</span>now <span class="token operator">=</span> m<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> now<span class="token operator">-</span><span class="token operator">></span>val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        MyListNode <span class="token operator">*</span>now<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> m<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">MyListNode</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>now_size <span class="token operator">&lt;</span> cap<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                now_size<span class="token operator">++</span><span class="token punctuation">;</span>
+                m<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> now<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                MyListNode <span class="token operator">*</span>last <span class="token operator">=</span> tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+                last<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> tail<span class="token punctuation">;</span>
+                tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> last<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+                m<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>last<span class="token operator">-</span><span class="token operator">></span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">delete</span> last<span class="token punctuation">;</span>
+                m<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> now<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            now <span class="token operator">=</span> m<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            now<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="LFU-Least-Frequently-Used"><a href="#LFU-Least-Frequently-Used" class="headerlink" title="LFU: Least Frequently Used"></a><a href="https://leetcode-cn.com/problems/lfu-cache/" target="_blank" rel="noopener">LFU: Least Frequently Used</a></h2><p><a href="https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/" target="_blank" rel="noopener">From here:</a><br>本题其实就是在<a href="https://leetcode-cn.com/problems/lru-cache/" target="_blank" rel="noopener">LRU</a>的基础上，在删除策略里多考虑了一个维度（「访问次数」）的信息。”<br>核心思想：先考虑访问次数，在访问次数相同的情况下，再考虑缓存的时间。</p>
+<p><a href="https://leetcode-cn.com/problems/lfu-cache/solution/java-13ms-shuang-100-shuang-xiang-lian-biao-duo-ji/" target="_blank" rel="noopener">题解</a><br>1个哈希表+2个双向链表  </p>
+<ul>
+<li>哈希表<code>time_map</code>：<code>key-Node</code>  <code>Node</code>里面存<code>value</code> <code>freq</code> <code>freq_node</code></li>
+<li>双向链表<code>FreqListNode</code>：按访问次数从大到小排列    </li>
+<li>双向链表<code>TimeListNode</code>：按访问时间从近到远排列（LRU中的双向链表）</li>
+</ul>
+<p>P.S.先声明两个class<code>FreqListNode</code>和<code>TimeListNode</code>，就可以互相引用了  </p>
+<p><img src="https://pic.leetcode-cn.com/25ade03ee7f3cbfdef0ddf955c917cde96f4153ba5ce8b321f42152b19d55ca5-LFU%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3.png" alt="LFU"></p>
+<ul>
+<li><p><code>get</code>：<br>直接访问<code>key</code>对应的<code>TimeListNode</code>获取<code>value</code>，并更新当前<code>TimeListNode</code>的<code>freq</code>，把当前<code>TimeListNode</code>放到的下一个<code>FreqListNode</code>上</p>
+</li>
+<li><p><code>put</code>：</p>
+</li>
+</ul>
+<ol>
+<li><code>key</code>存在，更新<code>value</code>和<code>freq</code>，更新<code>freq</code>要把<code>TimeListNode</code>取出来放到下一个<code>FreqListNode</code>上</li>
+<li><code>key</code>不存在  <ol>
+<li>缓存满了：删掉<code>freq</code>最小且访问时间最远的节点，即为<code>FreqList</code>的尾部的<code>TimeList</code>尾部，然后进行<code>2.ii</code></li>
+<li>缓存没满：插入新节点，放在<code>freq=1</code>的<code>FreqListNode</code>上的头部</li>
+</ol>
 </li>
 </ol>
-<pre><code>## [LFU: Least Frequently Used](https://leetcode-cn.com/problems/lfu-cache/)
-[From here:](https://leetcode-cn.com/problems/lfu-cache/solution/ha-xi-biao-shuang-xiang-lian-biao-java-by-liweiwei/)  
-本题其实就是在[LRU](https://leetcode-cn.com/problems/lru-cache/)的基础上，在删除策略里多考虑了一个维度（「访问次数」）的信息。” 
-核心思想：先考虑访问次数，在访问次数相同的情况下，再考虑缓存的时间。
+<h3 id="code-1"><a href="#code-1" class="headerlink" title="code"></a>code</h3><p>满满的，都是坑啊<br>手写两个双向链表是非常好的锻炼机会[狗头]</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;unordered_map></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> INF <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">30</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// first declare</span>
+<span class="token keyword">class</span> <span class="token class-name">FreqListNode</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">TimeListNode</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">TimeListNode</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> key<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> freq<span class="token punctuation">;</span>
+    TimeListNode <span class="token operator">*</span>pre<span class="token punctuation">;</span>
+    TimeListNode <span class="token operator">*</span>nxt<span class="token punctuation">;</span>
+    FreqListNode <span class="token operator">*</span>freq_node<span class="token punctuation">;</span>
+    <span class="token function">TimeListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> k<span class="token punctuation">,</span> <span class="token keyword">int</span> v<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        key <span class="token operator">=</span> k<span class="token punctuation">;</span>
+        val <span class="token operator">=</span> v<span class="token punctuation">;</span>
+        freq <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        freq_node <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        pre <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        nxt <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">FreqListNode</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> freq<span class="token punctuation">;</span>
+    FreqListNode <span class="token operator">*</span>pre<span class="token punctuation">;</span>
+    FreqListNode <span class="token operator">*</span>nxt<span class="token punctuation">;</span>
+    TimeListNode <span class="token operator">*</span>time_head<span class="token punctuation">;</span>
+    TimeListNode <span class="token operator">*</span>time_tail<span class="token punctuation">;</span>
+    <span class="token function">FreqListNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> f<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        freq <span class="token operator">=</span> f<span class="token punctuation">;</span>
+        pre <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        nxt <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+        time_head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TimeListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        time_tail <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TimeListNode</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        time_head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> time_tail<span class="token punctuation">;</span>
+        time_tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> time_head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">LFUCache</span>
+<span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    FreqListNode <span class="token operator">*</span>freq_head<span class="token punctuation">;</span>
+    FreqListNode <span class="token operator">*</span>freq_tail<span class="token punctuation">;</span>
+    unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> TimeListNode <span class="token operator">*</span><span class="token operator">></span> time_map<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> cap<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> now_size<span class="token punctuation">;</span>
+    <span class="token function">LFUCache</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        now_size <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        cap <span class="token operator">=</span> capacity<span class="token punctuation">;</span>
+        freq_head <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">FreqListNode</span><span class="token punctuation">(</span>INF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freq_tail <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">FreqListNode</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        freq_head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> freq_tail<span class="token punctuation">;</span>
+        freq_tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> freq_head<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">erase_empty_FreqListNode</span><span class="token punctuation">(</span>FreqListNode <span class="token operator">*</span>now_freq<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>now_freq<span class="token operator">-</span><span class="token operator">></span>time_head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">==</span> now_freq<span class="token operator">-</span><span class="token operator">></span>time_tail<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            now_freq<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
+            now_freq<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+            <span class="token keyword">delete</span> now_freq<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">incre_freq</span><span class="token punctuation">(</span>TimeListNode <span class="token operator">*</span>now<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>freq <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        FreqListNode <span class="token operator">*</span>now_freq <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>freq_node<span class="token punctuation">;</span>
+        FreqListNode <span class="token operator">*</span>nxt_freq <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nxt_freq<span class="token operator">-</span><span class="token operator">></span>freq <span class="token operator">></span> now<span class="token operator">-</span><span class="token operator">></span>freq<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            nxt_freq <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">FreqListNode</span><span class="token punctuation">(</span>now<span class="token operator">-</span><span class="token operator">></span>freq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            now_freq<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> nxt_freq<span class="token punctuation">;</span>
+            nxt_freq<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+            nxt_freq<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now_freq<span class="token punctuation">;</span>
+            now_freq<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> nxt_freq<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        now<span class="token operator">-</span><span class="token operator">></span>freq_node <span class="token operator">=</span> nxt_freq<span class="token punctuation">;</span>
+        <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">erase_empty_FreqListNode</span><span class="token punctuation">(</span>now_freq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">insert_TimeListNode</span><span class="token punctuation">(</span>TimeListNode <span class="token operator">*</span>now<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        FreqListNode <span class="token operator">*</span>now_freq<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>freq_tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">!=</span> <span class="token keyword">nullptr</span> <span class="token operator">&amp;&amp;</span> freq_tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>freq <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            now_freq <span class="token operator">=</span> freq_tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            now_freq <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">FreqListNode</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            freq_tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now_freq<span class="token punctuation">;</span>
+            now_freq<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> freq_tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+            now_freq<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> freq_tail<span class="token punctuation">;</span>
+            freq_tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now_freq<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        now<span class="token operator">-</span><span class="token operator">></span>freq_node <span class="token operator">=</span> now_freq<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>freq <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        TimeListNode <span class="token operator">*</span>time_head <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>time_head<span class="token punctuation">;</span>
+        time_head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> time_head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> time_head<span class="token punctuation">;</span>
+        time_head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">delete_last_TimeListNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        FreqListNode <span class="token operator">*</span>now_freq_node <span class="token operator">=</span> freq_tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        TimeListNode <span class="token operator">*</span>time_tail <span class="token operator">=</span> now_freq_node<span class="token operator">-</span><span class="token operator">></span>time_tail<span class="token punctuation">;</span>
+        TimeListNode <span class="token operator">*</span>now <span class="token operator">=</span> time_tail<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        time_map<span class="token punctuation">.</span><span class="token function">erase</span><span class="token punctuation">(</span>now<span class="token operator">-</span><span class="token operator">></span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> time_tail<span class="token punctuation">;</span>
+        time_tail<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>pre<span class="token punctuation">;</span>
+        <span class="token keyword">delete</span> now<span class="token punctuation">;</span>
+        <span class="token function">erase_empty_FreqListNode</span><span class="token punctuation">(</span>now_freq_node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">lift_now_to_head</span><span class="token punctuation">(</span>TimeListNode <span class="token operator">*</span>now<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        FreqListNode <span class="token operator">*</span>now_freq <span class="token operator">=</span> now<span class="token operator">-</span><span class="token operator">></span>freq_node<span class="token punctuation">;</span>
+        TimeListNode <span class="token operator">*</span>head <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>time_head<span class="token punctuation">;</span>
+        TimeListNode <span class="token operator">*</span>tail <span class="token operator">=</span> now_freq<span class="token operator">-</span><span class="token operator">></span>time_tail<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token punctuation">;</span>
+        now<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> head<span class="token punctuation">;</span>
+        head<span class="token operator">-</span><span class="token operator">></span>nxt<span class="token operator">-</span><span class="token operator">></span>pre <span class="token operator">=</span> now<span class="token punctuation">;</span>
+        head<span class="token operator">-</span><span class="token operator">></span>nxt <span class="token operator">=</span> now<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>time_map<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> time_map<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        TimeListNode <span class="token operator">*</span>now <span class="token operator">=</span> time_map<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token function">incre_freq</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> now<span class="token operator">-</span><span class="token operator">></span>val<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">void</span> <span class="token function">put</span><span class="token punctuation">(</span><span class="token keyword">int</span> key<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        TimeListNode <span class="token operator">*</span>now<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cap<span class="token punctuation">)</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>time_map<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">==</span> time_map<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token function">TimeListNode</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>now_size <span class="token operator">&lt;</span> cap<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                now_size<span class="token operator">++</span><span class="token punctuation">;</span>
+                time_map<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> now<span class="token punctuation">;</span>
+                <span class="token function">insert_TimeListNode</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span>
+            <span class="token punctuation">{</span>
+                <span class="token function">delete_last_TimeListNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                time_map<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> now<span class="token punctuation">;</span>
+                <span class="token function">insert_TimeListNode</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            now <span class="token operator">=</span> time_map<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            now<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">=</span> value<span class="token punctuation">;</span>
+            <span class="token function">incre_freq</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
-[题解](https://leetcode-cn.com/problems/lfu-cache/solution/java-13ms-shuang-100-shuang-xiang-lian-biao-duo-ji/)  
-1个哈希表+2个双向链表  
-+ 哈希表`time_map`：`key-Node`  `Node`里面存`value` `freq` `freq_node`
-+ 双向链表`FreqListNode`：按访问次数从大到小排列    
-+ 双向链表`TimeListNode`：按访问时间从近到远排列（LRU中的双向链表）
-
-P.S.先声明两个class`FreqListNode`和`TimeListNode`，就可以互相引用了  
-
-![LFU](https://pic.leetcode-cn.com/25ade03ee7f3cbfdef0ddf955c917cde96f4153ba5ce8b321f42152b19d55ca5-LFU%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3.png)
-
-+ `get`：  
-直接访问`key`对应的`TimeListNode`获取`value`，并更新当前`TimeListNode`的`freq`，把当前`TimeListNode`放到的下一个`FreqListNode`上
-
-+ `put`：
-1. `key`存在，更新`value`和`freq`，更新`freq`要把`TimeListNode`取出来放到下一个`FreqListNode`上
-2. `key`不存在  
-   1. 缓存满了：删掉`freq`最小且访问时间最远的节点，即为`FreqList`的尾部的`TimeList`尾部，然后进行`2.ii`
-   2. 缓存没满：插入新节点，放在`freq=1`的`FreqListNode`上的头部
-
-### code
-满满的，都是坑啊  
-手写两个双向链表是非常好的锻炼机会[狗头]
-
-```cpp
-#include &lt;unordered_map&gt;
-using namespace std;
-const int INF = 1 &lt;&lt; 30;
-// first declare
-class FreqListNode;
-class TimeListNode;
-class TimeListNode
-{
-public:
-    int key;
-    int val;
-    int freq;
-    TimeListNode *pre;
-    TimeListNode *nxt;
-    FreqListNode *freq_node;
-    TimeListNode(int k, int v)
-    {
-        key = k;
-        val = v;
-        freq = 1;
-        freq_node = nullptr;
-        pre = nullptr;
-        nxt = nullptr;
-    }
-};
-class FreqListNode
-{
-public:
-    int freq;
-    FreqListNode *pre;
-    FreqListNode *nxt;
-    TimeListNode *time_head;
-    TimeListNode *time_tail;
-    FreqListNode(int f)
-    {
-        freq = f;
-        pre = nullptr;
-        nxt = nullptr;
-        time_head = new TimeListNode(-1, -1);
-        time_tail = new TimeListNode(-1, -1);
-        time_head-&gt;nxt = time_tail;
-        time_tail-&gt;pre = time_head;
-    }
-};
-class LFUCache
-{
-public:
-    FreqListNode *freq_head;
-    FreqListNode *freq_tail;
-    unordered_map&lt;int, TimeListNode *&gt; time_map;
-    int cap;
-    int now_size;
-    LFUCache(int capacity)
-    {
-        now_size = 0;
-        cap = capacity;
-        freq_head = new FreqListNode(INF);
-        freq_tail = new FreqListNode(0);
-        freq_head-&gt;nxt = freq_tail;
-        freq_tail-&gt;pre = freq_head;
-    }
-    void erase_empty_FreqListNode(FreqListNode *now_freq)
-    {
-        if (now_freq-&gt;time_head-&gt;nxt == now_freq-&gt;time_tail)
-        {
-            now_freq-&gt;pre-&gt;nxt = now_freq-&gt;nxt;
-            now_freq-&gt;nxt-&gt;pre = now_freq-&gt;pre;
-            delete now_freq;
-        }
-    }
-    void incre_freq(TimeListNode *now)
-    {
-        now-&gt;pre-&gt;nxt = now-&gt;nxt;
-        now-&gt;nxt-&gt;pre = now-&gt;pre;
-        now-&gt;freq += 1;
-        FreqListNode *now_freq = now-&gt;freq_node;
-        FreqListNode *nxt_freq = now_freq-&gt;pre;
-        if (nxt_freq-&gt;freq &gt; now-&gt;freq)
-        {
-            nxt_freq = new FreqListNode(now-&gt;freq);
-            now_freq-&gt;pre-&gt;nxt = nxt_freq;
-            nxt_freq-&gt;pre = now_freq-&gt;pre;
-            nxt_freq-&gt;nxt = now_freq;
-            now_freq-&gt;pre = nxt_freq;
-        }
-        now-&gt;freq_node = nxt_freq;
-        lift_now_to_head(now);
-        erase_empty_FreqListNode(now_freq);
-    }
-    void insert_TimeListNode(TimeListNode *now)
-    {
-        FreqListNode *now_freq;
-        if (freq_tail-&gt;pre != nullptr &amp;&amp; freq_tail-&gt;pre-&gt;freq == 1)
-        {
-            now_freq = freq_tail-&gt;pre;
-        }
-        else
-        {
-            now_freq = new FreqListNode(1);
-            freq_tail-&gt;pre-&gt;nxt = now_freq;
-            now_freq-&gt;pre = freq_tail-&gt;pre;
-            now_freq-&gt;nxt = freq_tail;
-            freq_tail-&gt;pre = now_freq;
-        }
-        now-&gt;freq_node = now_freq;
-        now-&gt;freq = 1;
-        TimeListNode *time_head = now_freq-&gt;time_head;
-        time_head-&gt;nxt-&gt;pre = now;
-        now-&gt;nxt = time_head-&gt;nxt;
-        now-&gt;pre = time_head;
-        time_head-&gt;nxt = now;
-    }
-    void delete_last_TimeListNode()
-    {
-        FreqListNode *now_freq_node = freq_tail-&gt;pre;
-        TimeListNode *time_tail = now_freq_node-&gt;time_tail;
-        TimeListNode *now = time_tail-&gt;pre;
-        time_map.erase(now-&gt;key);
-        now-&gt;pre-&gt;nxt = time_tail;
-        time_tail-&gt;pre = now-&gt;pre;
-        delete now;
-        erase_empty_FreqListNode(now_freq_node);
-    }
-    void lift_now_to_head(TimeListNode *now)
-    {
-        FreqListNode *now_freq = now-&gt;freq_node;
-        TimeListNode *head = now_freq-&gt;time_head;
-        TimeListNode *tail = now_freq-&gt;time_tail;
-        now-&gt;nxt = head-&gt;nxt;
-        now-&gt;pre = head;
-        head-&gt;nxt-&gt;pre = now;
-        head-&gt;nxt = now;
-    }
-    int get(int key)
-    {
-        if (time_map.find(key) == time_map.end())
-        {
-            return -1;
-        }
-        TimeListNode *now = time_map[key];
-        incre_freq(now);
-        return now-&gt;val;
-    }
-    void put(int key, int value)
-    {
-        TimeListNode *now;
-        if (!cap)
-            return;
-        if (time_map.find(key) == time_map.end())
-        {
-            now = new TimeListNode(key, value);
-            if (now_size &lt; cap)
-            {
-                now_size++;
-                time_map[key] = now;
-                insert_TimeListNode(now);
-            }
-            else
-            {
-                delete_last_TimeListNode();
-                time_map[key] = now;
-                insert_TimeListNode(now);
-            }
-        }
-        else
-        {
-            now = time_map[key];
-            now-&gt;val = value;
-            incre_freq(now);
-        }
-    }
-};</code></pre>
             </div>
             <hr/>
 
@@ -880,8 +875,10 @@ dp看这个题解一步步推导出dp方程
 0个蛋
 1个蛋
 0层楼
-1层楼// init
-for (int k 
+1层楼
+
+// init
+for (int 
                         
                     </div>
                     <div class="publish-info">
@@ -1144,6 +1141,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] }
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
@@ -1158,7 +1161,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.2k</span>&nbsp;字
+                class="white-color">34.9k</span>&nbsp;字
             
             
             

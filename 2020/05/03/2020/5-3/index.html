@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="5.24 Notes, Jason&#39;s Blog">
+    <meta name="keywords" content="5.3 Notes, Jason&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>5.24 Notes | Jason&#39;s Blog</title>
+    <title>5.3 Notes | Jason&#39;s Blog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">5.24 Notes</h1>
+                    <h1 class="description center-align post-title">5.3 Notes</h1>
                 </div>
             </div>
         </div>
@@ -432,7 +432,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-24
+                    2020-05-03
                 </div>
                 
 
@@ -479,7 +479,9 @@
 <ul>
 <li><a href="https://zhuanlan.zhihu.com/p/125764650" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/125764650</a></li>
 <li><a href="https://blog.csdn.net/zhangruijerry/article/details/105268377" target="_blank" rel="noopener">https://blog.csdn.net/zhangruijerry/article/details/105268377</a></li>
-<li><a href="https://github.com/byl0561/HWcode2020-TestData" target="_blank" rel="noopener">https://github.com/byl0561/HWcode2020-TestData</a><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<li><a href="https://github.com/byl0561/HWcode2020-TestData" target="_blank" rel="noopener">https://github.com/byl0561/HWcode2020-TestData</a><h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2></li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;algorithm></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;string></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cstring></span></span>
@@ -487,33 +489,235 @@
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;chrono></span></span>
 <span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;cmath></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
-</code></pre>
-</li>
+
+<span class="token keyword">auto</span> time_start <span class="token operator">=</span> chrono<span class="token operator">::</span>steady_clock<span class="token operator">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// #define LINUXOUTPUT</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> OUTPUT</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> TEST</span>
+
+string input_path <span class="token operator">=</span> <span class="token string">"/data/test_data.txt"</span><span class="token punctuation">;</span>
+string output_path <span class="token operator">=</span> <span class="token string">"/projects/student/result.txt"</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> TEST</span>
+string test_scale <span class="token operator">=</span> <span class="token string">"1004812"</span><span class="token punctuation">;</span>
+string test_input_path_s <span class="token operator">=</span> <span class="token string">"./data/"</span> <span class="token operator">+</span> test_scale <span class="token operator">+</span> <span class="token string">"/test_data.txt"</span><span class="token punctuation">;</span>
+string test_output_path_s <span class="token operator">=</span> test_input_path_s<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> test_input_path_s<span class="token punctuation">.</span><span class="token function">rfind</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/output.txt"</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> INF <span class="token operator">=</span> <span class="token number">280005</span><span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> GUV<span class="token punctuation">[</span>INF<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">51</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> GVU<span class="token punctuation">[</span>INF<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">51</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">bool</span> visited<span class="token punctuation">[</span>INF<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> flag<span class="token punctuation">[</span>INF<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">typedef</span> array<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token operator">></span> ans_t<span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans_size<span class="token punctuation">;</span>
+ans_t ans<span class="token punctuation">[</span><span class="token number">4000005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> u_max<span class="token punctuation">;</span>
+<span class="token keyword">namespace</span> IO
+<span class="token punctuation">{</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXSIZE <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> buf<span class="token punctuation">[</span>MAXSIZE<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">*</span>p1<span class="token punctuation">,</span> <span class="token operator">*</span>p2<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">define</span> gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin), p1 == p2) ? EOF : *p1++)</span>
+<span class="token keyword">inline</span> <span class="token keyword">int</span> <span class="token function">rd</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    int16_t c <span class="token operator">=</span> <span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isdigit</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token constant">EOF</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> c<span class="token punctuation">;</span>
+        c <span class="token operator">=</span> <span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token function">isdigit</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        x <span class="token operator">=</span> x <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token punctuation">(</span>c <span class="token operator">^</span> <span class="token number">48</span><span class="token punctuation">)</span><span class="token punctuation">,</span> c <span class="token operator">=</span> <span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">rd_to_line_end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    int16_t c <span class="token operator">=</span> <span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>c <span class="token operator">!=</span> <span class="token string">'\n'</span><span class="token punctuation">)</span>
+        c <span class="token operator">=</span> <span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">char</span> pbuf<span class="token punctuation">[</span>MAXSIZE<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">*</span>pp <span class="token operator">=</span> pbuf<span class="token punctuation">;</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pp <span class="token operator">-</span> pbuf <span class="token operator">==</span> MAXSIZE<span class="token punctuation">)</span>
+        <span class="token function">fwrite</span><span class="token punctuation">(</span>pbuf<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> MAXSIZE<span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">,</span> pp <span class="token operator">=</span> pbuf<span class="token punctuation">;</span>
+    <span class="token operator">*</span>pp<span class="token operator">++</span> <span class="token operator">=</span> c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">static</span> <span class="token keyword">int</span> sta<span class="token punctuation">[</span><span class="token number">35</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> top <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">do</span>
+    <span class="token punctuation">{</span>
+        sta<span class="token punctuation">[</span>top<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">,</span> x <span class="token operator">/</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>top<span class="token punctuation">)</span>
+        <span class="token function">push</span><span class="token punctuation">(</span>sta<span class="token punctuation">[</span><span class="token operator">--</span>top<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// namespace IO</span>
+
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">read_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span>test_input_path_s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"r"</span><span class="token punctuation">,</span> <span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> u<span class="token punctuation">,</span> v<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ch<span class="token punctuation">;</span>
+    <span class="token keyword">register</span> <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        u <span class="token operator">=</span> IO<span class="token operator">::</span><span class="token function">rd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>u <span class="token operator">==</span> <span class="token constant">EOF</span><span class="token punctuation">)</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        v <span class="token operator">=</span> IO<span class="token operator">::</span><span class="token function">rd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        IO<span class="token operator">::</span><span class="token function">rd_to_line_end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        GUV<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">++</span>GUV<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+        GVU<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">++</span>GVU<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> u<span class="token punctuation">;</span>
+        u_max <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>u_max<span class="token punctuation">,</span> u<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> TEST</span>
+    <span class="token keyword">auto</span> input_time_end <span class="token operator">=</span> chrono<span class="token operator">::</span>steady_clock<span class="token operator">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> input_time_diff <span class="token operator">=</span> input_time_end <span class="token operator">-</span> time_start<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"prehandle cost: "</span> <span class="token operator">&lt;&lt;</span> chrono<span class="token operator">::</span>duration<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token punctuation">,</span> milli<span class="token operator">></span><span class="token punctuation">(</span>input_time_diff<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"s"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">bool</span> <span class="token function">cmp</span><span class="token punctuation">(</span>ans_t <span class="token operator">&amp;</span>x<span class="token punctuation">,</span> ans_t <span class="token operator">&amp;</span>y<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> now <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">[</span>now<span class="token punctuation">]</span> <span class="token operator">==</span> y<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token operator">++</span>now<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">[</span>now<span class="token punctuation">]</span> <span class="token operator">&lt;</span> y<span class="token punctuation">[</span>now<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">flag_reverse_dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> depth<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">register</span> <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> GVU<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        v <span class="token operator">=</span> GVU<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> v <span class="token operator">></span> target<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            flag<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> target<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>depth <span class="token operator">&lt;=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+                <span class="token function">flag_reverse_dfs</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span> <span class="token keyword">int</span> depth<span class="token punctuation">,</span> ans_t <span class="token operator">&amp;</span>path<span class="token punctuation">,</span> <span class="token keyword">int</span> target<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">register</span> <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> GUV<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        v <span class="token operator">=</span> GUV<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>v <span class="token operator">&lt;=</span> target<span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token operator">-</span>target <span class="token operator">&amp;&amp;</span> visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>depth <span class="token operator">>=</span> <span class="token number">2</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                path<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                path<span class="token punctuation">[</span>depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+                ans<span class="token punctuation">[</span><span class="token operator">++</span>ans_size<span class="token punctuation">]</span> <span class="token operator">=</span> path<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">!=</span> target <span class="token operator">&amp;&amp;</span> flag<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token operator">-</span>target <span class="token operator">&amp;&amp;</span> depth <span class="token operator">>=</span> <span class="token number">4</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> depth <span class="token operator">&lt;=</span> <span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            path<span class="token punctuation">[</span>depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> v<span class="token punctuation">;</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> path<span class="token punctuation">,</span> target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    ans_t path<span class="token punctuation">;</span>
+    <span class="token keyword">register</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> target<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> u_max<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>GUV<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token function">flag_reverse_dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> GVU<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+            flag<span class="token punctuation">[</span>GVU<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token operator">-</span>i<span class="token punctuation">;</span>
+        path<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> path<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">inline</span> <span class="token keyword">void</span> <span class="token function">output_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">register</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span>test_output_path_s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>ans <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> ans <span class="token operator">+</span> ans_size <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> TEST</span>
+    <span class="token keyword">auto</span> output_time_start <span class="token operator">=</span> chrono<span class="token operator">::</span>steady_clock<span class="token operator">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans_size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> ans_size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            IO<span class="token operator">::</span><span class="token function">write</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            IO<span class="token operator">::</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        IO<span class="token operator">::</span><span class="token function">write</span><span class="token punctuation">(</span>ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        IO<span class="token operator">::</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">fwrite</span><span class="token punctuation">(</span>IO<span class="token operator">::</span>pbuf<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> IO<span class="token operator">::</span>pp <span class="token operator">-</span> IO<span class="token operator">::</span>pbuf<span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> LINUXOUTPUT</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"/dev/tty"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">else</span></span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"CON"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> TEST</span>
+    <span class="token keyword">auto</span> output_time_end <span class="token operator">=</span> chrono<span class="token operator">::</span>steady_clock<span class="token operator">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> output_time_diff <span class="token operator">=</span> output_time_end <span class="token operator">-</span> output_time_start<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"output cost: "</span> <span class="token operator">&lt;&lt;</span> chrono<span class="token operator">::</span>duration<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token punctuation">,</span> milli<span class="token operator">></span><span class="token punctuation">(</span>output_time_diff<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"s"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    <span class="token keyword">return</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">read_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">work</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">output_data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> TEST</span>
+    <span class="token keyword">auto</span> time_end <span class="token operator">=</span> chrono<span class="token operator">::</span>steady_clock<span class="token operator">::</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">auto</span> diff <span class="token operator">=</span> time_end <span class="token operator">-</span> time_start<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">ifdef</span> LINUXOUTPUT</span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"/dev/tty"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">else</span></span>
+    <span class="token function">freopen</span><span class="token punctuation">(</span><span class="token string">"CON"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">,</span> <span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ans size is %d\n"</span><span class="token punctuation">,</span> ans_size<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"The program's speed: "</span> <span class="token operator">&lt;&lt;</span> chrono<span class="token operator">::</span>duration<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token punctuation">,</span> milli<span class="token operator">></span><span class="token punctuation">(</span>diff<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span> <span class="token operator">&lt;&lt;</span> <span class="token string">"s"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+<span class="token macro property">#<span class="token directive keyword">endif</span></span>
+    <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">fclose</span><span class="token punctuation">(</span><span class="token constant">stdout</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>多看群信息</li>
+<li>多上网找别人的思路</li>
+<li>钻规则漏洞：开小号/探测数据（误）<h2 id="面向数据编程"><a href="#面向数据编程" class="headerlink" title="面向数据编程"></a><a href="https://github.com/justarandomstring/2020-Huawei-Code-Craft" target="_blank" rel="noopener">面向数据编程</a></h2></li>
 </ul>
-<p>auto time_start = chrono::steady_clock::now();</p>
-<p>// #define LINUXOUTPUT<br>#define OUTPUT<br>#define TEST</p>
-<p>string input_path = “/data/test_data.txt”;<br>string output_path = “/projects/student/result.txt”;<br>#ifdef TEST<br>string test_scale = “1004812”;<br>string test_input_path_s = “./data/“ + test_scale + “/test_data.txt”;<br>string test_output_path_s = test_input_path_s.substr(0, test_input_path_s.rfind(‘/‘)) + “/output.txt”;<br>#endif</p>
-<p>const int INF = 280005;<br>typedef long long ll;</p>
-<p>int GUV[INF][51];<br>int GVU[INF][51];</p>
-<p>bool visited[INF];<br>int flag[INF];</p>
-<p>typedef array&lt;int, 8&gt; ans_t;<br>int ans_size;<br>ans_t ans[4000005];</p>
-<p>int u_max;<br>namespace IO<br>{<br>const int MAXSIZE = 1 &lt;&lt; 20;<br>char buf[MAXSIZE], *p1, *p2;<br>#define gc() (p1 == p2 &amp;&amp; (p2 = (p1 = buf) + fread(buf, 1, MAXSIZE, stdin), p1 == p2) ? EOF : *p1++)<br>inline int rd()<br>{<br>    int x = 0;<br>    int16_t c = gc();<br>    while (!isdigit(c))<br>    {<br>        if (c == EOF)<br>            return c;<br>        c = gc();<br>    }<br>    while (isdigit(c))<br>        x = x * 10 + (c ^ 48), c = gc();<br>    return x;<br>}<br>inline void rd_to_line_end()<br>{<br>    int16_t c = gc();<br>    while (c != ‘\n’)<br>        c = gc();<br>}<br>char pbuf[MAXSIZE], *pp = pbuf;<br>inline void push(const char &amp;c)<br>{<br>    if (pp - pbuf == MAXSIZE)<br>        fwrite(pbuf, 1, MAXSIZE, stdout), pp = pbuf;<br>    *pp++ = c;<br>}<br>inline void write(int x)<br>{<br>    static int sta[35];<br>    int top = 0;<br>    do<br>    {<br>        sta[top++] = x % 10, x /= 10;<br>    } while (x);<br>    while (top)<br>        push(sta[–top] + ‘0’);<br>}<br>} // namespace IO</p>
-<p>inline void read_data()<br>{<br>    freopen(test_input_path_s.c_str(), “r”, stdin);<br>    int u, v;<br>    int ch;<br>    register int i;<br>    while (1)<br>    {<br>        u = IO::rd();<br>        if (u == EOF)<br>            break;<br>        v = IO::rd();<br>        IO::rd_to_line_end();<br>        GUV[u][++GUV[u][0]] = v;<br>        GVU[v][++GVU[v][0]] = u;<br>        u_max = max(u_max, u);<br>    }<br>#ifdef TEST<br>    auto input_time_end = chrono::steady_clock::now();<br>    auto input_time_diff = input_time_end - time_start;<br>    cout &lt;&lt; “prehandle cost: “ &lt;&lt; chrono::duration&lt;double, milli&gt;(input_time_diff).count() / 1000 &lt;&lt; “s” &lt;&lt; endl;<br>#endif<br>}<br>inline bool cmp(ans_t &amp;x, ans_t &amp;y)<br>{<br>    int now = 0;<br>    while (x[now] == y[now])<br>        ++now;<br>    return x[now] &lt; y[now];<br>}<br>void flag_reverse_dfs(int u, int depth, int target)<br>{<br>    register int i;<br>    int v;<br>    for (i = 1; i &lt;= GVU[u][0]; i++)<br>    {<br>        v = GVU[u][i];<br>        if (!visited[v] &amp;&amp; v &gt; target)<br>        {<br>            visited[v] = 1;<br>            flag[v] = target;<br>            if (depth &lt;= 2)<br>                flag_reverse_dfs(v, depth + 1, target);<br>            visited[v] = 0;<br>        }<br>    }<br>}<br>void dfs(int u, int depth, ans_t &amp;path, int target)<br>{<br>    register int i;<br>    int v;<br>    for (i = 1; i &lt;= GUV[u][0]; i++)<br>    {<br>        v = GUV[u][i];<br>        if (v &lt;= target)<br>            continue;<br>        if (flag[v] == -target &amp;&amp; visited[v] == 0)<br>        {<br>            if (depth &gt;= 2)<br>            {<br>                path[0] = depth + 1;<br>                path[depth + 1] = v;<br>                ans[++ans_size] = path;<br>            }<br>        }<br>        if (flag[v] != target &amp;&amp; flag[v] != -target &amp;&amp; depth &gt;= 4)<br>            continue;<br>        if (!visited[v] &amp;&amp; depth &lt;= 5)<br>        {<br>            visited[v] = 1;<br>            path[depth + 1] = v;<br>            dfs(v, depth + 1, path, target);<br>            visited[v] = 0;<br>        }<br>    }<br>}<br>inline void work()<br>{<br>    ans_t path;<br>    register int i, j;<br>    int target;<br>    for (i = 1; i &lt;= u_max; i++)<br>    {<br>        if (GUV[i][0] == 0)<br>            continue;<br>        flag_reverse_dfs(i, 1, i);<br>        for (j = 1; j &lt;= GVU[i][0]; j++)<br>            flag[GVU[i][j]] = -i;<br>        path[1] = i;<br>        dfs(i, 1, path, i);<br>    }<br>}<br>inline void output_data()<br>{<br>    register int i, j;<br>    freopen(test_output_path_s.c_str(), “w”, stdout);<br>    sort(ans + 1, ans + ans_size + 1, cmp);<br>#ifdef TEST<br>    auto output_time_start = chrono::steady_clock::now();<br>#endif<br>    printf(“%d\n”, ans_size);<br>    for (i = 1; i &lt;= ans_size; i++)<br>    {<br>        for (j = 1; j &lt; ans[i][0]; j++)<br>        {<br>            IO::write(ans[i][j]);<br>            IO::push(‘,’);<br>        }<br>        IO::write(ans[i][ans[i][0]]);<br>        IO::push(‘\n’);<br>    }<br>    fwrite(IO::pbuf, 1, IO::pp - IO::pbuf, stdout);<br>#ifdef LINUXOUTPUT<br>    freopen(“/dev/tty”, “w”, stdout);<br>#else<br>    freopen(“CON”, “w”, stdout);<br>#endif<br>#ifdef TEST<br>    auto output_time_end = chrono::steady_clock::now();<br>    auto output_time_diff = output_time_end - output_time_start;<br>    cout &lt;&lt; “output cost: “ &lt;&lt; chrono::duration&lt;double, milli&gt;(output_time_diff).count() / 1000 &lt;&lt; “s” &lt;&lt; endl;<br>#endif<br>    return;<br>}<br>int main()<br>{<br>    read_data();<br>    work();<br>    output_data();<br>#ifdef TEST<br>    auto time_end = chrono::steady_clock::now();<br>    auto diff = time_end - time_start;<br>#ifdef LINUXOUTPUT<br>    freopen(“/dev/tty”, “w”, stdout);<br>#else<br>    freopen(“CON”, “w”, stdout);<br>#endif<br>    printf(“ans size is %d\n”, ans_size);<br>    cout &lt;&lt; “The program’s speed: “ &lt;&lt; chrono::duration&lt;double, milli&gt;(diff).count() / 1000 &lt;&lt; “s” &lt;&lt; endl;<br>#endif<br>    fclose(stdin);<br>    fclose(stdout);<br>    return 0;<br>}</p>
-<pre><code>## 总结
-+ 多看群信息
-+ 多上网找别人的思路
-+ 钻规则漏洞：开小号/探测数据（误）
-## [面向数据编程](https://github.com/justarandomstring/2020-Huawei-Code-Craft)
-
-### Level 1: 计分数据只有一组
-
-以下设 answer 表示找到的环数。
-
-- 加入如下代码：
-
-  ```cpp
-  assert(answer &gt; 2500000);</code></pre><p>  提交后返回 Runtime Error。断定：线上存在环数不大于 2500000 的数据。</p>
+<h3 id="Level-1-计分数据只有一组"><a href="#Level-1-计分数据只有一组" class="headerlink" title="Level 1: 计分数据只有一组"></a>Level 1: 计分数据只有一组</h3><p>以下设 answer 表示找到的环数。</p>
 <ul>
+<li><p>加入如下代码：</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token function">assert</span><span class="token punctuation">(</span>answer <span class="token operator">></span> <span class="token number">2500000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>提交后返回 Runtime Error。断定：线上存在环数不大于 2500000 的数据。</p>
+</li>
 <li><p>加入如下代码：</p>
 <pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>answer <span class="token operator">&lt;=</span> <span class="token number">2500000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -733,7 +937,7 @@
         repo: 'doutv.github.io',
         owner: 'doutv',
         admin: ["doutv"],
-        id: '2020-05-24T12-00-28',
+        id: '2020-05-03T12-00-28',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -761,26 +965,27 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/07/2020/6-7/">
+                <a href="/2020/05/10/2020/5-10/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="6.7 Notes">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="5.10 Notes">
                         
-                        <span class="card-title">6.7 Notes</span>
+                        <span class="card-title">5.10 Notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            6.1-6.7 Learning NotesTXAD 2020
-lightgbm for GBDT(Gradient Boosting Decision Tree) 
-https://lightgbm.readthedocs.io/en/l
+                            5.4-5.10 Learning NotesLeetcode跳跃游戏第一题求能否到达终点，第二题求到达终点的最小步数两题都可以用贪心做
+I题解  
+
+如果某一个作为起跳点的格子可以跳跃的距离是 3，那么表示后面3 个格子都可以作为 起跳点
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                         </span>
                         <span class="publish-author">
                             
@@ -793,12 +998,12 @@ https://lightgbm.readthedocs.io/en/l
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
-                    <a href="/tags/Competition/">
-                        <span class="chip bg-color">Competition</span>
+                    <a href="/tags/Leetcode/">
+                        <span class="chip bg-color">Leetcode</span>
                     </a>
                     
                 </div>
@@ -812,25 +1017,35 @@ https://lightgbm.readthedocs.io/en/l
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/24/2020/5-24/">
+                <a href="/2020/04/19/2020/4-19/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="5.24 Notes">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="4.19 Notes">
                         
-                        <span class="card-title">5.24 Notes</span>
+                        <span class="card-title">4.19 Notes</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            5.18-5.24 Learning NotesLeetcode状态压缩+前缀和+哈希表好题！  
-给你一个字符串 s ，请你返回满足以下条件的最长子字符串的长度：每个元音字母，即 ‘a’，’e’，’i’，’o’，’u’ ，在子字符串中都恰
+                            4.13-4.19 Learning NotesLeetcode一道较难的dp题:鸡蛋掉落官方题解写得很好
+
+dp看这个题解一步步推导出dp方程
+注意dp数组的初始化：
+
+0个蛋
+1个蛋
+0层楼
+1层楼
+
+// init
+for (int 
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-19
                             </span>
                         <span class="publish-author">
                             
@@ -847,20 +1062,16 @@ https://lightgbm.readthedocs.io/en/l
                         <span class="chip bg-color">Algorithm</span>
                     </a>
                     
-                    <a href="/tags/CSAPP/">
-                        <span class="chip bg-color">CSAPP</span>
-                    </a>
-                    
                     <a href="/tags/Leetcode/">
                         <span class="chip bg-color">Leetcode</span>
                     </a>
                     
-                    <a href="/tags/Codeforces/">
-                        <span class="chip bg-color">Codeforces</span>
+                    <a href="/tags/dp/">
+                        <span class="chip bg-color">dp</span>
                     </a>
                     
-                    <a href="/tags/Google-Kick-Start/">
-                        <span class="chip bg-color">Google Kick Start</span>
+                    <a href="/tags/Google-Code-Jam/">
+                        <span class="chip bg-color">Google Code Jam</span>
                     </a>
                     
                 </div>
@@ -1036,6 +1247,12 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] }
+    });
+</script>
 
 
     <footer class="page-footer bg-color">
@@ -1050,7 +1267,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35.2k</span>&nbsp;字
+                class="white-color">34.9k</span>&nbsp;字
             
             
             
