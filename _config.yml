@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 theme: hexo-theme-matery
-
+# theme: yilia
 
 # Site
 title: Jason's Blog
@@ -11,7 +11,7 @@ subtitle: 随风而动，顺势而为
 description: ''
 keywords:
 author: Jason
-language: zh-cn
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -47,6 +47,7 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+
 highlight:
   enable: false
   line_number: true

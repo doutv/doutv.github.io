@@ -271,23 +271,23 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: false
-  owner:
-  repo:
-  oauth:
-    clientId:
-    clientSecret:
-  admin:
+  enable: true
+  owner: doutv
+  repo: doutv.github.io
+  oauth: 
+    clientId: 45dc1237807387ccf759
+    clientSecret: 67b4e116118fea843634f98b65816c61ffa0592a
+  admin: ['doutv']
 
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
 gitment:
   enable: false
-  owner:
-  repo:
-  oauth:
-    clientId:
-    clientSecret:
+  owner: 
+  repo: 
+  oauth: 
+    clientId: 
+    clientSecret: 
 
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活

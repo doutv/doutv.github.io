@@ -1,11 +1,15 @@
 ---
-title: 将有序数组转换为二叉搜索树
+title: convert-sorted-array-to-binary-search-tree
 date: 2020-07-04 08:50:00
 tags:
     - Algorithm
     - Leetcode
     - Tree
     - Recursion
+categories:
+    - [Algorithm, Tree]
+mathjax: true
+
 ---
 
 [108. 将有序数组转换为二叉搜索树](https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/)，这是一道有趣的树上递归题

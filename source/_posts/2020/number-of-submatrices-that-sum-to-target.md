@@ -1,11 +1,14 @@
 ---
-title: 最多K次交换相邻数位后得到的最小整数
+title: number-of-submatrices-that-sum-to-target
 date: 2020-07-05 13:14:48
 tags: 
     - Algorithm
     - Leetcode
     - sort
     - greedy
+mathjax: true
+categories:
+    - [Algorithm,greedy]
 ---
 
 [5455. 最多 K 次交换相邻数位后得到的最小整数](https://leetcode-cn.com/problems/number-of-submatrices-that-sum-to-target/)

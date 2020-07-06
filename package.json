@@ -9,9 +9,10 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "3.9.0"
+    "version": "4.2.1"
   },
   "dependencies": {
+    "gitalk": "^1.6.2",
     "hexo": "^4.2.1",
     "hexo-auto-excerpt": "^1.1.2",
     "hexo-deployer-git": "^2.1.0",

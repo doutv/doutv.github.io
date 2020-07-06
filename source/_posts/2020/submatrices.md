@@ -1,11 +1,13 @@
 ---
-title: 子矩阵
+title: submatrices
 date: 2020-07-05 13:59:36
 tags:
     - Algorithm
     - Leetcode
     - dp
 mathjax: true
+categories:
+    - [Algorithm,dp]
 ---
 
 [5454. 统计全 1 子矩形](https://leetcode-cn.com/problems/count-submatrices-with-all-ones/)
