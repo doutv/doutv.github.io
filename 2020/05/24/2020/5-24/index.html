@@ -412,12 +412,12 @@
                                 <span class="chip bg-color">Algorithm</span>
                             </a>
                         
-                            <a href="/tags/CSAPP/">
-                                <span class="chip bg-color">CSAPP</span>
-                            </a>
-                        
                             <a href="/tags/Leetcode/">
                                 <span class="chip bg-color">Leetcode</span>
+                            </a>
+                        
+                            <a href="/tags/CSAPP/">
+                                <span class="chip bg-color">CSAPP</span>
                             </a>
                         
                             <a href="/tags/Codeforces/">
@@ -765,12 +765,12 @@ sum[3]^0=sum[0]
                                     <span class="chip bg-color">Algorithm</span>
                                 </a>
                             
-                                <a href="/tags/CSAPP/">
-                                    <span class="chip bg-color">CSAPP</span>
-                                </a>
-                            
                                 <a href="/tags/Leetcode/">
                                     <span class="chip bg-color">Leetcode</span>
+                                </a>
+                            
+                                <a href="/tags/CSAPP/">
+                                    <span class="chip bg-color">CSAPP</span>
                                 </a>
                             
                                 <a href="/tags/Codeforces/">
@@ -1045,8 +1045,8 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
+            collapseDepth: Number('3'),
+            headingSelector: 'h1, h2, h3, h4'
         });
 
         // modify the toc link href to support Chinese.
@@ -1058,7 +1058,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
         // modify the heading title id to support Chinese.
         i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
         });
 
