@@ -617,6 +617,33 @@ sql <span class="token operator">=</span> <span class="token triple-quoted-strin
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '45dc1237807387ccf759',
+        clientSecret: '67b4e116118fea843634f98b65816c61ffa0592a',
+        repo: 'gitalk',
+        owner: 'doutv',
+        admin: null,
+        id: '2020-01-12T12-00-28',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
 
     
 
@@ -668,12 +695,12 @@ Python Spider for 2019-nCoV on WeiboSelenium+Wordcloud+Mysql由于之前已经�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python-Spider/">
-                        <span class="chip bg-color">Python Spider</span>
+                    <a href="/tags/Tools/">
+                        <span class="chip bg-color">Tools</span>
                     </a>
                     
-                    <a href="/tags/The-Missing-Semester%EF%BC%88%E5%90%84%E7%A7%8D%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7Vim-shell/">
-                        <span class="chip bg-color">The Missing Semester（各种常用工具Vim/shell...)</span>
+                    <a href="/tags/Python-Spider/">
+                        <span class="chip bg-color">Python Spider</span>
                     </a>
                     
                 </div>
