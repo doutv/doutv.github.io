@@ -10,6 +10,7 @@ mathjax: true
 categories:
     - Algorithm
     - Tree
+cover: true
 ---
 
 偶然打开[面试页面](https://leetcode-cn.com/interview/)发现的一道好题：[二叉树的垂序遍历](https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/)

@@ -8,6 +8,7 @@ tags:
 mathjax: true
 categories:
     - [Algorithm,dp]
+cover: true
 ---
 
 [5454. 统计全 1 子矩形](https://leetcode-cn.com/problems/count-submatrices-with-all-ones/)
