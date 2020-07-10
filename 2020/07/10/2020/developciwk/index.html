@@ -15,17 +15,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=I9sCgkibKevvnE-6WUze5t1wRfFiIk_Xo2ukRaPYbyY"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'I9sCgkibKevvnE-6WUze5t1wRfFiIk_Xo2ukRaPYbyY');
-</script>
-
 
     <title>学校迎新网站设计 | Jason&#39;s Blog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
@@ -466,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    628
+                    648
                 </div>
                 
 
@@ -512,10 +501,12 @@
 <li>对于<code>on_delete</code>的6种模式介绍，<a href="https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models" target="_blank" rel="noopener">stackoverflow</a>上面有精彩的回答</li>
 <li><code>CASCADE</code>是最严谨的模式，例如一个用户被删除了，那么他所有的回答和评论都会被删除，这样能最好地保证数据库的完整性(integrity)</li>
 <li><code>SET_NULL</code>能最好地保护数据不丢失，哪怕误操作删掉了一个用户，他所有的回答和评论都保存在数据库中，不会丢失。知乎上有时会看到“已注销用户”就是这个道理，虽然他的个人信息可能被永久删除了，但是他的回答和评论都保存在数据库中。（当然我不确定知乎是否采用了这种模式）</li>
+<li>我最后选择了<code>SET_NULL</code>：<pre class=" language-py"><code class="language-py">user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, db_column="user_id")</code></pre>
+</li>
 </ul>
 </li>
 </ul>
-
+<h1 id="API-Document"><a href="#API-Document" class="headerlink" title="API Document"></a>API Document</h1>
             </div>
             <hr/>
 
