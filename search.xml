@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>学校迎新网站设计</title>
+      <link href="/2020/07/10/2020/developciwk/"/>
+      <url>/2020/07/10/2020/developciwk/</url>
+      
+        <content type="html"><![CDATA[<h1 id="学校迎新网站设计"><a href="#学校迎新网站设计" class="headerlink" title="学校迎新网站设计"></a>学校迎新网站设计</h1><p>又是一天早上，我坐在电脑前摸鱼。突然，杨同学发来了消息，邀请我参与学校迎新网站（CUHKSZ Welcome Wall）的设计。<br>其实我一直都想做一个网站，就是懒而已，需要一个项目来驱动。既然他都主动邀请我了，那肯定上啊。</p><p>我负责的是网站的后端，框架是<code>django</code>。我之前从未用过<code>django</code>，那就现学呗。<br>把<a href="https://docs.djangoproject.com/zh-hans/3.0/intro/tutorial01/" target="_blank" rel="noopener">django tutorial</a>过一遍，了解了里面的一些概念和整个开发的流程。</p><h2 id="设计数据库"><a href="#设计数据库" class="headerlink" title="设计数据库"></a>设计数据库</h2><ul><li>目标是做一个类知乎的问答网站</li><li>先画ER diagram，设计了<code>user</code>,<code>question</code>,<code>answer</code>,<code>comment</code>这几个表</li><li>那评论别人的评论该怎么做呢？</li><li>我上知乎查了一下这个问题，<a href="https://www.zhihu.com/question/38959595" target="_blank" rel="noopener">发现了解决方案</a>，只要在<code>comment</code>中加一个外键<code>reply_comment_id</code>就好了</li><li>在这个问题下面，我发现了另外一个问题：如何设计数据库使每个用户只能点赞/踩同一个回答/评论一次呢？</li><li>参考了别人的回答，添加<code>answer_vote</code>来存储某个用户对某条回答的投票信息，<code>comment_vote</code>来存储某个用户对某条评论的投票信息。</li><li>最终的数据库设计：<pre><code>  ![DevelopCiwk-2020-07-10-09-05-06](https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-09-05-06)</code></pre></li></ul><h2 id="django中建立ORM模型"><a href="#django中建立ORM模型" class="headerlink" title="django中建立ORM模型"></a>django中建立ORM模型</h2><p>django中的数据库在<code>models.py</code>中定义，用的是ORM(Object Relational Mapping)。</p><p>遇到的一些问题及解决方案：</p><ul><li>用于分类的字段，如<code>gender</code>只有两个取值，该如何表示？可以使用<a href="https://docs.djangoproject.com/zh-hans/3.0/ref/models/fields/#choices" target="_blank" rel="noopener">Choices</a>来显式定义:<pre class=" language-py"><code class="language-py">  class Gender(models.TextChoices):      MAN = 'M'      WOMAN = 'W'  gender = models.CharField(max_length=1, choices=Gender.choices)</code></pre></li><li>外键(foreign key)中的<code>on_delete</code>该如何设置？<ul><li>这是一个有关设计哲学的问题</li><li>对于<code>on_delete</code>的6种模式介绍，<a href="https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models" target="_blank" rel="noopener">stackoverflow</a>上面有精彩的回答</li><li><code>CASCADE</code>是最严谨的模式，例如一个用户被删除了，那么他所有的回答和评论都会被删除，这样能最好地保证数据库的完整性(integrity)</li><li><code>SET_NULL</code>能最好地保护数据不丢失，哪怕误操作删掉了一个用户，他所有的回答和评论都保存在数据库中，不会丢失。知乎上有时会看到“已注销用户”就是这个道理，虽然他的个人信息可能被永久删除了，但是他的回答和评论都保存在数据库中。（当然我不确定知乎是否采用了这种模式）</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Backend </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Database </tag>
+            
+            <tag> Backend </tag>
+            
+            <tag> Django </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>博客折腾日记</title>
+      <link href="/2020/07/10/2020/blogconfigure/"/>
+      <url>/2020/07/10/2020/blogconfigure/</url>
+      
+        <content type="html"><![CDATA[<h1 id="博客折腾日记"><a href="#博客折腾日记" class="headerlink" title="博客折腾日记"></a>博客折腾日记</h1><p>一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。<br>他用的是<code>hexo+next</code>，我一开始用的主题是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>，这个主题配置简单，就是有点丑，而且很久没更新了。<br>配置好后发现：文章预览有问题，主页展示了整篇文章，这个地方折腾了好久，有一天突然又能自动截断了……  </p><p>但是后来我上Github找到一个非常好看的主题<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">hexo-theme-matery</a>，这个的配置教程超级好，基本都覆盖到了。<br>有一些没覆盖到的内容可以去Issues找或者搜索代码，比如：</p><ol><li><code>mathjax</code>默认全局打开:<code>/layout/post.ejs</code>的最后一个<code>if(xxx)</code>改成<code>if(1)</code>即可</li></ol><p>其实博客关键还是内容，内容为王，外观再漂亮也只是衬托罢了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>submatrices</title>
       <link href="/2020/07/05/2020/submatrices/"/>
       <url>/2020/07/05/2020/submatrices/</url>
@@ -207,9 +261,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> CSAPP </tag>
+            
+            <tag> Leetcode </tag>
             
             <tag> Codeforces </tag>
             
@@ -303,9 +357,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> dp </tag>
-            
             <tag> Google Code Jam </tag>
+            
+            <tag> dp </tag>
             
         </tags>
       
@@ -345,11 +399,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -430,9 +484,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Tree </tag>
-            
             <tag> dp </tag>
+            
+            <tag> Tree </tag>
             
             <tag> dfs </tag>
             
@@ -474,9 +528,9 @@
       
         <tags>
             
-            <tag> Python Spider </tag>
-            
             <tag> Tools </tag>
+            
+            <tag> Python Spider </tag>
             
         </tags>
       
@@ -600,13 +654,13 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> Python </tag>
             
             <tag> Pygame </tag>
             
             <tag> Data Structure </tag>
+            
+            <tag> Algorithm </tag>
             
         </tags>
       
@@ -625,9 +679,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -667,11 +721,11 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Node.js </tag>
             
             <tag> Sequelize </tag>
             
-            <tag> Node.js </tag>
+            <tag> Machine Learning </tag>
             
             <tag> C++ </tag>
             
@@ -694,9 +748,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -759,9 +813,9 @@
       
         <tags>
             
-            <tag> Node.js </tag>
-            
             <tag> Mysql </tag>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
