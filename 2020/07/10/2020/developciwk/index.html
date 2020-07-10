@@ -455,7 +455,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    648
+                    659
                 </div>
                 
 
@@ -481,14 +481,15 @@
 <p>我负责的是网站的后端，框架是<code>django</code>。我之前从未用过<code>django</code>，那就现学呗。<br>把<a href="https://docs.djangoproject.com/zh-hans/3.0/intro/tutorial01/" target="_blank" rel="noopener">django tutorial</a>过一遍，了解了里面的一些概念和整个开发的流程。</p>
 <h2 id="设计数据库"><a href="#设计数据库" class="headerlink" title="设计数据库"></a>设计数据库</h2><ul>
 <li>目标是做一个类知乎的问答网站</li>
-<li>先画ER diagram，设计了<code>user</code>,<code>question</code>,<code>answer</code>,<code>comment</code>这几个表</li>
+<li>先画ER Diagram，设计了<code>user</code>,<code>question</code>,<code>answer</code>,<code>comment</code>这几个表</li>
 <li>那评论别人的评论该怎么做呢？</li>
 <li>我上知乎查了一下这个问题，<a href="https://www.zhihu.com/question/38959595" target="_blank" rel="noopener">发现了解决方案</a>，只要在<code>comment</code>中加一个外键<code>reply_comment_id</code>就好了</li>
 <li>在这个问题下面，我发现了另外一个问题：如何设计数据库使每个用户只能点赞/踩同一个回答/评论一次呢？</li>
 <li>参考了别人的回答，添加<code>answer_vote</code>来存储某个用户对某条回答的投票信息，<code>comment_vote</code>来存储某个用户对某条评论的投票信息。</li>
-<li>最终的数据库设计：<pre><code>  ![DevelopCiwk-2020-07-10-09-05-06](https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-09-05-06)</code></pre></li>
+<li>最终的数据库设计：</li>
+<li><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-09-05-06" alt="ER Diagram"></li>
 </ul>
-<h2 id="django中建立ORM模型"><a href="#django中建立ORM模型" class="headerlink" title="django中建立ORM模型"></a>django中建立ORM模型</h2><p>django中的数据库在<code>models.py</code>中定义，用的是ORM(Object Relational Mapping)。</p>
+<h2 id="django中建立ORM模型"><a href="#django中建立ORM模型" class="headerlink" title="django中建立ORM模型"></a>django中建立ORM模型</h2><p>django中的数据库在<code>models.py</code>中定义，用的是ORM。</p>
 <p>遇到的一些问题及解决方案：</p>
 <ul>
 <li>用于分类的字段，如<code>gender</code>只有两个取值，该如何表示？可以使用<a href="https://docs.djangoproject.com/zh-hans/3.0/ref/models/fields/#choices" target="_blank" rel="noopener">Choices</a>来显式定义:<pre class=" language-py"><code class="language-py">  class Gender(models.TextChoices):
@@ -496,17 +497,22 @@
       WOMAN = 'W'
   gender = models.CharField(max_length=1, choices=Gender.choices)</code></pre>
 </li>
-<li>外键(foreign key)中的<code>on_delete</code>该如何设置？<ul>
+<li>外键（foreign key）中的<code>on_delete</code>该如何设置？<ul>
 <li>这是一个有关设计哲学的问题</li>
 <li>对于<code>on_delete</code>的6种模式介绍，<a href="https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models" target="_blank" rel="noopener">stackoverflow</a>上面有精彩的回答</li>
-<li><code>CASCADE</code>是最严谨的模式，例如一个用户被删除了，那么他所有的回答和评论都会被删除，这样能最好地保证数据库的完整性(integrity)</li>
+<li><code>CASCADE</code>是最严谨的模式，例如一个用户被删除了，那么他所有的回答和评论都会被删除，这样能最好地保证数据库的完整性（integrity）</li>
 <li><code>SET_NULL</code>能最好地保护数据不丢失，哪怕误操作删掉了一个用户，他所有的回答和评论都保存在数据库中，不会丢失。知乎上有时会看到“已注销用户”就是这个道理，虽然他的个人信息可能被永久删除了，但是他的回答和评论都保存在数据库中。（当然我不确定知乎是否采用了这种模式）</li>
 <li>我最后选择了<code>SET_NULL</code>：<pre class=" language-py"><code class="language-py">user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, db_column="user_id")</code></pre>
 </li>
 </ul>
 </li>
 </ul>
-<h1 id="API-Document"><a href="#API-Document" class="headerlink" title="API Document"></a>API Document</h1>
+<h1 id="API-Document"><a href="#API-Document" class="headerlink" title="API Document"></a>API Document</h1><ul>
+<li><a href="https://github.com/apiaryio/api-blueprint" target="_blank" rel="noopener">API Blueprint 一门类markdown的api设计语言</a></li>
+<li><a href="https://apiary.io/" target="_blank" rel="noopener">一个在线编辑，预览，测试API的网站</a></li>
+</ul>
+<p>生成出的API文档十分美观<br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-10-17-33" alt="API Document Example"></p>
+
             </div>
             <hr/>
 
@@ -673,7 +679,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客折腾日记一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。他用的是hexo+next，我一开始用的主题是yilia，这个主题配置简单，就是有点丑，而且很久没更新了。配置好后发现：文章预览有问题，主页展示了整篇文章，这
+                            博客折腾日记主题一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。他用的是hexo+next，我一开始用的主题是yilia，这个主题配置简单，就是有点丑，而且很久没更新了。配置好后发现：文章预览有问题，主页展示了整篇文章
                         
                     </div>
                     <div class="publish-info">
