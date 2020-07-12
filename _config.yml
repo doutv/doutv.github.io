@@ -5,6 +5,10 @@
 theme: hexo-theme-matery
 # theme: yilia
 
+# sitemap for google
+sitemap:
+  path: sitemap.xml
+
 # Site
 title: Jason's Blog
 subtitle: 随风而动，顺势而为
