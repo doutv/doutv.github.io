@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="学校迎新网站设计, Jason&#39;s Blog">
+    <meta name="keywords" content="path-with-maximum-probability, Jason&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>学校迎新网站设计 | Jason&#39;s Blog</title>
+    <title>path-with-maximum-probability | Jason&#39;s Blog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">学校迎新网站设计</h1>
+                    <h1 class="description center-align post-title">path-with-maximum-probability</h1>
                 </div>
             </div>
         </div>
@@ -408,16 +408,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Backend/">
-                                <span class="chip bg-color">Backend</span>
+                            <a href="/tags/Algorithm/">
+                                <span class="chip bg-color">Algorithm</span>
                             </a>
                         
-                            <a href="/tags/Django/">
-                                <span class="chip bg-color">Django</span>
+                            <a href="/tags/Leetcode/">
+                                <span class="chip bg-color">Leetcode</span>
                             </a>
                         
-                            <a href="/tags/Database/">
-                                <span class="chip bg-color">Database</span>
+                            <a href="/tags/shortest-path/">
+                                <span class="chip bg-color">shortest path</span>
                             </a>
                         
                     </div>
@@ -428,8 +428,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Backend/" class="post-category">
-                                Backend
+                            <a href="/categories/Algorithm/" class="post-category">
+                                Algorithm
                             </a>
                         
                     </div>
@@ -441,7 +441,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-10
+                    2020-07-13
                 </div>
                 
 
@@ -455,14 +455,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    659
+                    742
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -477,41 +477,97 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="学校迎新网站设计"><a href="#学校迎新网站设计" class="headerlink" title="学校迎新网站设计"></a>学校迎新网站设计</h1><p>又是一天早上，我坐在电脑前摸鱼。突然，杨同学发来了消息，邀请我参与学校迎新网站（CUHKSZ Welcome Wall）的设计。<br>其实我一直都想做一个网站，就是懒而已，需要一个项目来驱动。既然他都主动邀请我了，那肯定上啊。</p>
-<p>我负责的是网站的后端，框架是<code>django</code>。我之前从未用过<code>django</code>，那就现学呗。<br>把<a href="https://docs.djangoproject.com/zh-hans/3.0/intro/tutorial01/" target="_blank" rel="noopener">django tutorial</a>过一遍，了解了里面的一些概念和整个开发的流程。</p>
-<h2 id="设计数据库"><a href="#设计数据库" class="headerlink" title="设计数据库"></a>设计数据库</h2><ul>
-<li>目标是做一个类知乎的问答网站</li>
-<li>先画ER Diagram，设计了<code>user</code>,<code>question</code>,<code>answer</code>,<code>comment</code>这几个表</li>
-<li>那评论别人的评论该怎么做呢？</li>
-<li>我上知乎查了一下这个问题，<a href="https://www.zhihu.com/question/38959595" target="_blank" rel="noopener">发现了解决方案</a>，只要在<code>comment</code>中加一个外键<code>reply_comment_id</code>就好了</li>
-<li>在这个问题下面，我发现了另外一个问题：如何设计数据库使每个用户只能点赞/踩同一个回答/评论一次呢？</li>
-<li>参考了别人的回答，添加<code>answer_vote</code>来存储某个用户对某条回答的投票信息，<code>comment_vote</code>来存储某个用户对某条评论的投票信息。</li>
-<li>初步的数据库设计：</li>
-<li><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-09-05-06" alt="ER Diagram"></li>
-</ul>
-<h2 id="django中建立ORM模型"><a href="#django中建立ORM模型" class="headerlink" title="django中建立ORM模型"></a>django中建立ORM模型</h2><p>django中的数据库在<code>models.py</code>中定义，用的是ORM。</p>
-<p>遇到的一些问题及解决方案：</p>
+                <h1 id="5211-概率最大的路径"><a href="#5211-概率最大的路径" class="headerlink" title="5211. 概率最大的路径"></a>5211. 概率最大的路径</h1><h2 id="dfs"><a href="#dfs" class="headerlink" title="dfs"></a>dfs</h2><p>我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上<code>if (curp&lt;1e-4) return;</code>就可以过了，原理也很简单：只要答案与标准答案的误差不超过 <code>1e-5</code> ，就会被视作正确答案，所以如果当前已经走过的路径的成功概率太小的话，可以直接不要这条路径。</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">double</span><span class="token operator">>></span> e<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> visited<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> ans<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> laste<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> u<span class="token punctuation">,</span><span class="token keyword">int</span> end<span class="token punctuation">,</span><span class="token keyword">double</span> curp<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>u<span class="token operator">==</span>end<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            ans<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>curp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>curp<span class="token operator">&lt;</span><span class="token number">1e-5</span><span class="token operator">||</span>curp<span class="token operator">*</span>laste<span class="token operator">&lt;</span>ans<span class="token punctuation">)</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>e<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> v<span class="token operator">=</span>e<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>first<span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            <span class="token keyword">double</span> p<span class="token operator">=</span>e<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">;</span>
+            visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span>end<span class="token punctuation">,</span>curp<span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">double</span> <span class="token function">maxProbability</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span><span class="token operator">&amp;</span> edges<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">></span><span class="token operator">&amp;</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>edges<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+            e<span class="token punctuation">[</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">make_pair</span><span class="token punctuation">(</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            e<span class="token punctuation">[</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">make_pair</span><span class="token punctuation">(</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>e<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+            laste<span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>laste<span class="token punctuation">,</span>e<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span>start<span class="token punctuation">,</span>end<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="dijkstra"><a href="#dijkstra" class="headerlink" title="dijkstra"></a>dijkstra</h2><p>dfs算法超时后，我立刻就想到了最短路算法：dijkstra。</p>
+<p>这题与最短路本质上是一样的，最短路是将每条边加起来，求最小边权和；而这题是将每条边乘起来，求最大边权乘积。<br>证明方法：</p>
 <ul>
-<li>用于分类的字段，如<code>gender</code>只有两个取值，该如何表示？可以使用<a href="https://docs.djangoproject.com/zh-hans/3.0/ref/models/fields/#choices" target="_blank" rel="noopener">Choices</a>来显式定义:<pre class=" language-python"><code class="language-python">  <span class="token keyword">class</span> <span class="token class-name">Gender</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>TextChoices<span class="token punctuation">)</span><span class="token punctuation">:</span>
-      MAN <span class="token operator">=</span> <span class="token string">'M'</span>
-      WOMAN <span class="token operator">=</span> <span class="token string">'W'</span>
-  gender <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> choices<span class="token operator">=</span>Gender<span class="token punctuation">.</span>choices<span class="token punctuation">)</span></code></pre>
-</li>
-<li>外键（foreign key）中的<code>on_delete</code>该如何设置？<ul>
-<li>这是一个有关设计哲学的问题</li>
-<li>对于<code>on_delete</code>的6种模式介绍，<a href="https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models" target="_blank" rel="noopener">stackoverflow</a>上面有精彩的回答</li>
-<li><code>CASCADE</code>是最严谨的模式，例如一个用户被删除了，那么他所有的回答和评论都会被删除，这样能最好地保证数据库的完整性（integrity）</li>
-<li><code>SET_NULL</code>能最好地保护数据不丢失，哪怕误操作删掉了一个用户，他所有的回答和评论都保存在数据库中，不会丢失。知乎上有时会看到“已注销用户”就是这个道理，虽然他的个人信息可能被永久删除了，但是他的回答和评论都保存在数据库中。（当然我不确定知乎是否采用了这种模式）</li>
-<li>我最后选择了<code>SET_NULL</code>：<pre class=" language-python"><code class="language-python">user_id <span class="token operator">=</span> models<span class="token punctuation">.</span>ForeignKey<span class="token punctuation">(</span>User<span class="token punctuation">,</span> on_delete<span class="token operator">=</span>models<span class="token punctuation">.</span>SET_NULL<span class="token punctuation">,</span> null<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> db_column<span class="token operator">=</span><span class="token string">"user_id"</span><span class="token punctuation">)</span></code></pre>
-</li>
+<li><a href="https://leetcode-cn.com/problems/path-with-maximum-probability/solution/zui-duan-lu-suan-fa-ji-zheng-que-xing-de-yan-jin-z/" target="_blank" rel="noopener">证明贪心是正确的</a>，每个点一旦被加入集合，之后就不能出现一条更短的路径了。</li>
 </ul>
-</li>
+<p>但是我一开始的dijkstra写错了，优先队列中的节点按照外部数组<code>dis</code>从大到小排列，这样会导致一个问题：</p>
+<ul>
+<li>队列里的元素的优先级是由外界的<code>dis</code>变化决定的，priority_queue就无法实时保证队列里的元素满足堆性质了。我只要在外面随便改一改<code>dis</code>的值，priority_queue就废了。</li>
+<li><a href="https://www.luogu.com.cn/discuss/show/51361" target="_blank" rel="noopener">https://www.luogu.com.cn/discuss/show/51361</a></li>
 </ul>
-<h1 id="API-Document"><a href="#API-Document" class="headerlink" title="API Document"></a>API Document</h1><ul>
-<li><a href="https://github.com/apiaryio/api-blueprint" target="_blank" rel="noopener">API Blueprint 一门类markdown的api设计语言</a></li>
-<li><a href="https://apiary.io/" target="_blank" rel="noopener">一个在线编辑，预览，测试API的网站</a></li>
+<p>所以priority_queue中存储的应该是<code>pair&lt;double,int&gt; {p,u}</code>，优先队列中的元素优先级不依赖于外部元素。</p>
+<p>此处不需要重载运算符：</p>
+<ul>
+<li>优先队列默认的比较类型是：<code>class Compare = std::less&lt;typename Container::value_type&gt;</code>。</li>
+<li><code>less</code>会调用类型 T 上的 <code>operator&lt;</code> ，除非特化。</li>
+<li><code>pair&lt;class T1, class T2&gt;</code>的小于号<code>&lt;</code>会先比较第一个元素<code>.first</code>，再比较第二个元素<code>.second</code>。</li>
+<li>所以<code>priority_queue&lt;pair&lt;double,int&gt;&gt; q</code>是按<code>p</code>从大到小排列。</li>
 </ul>
-<p>生成出的API文档十分美观<br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-10-17-33" alt="API Document Example"></p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">>></span> e<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">bool</span> visited<span class="token punctuation">[</span><span class="token number">10005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">double</span> <span class="token function">maxProbability</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">>></span><span class="token operator">&amp;</span> edges<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">></span><span class="token operator">&amp;</span> s<span class="token punctuation">,</span> <span class="token keyword">int</span> start<span class="token punctuation">,</span> <span class="token keyword">int</span> end<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>edges<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            e<span class="token punctuation">[</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            e<span class="token punctuation">[</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token punctuation">{</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        vector<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token operator">></span> <span class="token function">dis</span><span class="token punctuation">(</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        priority_queue<span class="token operator">&lt;</span>pair<span class="token operator">&lt;</span><span class="token keyword">double</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">>></span> q<span class="token punctuation">;</span>
+        dis<span class="token punctuation">[</span>start<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1.0</span><span class="token punctuation">,</span>start<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>q<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">auto</span> <span class="token punctuation">[</span>p<span class="token punctuation">,</span>u<span class="token punctuation">]</span><span class="token operator">=</span>q<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            q<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>visited<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                <span class="token keyword">continue</span><span class="token punctuation">;</span>
+            visited<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> <span class="token punctuation">[</span>p<span class="token punctuation">,</span>v<span class="token punctuation">]</span><span class="token operator">:</span>e<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                dis<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">max</span><span class="token punctuation">(</span>dis<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">,</span>dis<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token operator">*</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>visited<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span>
+                    q<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>dis<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">,</span>v<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> dis<span class="token punctuation">[</span>end<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -525,16 +581,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Backend/">
-                                    <span class="chip bg-color">Backend</span>
+                                <a href="/tags/Algorithm/">
+                                    <span class="chip bg-color">Algorithm</span>
                                 </a>
                             
-                                <a href="/tags/Django/">
-                                    <span class="chip bg-color">Django</span>
+                                <a href="/tags/Leetcode/">
+                                    <span class="chip bg-color">Leetcode</span>
                                 </a>
                             
-                                <a href="/tags/Database/">
-                                    <span class="chip bg-color">Database</span>
+                                <a href="/tags/shortest-path/">
+                                    <span class="chip bg-color">shortest path</span>
                                 </a>
                             
                         </div>
@@ -579,7 +635,7 @@
         repo: 'doutv.github.io',
         owner: 'doutv',
         admin: ["doutv"],
-        id: '2020-07-10T08-46-51',
+        id: '2020-07-13T08-59-36',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -607,19 +663,20 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/13/2020/path-with-maximum-probability/">
+                <a href="/2020/07/13/2020/googlekickstartroundd/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="path-with-maximum-probability">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Google-Kick-Start-RoundD">
                         
-                        <span class="card-title">path-with-maximum-probability</span>
+                        <span class="card-title">Google-Kick-Start-RoundD</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
+                            Google Kick Start Round D这次成绩是三次以来最好的啦，1332名，虽然我只做出了第一题，后面三题都是暴力过第一个数据点~
+Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax都初始
                         
                     </div>
                     <div class="publish-info">
@@ -645,12 +702,8 @@
                         <span class="chip bg-color">Algorithm</span>
                     </a>
                     
-                    <a href="/tags/Leetcode/">
-                        <span class="chip bg-color">Leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/shortest-path/">
-                        <span class="chip bg-color">shortest path</span>
+                    <a href="/tags/Competition/">
+                        <span class="chip bg-color">Competition</span>
                     </a>
                     
                 </div>
@@ -664,19 +717,20 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/10/2020/blogconfigure/">
+                <a href="/2020/07/10/2020/developciwk/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客折腾日记">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="学校迎新网站设计">
                         
-                        <span class="card-title">博客折腾日记</span>
+                        <span class="card-title">学校迎新网站设计</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            博客折腾日记主题一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。他用的是hexo+next，我一开始用的主题是yilia，这个主题配置简单，就是有点丑，而且很久没更新了。配置好后发现：文章预览有问题，主页展示了整篇文章
+                            学校迎新网站设计又是一天早上，我坐在电脑前摸鱼。突然，杨同学发来了消息，邀请我参与学校迎新网站（CUHKSZ Welcome Wall）的设计。其实我一直都想做一个网站，就是懒而已，需要一个项目来驱动。既然他都主动邀请我了，那肯定上啊。
+我
                         
                     </div>
                     <div class="publish-info">
@@ -687,8 +741,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
+                            <a href="/categories/Backend/" class="post-category">
+                                    Backend
                                 </a>
                             
                             
@@ -698,8 +752,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/Backend/">
+                        <span class="chip bg-color">Backend</span>
+                    </a>
+                    
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/Database/">
+                        <span class="chip bg-color">Database</span>
                     </a>
                     
                 </div>
