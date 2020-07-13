@@ -28,7 +28,7 @@ summary:
 - 我上知乎查了一下这个问题，[发现了解决方案](https://www.zhihu.com/question/38959595)，只要在`comment`中加一个外键`reply_comment_id`就好了
 - 在这个问题下面，我发现了另外一个问题：如何设计数据库使每个用户只能点赞/踩同一个回答/评论一次呢？
 - 参考了别人的回答，添加`answer_vote`来存储某个用户对某条回答的投票信息，`comment_vote`来存储某个用户对某条评论的投票信息。
-- 最终的数据库设计：
+- 初步的数据库设计：
 - ![ER Diagram](https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-09-05-06)
         
 
