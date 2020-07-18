@@ -95,11 +95,11 @@
       
         <tags>
             
+            <tag> Database </tag>
+            
             <tag> Backend </tag>
             
             <tag> Django </tag>
-            
-            <tag> Database </tag>
             
         </tags>
       
@@ -334,9 +334,9 @@
       
         <tags>
             
-            <tag> CSAPP </tag>
-            
             <tag> Algorithm </tag>
+            
+            <tag> CSAPP </tag>
             
             <tag> Leetcode </tag>
             
@@ -432,9 +432,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> dp </tag>
-            
             <tag> Google Code Jam </tag>
+            
+            <tag> dp </tag>
             
         </tags>
       
@@ -474,11 +474,11 @@
       
         <tags>
             
+            <tag> Python </tag>
+            
             <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
-            
-            <tag> Python </tag>
             
         </tags>
       
@@ -559,9 +559,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Tree </tag>
-            
             <tag> dp </tag>
+            
+            <tag> Tree </tag>
             
             <tag> dfs </tag>
             
@@ -603,9 +603,9 @@
       
         <tags>
             
-            <tag> Python Spider </tag>
-            
             <tag> Tools </tag>
+            
+            <tag> Python Spider </tag>
             
         </tags>
       
@@ -729,13 +729,13 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> Python </tag>
             
             <tag> Pygame </tag>
             
             <tag> Data Structure </tag>
+            
+            <tag> Algorithm </tag>
             
         </tags>
       
@@ -754,9 +754,9 @@
       
         <tags>
             
-            <tag> Node.js </tag>
-            
             <tag> Sequelize </tag>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
@@ -775,9 +775,9 @@
       
         <tags>
             
-            <tag> Database </tag>
-            
             <tag> Sequelize </tag>
+            
+            <tag> Database </tag>
             
         </tags>
       
@@ -796,13 +796,13 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Sequelize </tag>
             
             <tag> Node.js </tag>
             
-            <tag> Sequelize </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> Machine Learning </tag>
             
             <tag> ES6 </tag>
             
@@ -823,9 +823,9 @@
       
         <tags>
             
-            <tag> Node.js </tag>
-            
             <tag> Sequelize </tag>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
