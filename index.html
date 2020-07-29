@@ -437,29 +437,6 @@ Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax�
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/9.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">path-with-maximum-probability</div>
-                            <div class="description center-align">
-                                
-                                    5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/2020/07/13/2020/path-with-maximum-probability/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('/medias/featureimages/0.jpg');">
                 <div class="container">
                     <div class="row">
@@ -484,23 +461,18 @@ Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax�
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/18.jpg');">
+                 style="background-image: url('/medias/featureimages/9.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">submatrices</div>
+                            <div class="title center-align">path-with-maximum-probability</div>
                             <div class="description center-align">
                                 
-                                    5454. 统计全 1 子矩形
-给你一个只包含 0 和 1 的 rows * columns 矩阵 mat ，请你返回有多少个 子矩形 的元素全部都是 1 。
-
-
-
-这题比较像dp（直觉），矩形这类问题挺套路的，基本状态定义都是以当前坐标为
+                                    5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
                                 
                             </div>
                             <div class="cover-btns">
-                                <a href="/2020/07/05/2020/submatrices/" class="waves-effect waves-light btn"
+                                <a href="/2020/07/13/2020/path-with-maximum-probability/" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -529,6 +501,34 @@ Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax�
                             </div>
                             <div class="cover-btns">
                                 <a href="/2020/07/04/2020/vertical-order-traversal-of-a-binary-tree/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/18.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">submatrices</div>
+                            <div class="description center-align">
+                                
+                                    5454. 统计全 1 子矩形
+给你一个只包含 0 和 1 的 rows * columns 矩阵 mat ，请你返回有多少个 子矩形 的元素全部都是 1 。
+
+
+
+这题比较像dp（直觉），矩形这类问题挺套路的，基本状态定义都是以当前坐标为
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2020/07/05/2020/submatrices/" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -637,6 +637,109 @@ Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax�
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/27/2020/number-of-sub-arrays-with-odd-sum/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="number-of-sub-arrays-with-odd-sum">
+                            
+                            <span class="card-title">number-of-sub-arrays-with-odd-sum</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1524.和为奇数的子数组数目题目看起来很简单，但是做起来可就不简单了
+我的思路是：奇数+偶数=奇数，奇数=奇数，根据这个规律来找dp方程，想了两个dp方程都不对……
+一看题解，阔然开朗。
+
+利用前缀和的性质：$sum[i..j]=sum[
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Algorithm/">
+                            <span class="chip bg-color">Algorithm</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/26/2020/number-of-good-leaf-nodes-pairs/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="number-of-good-leaf-nodes-pairs">
+                            
+                            <span class="card-title">number-of-good-leaf-nodes-pairs</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                /**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *r
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Algorithm/">
+                            <span class="chip bg-color">Algorithm</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1205,121 +1308,6 @@ Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax�
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/04/2020/vertical-order-traversal-of-a-binary-tree/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="vertical-order-traversal-of-a-binary-tree">
-                            
-                            <span class="card-title">vertical-order-traversal-of-a-binary-tree</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                偶然打开面试页面发现的一道好题：二叉树的垂序遍历
-
-
-思路
-一开始看题，很简单嘛，dfs走起，算出每个点的X，加到数组里面就完事了，而且树的结点数介于 1 和 1000 之间，开个vector&lt;int&gt; res[2005]即可
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                </a>
-                                
-                                <a href="/categories/Algorithm/Tree/" class="post-category">
-                                    Tree
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Algorithm/">
-                            <span class="chip bg-color">Algorithm</span>
-                        </a>
-                        
-                        <a href="/tags/Leetcode/">
-                            <span class="chip bg-color">Leetcode</span>
-                        </a>
-                        
-                        <a href="/tags/Tree/">
-                            <span class="chip bg-color">Tree</span>
-                        </a>
-                        
-                        <a href="/tags/STL/">
-                            <span class="chip bg-color">STL</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/28/2020/6-28/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="6.28 Notes">
-                            
-                            <span class="card-title">6.28 Notes</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                6.22-6.28 Learning NotesLeetcodeMST请你找到给定图中最小生成树的所有关键边和伪关键边。如果最小生成树中删去某条边，会导致最小生成树的权值和增加，那么我们就说它是一条关键边。伪关键边则是可能会出现在某些最小生
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                Jason
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Algorithm/">
-                            <span class="chip bg-color">Algorithm</span>
-                        </a>
-                        
-                        <a href="/tags/Leetcode/">
-                            <span class="chip bg-color">Leetcode</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1364,7 +1352,7 @@ Record Breaker送分模拟题，注意一下边界条件即可。a[n+1],premax�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.1k</span>&nbsp;字
+                class="white-color">43.4k</span>&nbsp;字
             
             
             

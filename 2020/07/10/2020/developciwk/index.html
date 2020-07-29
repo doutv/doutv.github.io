@@ -448,21 +448,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-13
+                    2020-07-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    659
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
 
@@ -496,7 +496,7 @@
       MAN <span class="token operator">=</span> <span class="token string">'M'</span>
       WOMAN <span class="token operator">=</span> <span class="token string">'W'</span>
   gender <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> choices<span class="token operator">=</span>Gender<span class="token punctuation">.</span>choices<span class="token punctuation">)</span></code></pre>
-</li>
+  Choices此处在纯后端的django中其实只起到了代码注释的作用，在生成的数据库语句中不会产生任何不同。也就是说，<code>gender=&quot;A&quot;</code>也是可以的。</li>
 <li>外键（foreign key）中的<code>on_delete</code>该如何设置？<ul>
 <li>这是一个有关设计哲学的问题</li>
 <li>对于<code>on_delete</code>的6种模式介绍，<a href="https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models" target="_blank" rel="noopener">stackoverflow</a>上面有精彩的回答</li>
@@ -507,11 +507,64 @@
 </ul>
 </li>
 </ul>
-<h1 id="API-Document"><a href="#API-Document" class="headerlink" title="API Document"></a>API Document</h1><ul>
+<h2 id="API-Document"><a href="#API-Document" class="headerlink" title="API Document"></a>API Document</h2><ul>
 <li><a href="https://github.com/apiaryio/api-blueprint" target="_blank" rel="noopener">API Blueprint 一门类markdown的api设计语言</a></li>
 <li><a href="https://apiary.io/" target="_blank" rel="noopener">一个在线编辑，预览，测试API的网站</a></li>
 </ul>
 <p>生成出的API文档十分美观<br><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-10-17-33" alt="API Document Example"></p>
+<h2 id="django前后端分离实践"><a href="#django前后端分离实践" class="headerlink" title="django前后端分离实践"></a>django前后端分离实践</h2><p>django是自带前端界面的，但在我们的项目中，django只负责后端部分，前端用react完成。</p>
+<p>由于我们项目较小，核心开发人员只有三人，我负责后端部分，另外两位同学负责前端，所以我们是一边完善API文档一边写程序的。后端只需要提供API，根据相应的请求返回对应的json。下面讲一些常用的函数/功能：</p>
+<ul>
+<li><code>body_dict = json.loads(request.body.decode(&#39;utf-8&#39;))</code> 读取POST中的字段</li>
+<li><code>dict.get</code> python字典的get方法</li>
+<li><code>models.save()</code> 更改某个model后保存</li>
+<li><code>get_object_or_404</code> 获取单个符合条件的model</li>
+<li><code>models.objects.filter</code> 返回一个<code>queryset</code>包含符合条件的所有model</li>
+</ul>
+<h3 id="Convert-Django-Model-object-to-dict"><a href="#Convert-Django-Model-object-to-dict" class="headerlink" title="Convert Django Model object to dict"></a>Convert Django Model object to dict</h3><p><a href="https://stackoverflow.com/questions/21925671/convert-django-model-object-to-dict-with-all-of-the-fields-intact" target="_blank" rel="noopener">StackOverflow上面对这个问题的解答</a></p>
+<p>我在项目中主要采用了2种方法：</p>
+<ol>
+<li><code>model_to_dict</code>：返回特定列且不需要返回外键的场景中。</li>
+<li>StackOverflow上的custom function<code>to_dict</code>：返回model的所有字段。</li>
+</ol>
+<p><code>to_dict</code>也可以只返回model的特定列，写法如下：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">to_dict</span><span class="token punctuation">(</span>instance<span class="token punctuation">,</span> except_fields<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    opts <span class="token operator">=</span> instance<span class="token punctuation">.</span>_meta
+    d <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> f <span class="token keyword">in</span> chain<span class="token punctuation">(</span>opts<span class="token punctuation">.</span>concrete_fields<span class="token punctuation">,</span> opts<span class="token punctuation">.</span>private_fields<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> f<span class="token punctuation">.</span>name <span class="token keyword">in</span> except_fields<span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+        d<span class="token punctuation">[</span>f<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">.</span>value_from_object<span class="token punctuation">(</span>instance<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> f <span class="token keyword">in</span> opts<span class="token punctuation">.</span>many_to_many<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> f<span class="token punctuation">.</span>name <span class="token keyword">in</span> except_fields<span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+        d<span class="token punctuation">[</span>f<span class="token punctuation">.</span>name<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span>i<span class="token punctuation">.</span>id <span class="token keyword">for</span> i <span class="token keyword">in</span> f<span class="token punctuation">.</span>value_from_object<span class="token punctuation">(</span>instance<span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> d</code></pre>
+<h2 id="用户登录系统设计"><a href="#用户登录系统设计" class="headerlink" title="用户登录系统设计"></a>用户登录系统设计</h2><p>用户成功登录后，用<code>set_cookie</code>方法将<code>token</code>（一串随机生成的字符串作为用户身份标识）放在用户的cookie中。在需要验证用户身份的场景中，只需要验证用户cookie中的token与数据库中该user_id对应的token是否相等即可，省去了每次登录的麻烦。token有过期时间，如果token过期了就相当于无效，用户需要重新登录获取新生成的token。</p>
+<p>由于我并没有采用django中的身份验证模块，因此以下操作都需手动进行：生成token和过期日期expired_date，存储到数据库中，进行token比对。为了减少重复代码，我使用了装饰器来进行token比对：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">post_token_auth_decorator</span><span class="token punctuation">(</span>api<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    @wraps<span class="token punctuation">(</span>api<span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">token_auth</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        body_dict <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        user <span class="token operator">=</span> get_object_or_404<span class="token punctuation">(</span>User<span class="token punctuation">,</span> user_id<span class="token operator">=</span>body_dict<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"user_id"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> request<span class="token punctuation">.</span>COOKIES<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">)</span> <span class="token operator">!=</span> user<span class="token punctuation">.</span>token<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"token incorrect"</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> user<span class="token punctuation">.</span>expired_date <span class="token operator">&lt;</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"token expire"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> api<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> token_auth</code></pre>
+<p>在需要验证用户身份的场景中，如所有的POST操作，只需要在API前加上<code>@post_token_auth_decorator</code>即可。事实上，POST的API使用了2个装饰器（注意先后顺序）：</p>
+<pre class=" language-python"><code class="language-python">@require_http_methods<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"POST"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+@post_token_auth_decorator
+<span class="token keyword">def</span> <span class="token function">alter_user_info</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span></code></pre>
+<p>P.S. <a href="https://www.runoob.com/w3cnote/python-func-decorators.html" target="_blank" rel="noopener">装饰器教程，注意看下面的第一篇笔记</a></p>
+<p>使用secrets库中的<code>token_urlsafe</code>方法生成token并<code>set_cookie</code>：</p>
+<pre class=" language-python"><code class="language-python"><span class="token keyword">from</span> secrets <span class="token keyword">import</span> token_urlsafe
+
+user<span class="token punctuation">.</span>token <span class="token operator">=</span> token_urlsafe<span class="token punctuation">(</span>TOKEN_LENGTH<span class="token punctuation">)</span>
+user<span class="token punctuation">.</span>expired_date <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span>TOKEN_DURING_DAYS<span class="token punctuation">)</span>
+response <span class="token operator">=</span> HttpResponse<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"User register successfully"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> content_type<span class="token operator">=</span><span class="token string">'application/json'</span><span class="token punctuation">)</span>
+response<span class="token punctuation">.</span>set_cookie<span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span>token<span class="token punctuation">)</span></code></pre>
 
             </div>
             <hr/>
@@ -895,7 +948,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.1k</span>&nbsp;字
+                class="white-color">43.4k</span>&nbsp;字
             
             
             
