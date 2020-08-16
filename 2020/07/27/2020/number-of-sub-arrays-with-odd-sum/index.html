@@ -585,34 +585,30 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/27/2020/number-of-sub-arrays-with-odd-sum/">
+                <a href="/2020/08/16/2020/minimum-number-of-days-to-eat-n-oranges/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="number-of-sub-arrays-with-odd-sum">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="minimum-number-of-days-to-eat-n-oranges">
                         
-                        <span class="card-title">number-of-sub-arrays-with-odd-sum</span>
+                        <span class="card-title">minimum-number-of-days-to-eat-n-oranges</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1524.和为奇数的子数组数目题目看起来很简单，但是做起来可就不简单了
-我的思路是：奇数+偶数=奇数，奇数=奇数，根据这个规律来找dp方程，想了两个dp方程都不对……
-一看题解，阔然开朗。
-
-利用前缀和的性质：$sum[i..j]=sum[
+                            5490. 吃掉 N 个橘子的最少天数一道平平无奇的记忆化搜索题目，题面已经把递归方程给我们了。
+现在的问题是$n\leq 2e9$，如何实现记忆化呢？这里可以用到$unordered_map$来存储状态，因为所需要的状态远远小于$2e9$
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-27
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -625,7 +621,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -644,29 +639,27 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/26/2020/number-of-good-leaf-nodes-pairs/">
+                <a href="/2020/07/20/2020/find-a-value-of-a-mysterious-function-closest-to-target/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="number-of-good-leaf-nodes-pairs">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Find a Value of a Mysterious Function Closest to Target">
                         
-                        <span class="card-title">number-of-good-leaf-nodes-pairs</span>
+                        <span class="card-title">Find a Value of a Mysterious Function Closest to Target</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            /**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *r
+                            1521. 找到最接近目标值的函数值当时卡在第三题了，第四题还没看过😓
+后面看了一下题目，感觉跟前缀和相关，然后懒懒的我就去看题解了~
+位运算这个题解讲得很好，建议认真吸收。
+根据按位与的两个性质，尤其是第二个性质，使得我们可以轻松地遍历
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
                             </span>
                         <span class="publish-author">
                             
@@ -685,6 +678,14 @@
                     
                     <a href="/tags/Algorithm/">
                         <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                    <a href="/tags/Leetcode/">
+                        <span class="chip bg-color">Leetcode</span>
+                    </a>
+                    
+                    <a href="/tags/Competition/">
+                        <span class="chip bg-color">Competition</span>
                     </a>
                     
                 </div>
@@ -880,7 +881,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.4k</span>&nbsp;字
+                class="white-color">43.3k</span>&nbsp;字
             
             
             
