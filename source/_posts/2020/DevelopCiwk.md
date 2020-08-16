@@ -43,6 +43,7 @@ django中的数据库在`models.py`中定义，用的是ORM。
         WOMAN = 'W'
     gender = models.CharField(max_length=1, choices=Gender.choices)
     ```
+    Choices此处在纯后端的django中其实只起到了代码注释的作用，在生成的数据库语句中不会产生任何不同。也就是说，`gender="A"`也是可以的。
 - 外键（foreign key）中的`on_delete`该如何设置？
   - 这是一个有关设计哲学的问题
   - 对于`on_delete`的6种模式介绍，[stackoverflow](https://stackoverflow.com/questions/38388423/what-does-on-delete-do-on-django-models)上面有精彩的回答
@@ -53,9 +54,79 @@ django中的数据库在`models.py`中定义，用的是ORM。
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, db_column="user_id")
     ```
 
-# API Document
+## API Document
 + [API Blueprint 一门类markdown的api设计语言](https://github.com/apiaryio/api-blueprint)
 + [一个在线编辑，预览，测试API的网站](https://apiary.io/)
 
 生成出的API文档十分美观  
 ![API Document Example](https://raw.githubusercontent.com/doutv/Picbed/master/img/DevelopCiwk-2020-07-10-10-17-33)
+
+## django前后端分离实践
+django是自带前端界面的，但在我们的项目中，django只负责后端部分，前端用react完成。
+
+由于我们项目较小，核心开发人员只有三人，我负责后端部分，另外两位同学负责前端，所以我们是一边完善API文档一边写程序的。后端只需要提供API，根据相应的请求返回对应的json。下面讲一些常用的函数/功能：
+- `body_dict = json.loads(request.body.decode('utf-8'))` 读取POST中的字段
+- `dict.get` python字典的get方法
+- `models.save()` 更改某个model后保存
+- `get_object_or_404` 获取单个符合条件的model
+- `models.objects.filter` 返回一个`queryset`包含符合条件的所有model
+
+
+### Convert Django Model object to dict
+[StackOverflow上面对这个问题的解答](https://stackoverflow.com/questions/21925671/convert-django-model-object-to-dict-with-all-of-the-fields-intact)
+
+我在项目中主要采用了2种方法：
+1. `model_to_dict`：返回特定列且不需要返回外键的场景中。
+2. StackOverflow上的custom function`to_dict`：返回model的所有字段。
+
+`to_dict`也可以只返回model的特定列，写法如下：
+
+```python
+def to_dict(instance, except_fields=[]):
+    opts = instance._meta
+    d = {}
+    for f in chain(opts.concrete_fields, opts.private_fields):
+        if f.name in except_fields:
+            continue
+        d[f.name] = f.value_from_object(instance)
+    for f in opts.many_to_many:
+        if f.name in except_fields:
+            continue
+        d[f.name] = [i.id for i in f.value_from_object(instance)]
+    return d
+```
+
+## 用户登录系统设计
+用户成功登录后，用`set_cookie`方法将`token`（一串随机生成的字符串作为用户身份标识）放在用户的cookie中。在需要验证用户身份的场景中，只需要验证用户cookie中的token与数据库中该user_id对应的token是否相等即可，省去了每次登录的麻烦。token有过期时间，如果token过期了就相当于无效，用户需要重新登录获取新生成的token。
+
+由于我并没有采用django中的身份验证模块，因此以下操作都需手动进行：生成token和过期日期expired_date，存储到数据库中，进行token比对。为了减少重复代码，我使用了装饰器来进行token比对：
+```python
+def post_token_auth_decorator(api):
+    @wraps(api)
+    def token_auth(request):
+        body_dict = json.loads(request.body.decode('utf-8'))
+        user = get_object_or_404(User, user_id=body_dict.get("user_id"))
+        if request.COOKIES.get("token") != user.token:
+            raise Exception("token incorrect")
+        if user.expired_date < datetime.now():
+            raise Exception("token expire")
+        return api(request)
+    return token_auth
+```
+在需要验证用户身份的场景中，如所有的POST操作，只需要在API前加上`@post_token_auth_decorator`即可。事实上，POST的API使用了2个装饰器（注意先后顺序）：
+```python
+@require_http_methods(["POST"])
+@post_token_auth_decorator
+def alter_user_info(request):
+```
+P.S. [装饰器教程，注意看下面的第一篇笔记](https://www.runoob.com/w3cnote/python-func-decorators.html)
+
+使用secrets库中的`token_urlsafe`方法生成token并`set_cookie`：
+```python
+from secrets import token_urlsafe
+
+user.token = token_urlsafe(TOKEN_LENGTH)
+user.expired_date = datetime.now() + timedelta(days=TOKEN_DURING_DAYS)
+response = HttpResponse({"message": "User register successfully"}, content_type='application/json')
+response.set_cookie("token", user.token)
+```

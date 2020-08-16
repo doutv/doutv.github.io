@@ -8,6 +8,9 @@ theme: hexo-theme-matery
 # sitemap for google
 sitemap:
   path: sitemap.xml
+# sitemap for baidu
+baidusitemap:
+  path: baidusitemap.xml
 
 # Site
 title: Jason's Blog
@@ -20,7 +23,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://doutv.github.io
+url: https://jasonblog.xyz/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -37,7 +40,10 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-
+  - README.md
+  - CNAME
+  - baidu_verify_l3UazzvumL.html
+  - google893da65ad6bc2b54.html
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
