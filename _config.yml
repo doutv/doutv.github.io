@@ -124,7 +124,7 @@ ignore:
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/doutv/doutv.github.io
+  repo: https://gitee.com/doutv/blog
   branch: master
 
 jsonContent:
