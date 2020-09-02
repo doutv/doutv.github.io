@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="学校迎新网站设计, Jason&#39;s Blog">
+    <meta name="keywords" content="TeaBreak网站后端笔记, Jason&#39;s Blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>学校迎新网站设计 | Jason&#39;s Blog</title>
+    <title>TeaBreak网站后端笔记 | Jason&#39;s Blog</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">学校迎新网站设计</h1>
+                    <h1 class="description center-align post-title">TeaBreak网站后端笔记</h1>
                 </div>
             </div>
         </div>
@@ -441,28 +441,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-10
+                    2020-09-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-24
+                    2020-09-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    8 分
                 </div>
                 
 
@@ -477,7 +477,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="学校迎新网站设计"><a href="#学校迎新网站设计" class="headerlink" title="学校迎新网站设计"></a>学校迎新网站设计</h1><p>又是一天早上，我坐在电脑前摸鱼。突然，杨同学发来了消息，邀请我参与学校迎新网站（CUHKSZ Welcome Wall）的设计。<br>其实我一直都想做一个网站，就是懒而已，需要一个项目来驱动。既然他都主动邀请我了，那肯定上啊。</p>
+                <h1 id="TeaBreak网站后端笔记"><a href="#TeaBreak网站后端笔记" class="headerlink" title="TeaBreak网站后端笔记"></a>TeaBreak网站后端笔记</h1><p><a href="http://lguwelcome.online/" target="_blank" rel="noopener">TeaBreak</a>是一个类知乎的校内问答网站，目前提供问答与文章功能。</p>
 <p>我负责的是网站的后端，框架是<code>django</code>。我之前从未用过<code>django</code>，那就现学呗。<br>把<a href="https://docs.djangoproject.com/zh-hans/3.0/intro/tutorial01/" target="_blank" rel="noopener">django tutorial</a>过一遍，了解了里面的一些概念和整个开发的流程。</p>
 <h2 id="设计数据库"><a href="#设计数据库" class="headerlink" title="设计数据库"></a>设计数据库</h2><ul>
 <li>目标是做一个类知乎的问答网站</li>
@@ -565,6 +565,45 @@ user<span class="token punctuation">.</span>token <span class="token operator">=
 user<span class="token punctuation">.</span>expired_date <span class="token operator">=</span> datetime<span class="token punctuation">.</span>now<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> timedelta<span class="token punctuation">(</span>days<span class="token operator">=</span>TOKEN_DURING_DAYS<span class="token punctuation">)</span>
 response <span class="token operator">=</span> HttpResponse<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"message"</span><span class="token punctuation">:</span> <span class="token string">"User register successfully"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> content_type<span class="token operator">=</span><span class="token string">'application/json'</span><span class="token punctuation">)</span>
 response<span class="token punctuation">.</span>set_cookie<span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span>token<span class="token punctuation">)</span></code></pre>
+<h2 id="后端项目规范"><a href="#后端项目规范" class="headerlink" title="后端项目规范"></a>后端项目规范</h2><p>随着我们团队开发人员的增多（前端2人+后端2人），提高协作效率显得尤为重要，为此我定义了后端项目规范。</p>
+<h3 id="后端工作流程workflow"><a href="#后端工作流程workflow" class="headerlink" title="后端工作流程workflow"></a>后端工作流程workflow</h3><ul>
+<li>流程：<code>API Document</code> -&gt; <code>git checkout feature</code>切换到<code>feature</code>分支进行开发 -&gt; <code>models.py</code> -&gt; <code>views.py</code> -&gt; <code>urls.py</code> -&gt; <code>postman testing on localhost</code> -&gt; <code>git commit &amp; sync</code> -&gt; <code>postman testing on cloud server</code>这一步可以省略，一般在本地通过测试以后，服务器上应该也不会出现问题 -&gt; 通过测试后将<code>feature</code>分支合并到<code>master</code> -&gt; 上线部署 -&gt; <code>API Document</code></li>
+<li><code>models.py</code>数据库设计<ul>
+<li>一般情况不需要更改，更改过多时迁移<code>migrate</code>会遇到错误，遇到错误的解决方法见<code>Database</code>。</li>
+</ul>
+</li>
+<li><code>views.py</code>API设计:<ul>
+<li>大部分的工作会在这里完成。最好是先在API文档中定义好request和response。</li>
+<li>查django官方文档或者google解决，也可参考之前的代码，POST和GET两种接口的写法几乎是固定的。</li>
+</ul>
+</li>
+<li><code>urls.py</code>后端路由:<ul>
+<li>将<code>views.py</code>里面的函数映射到某个url上，一般在完成<code>views.py</code>后修改。</li>
+<li>小心两个url发生冲突。例如：<code>api/handbook/&lt;str:category&gt;/&lt;int:order&gt;/</code>与<code>api/handbook/category/&lt;str:category&gt;/</code>会发生冲突</li>
+</ul>
+</li>
+<li>注意API文档要与<code>views.py</code>，<code>urls.py</code>同步更新。</li>
+</ul>
+<h3 id="git使用规范"><a href="#git使用规范" class="headerlink" title="git使用规范"></a>git使用规范</h3><ul>
+<li>双分支管理：<code>master+feature</code>分支，<code>master</code>是服务器上跑的稳定版本，<code>feature</code>是开发中的不稳定版本，<code>feature</code>分支需要经过测试以及前后端沟通后才能发布到<code>master</code>分支。</li>
+<li>commit信息要写完整，写详细，解决了某某需求，修复了某某bug，建议用中文来写，这样容易表达出自己的意思，如：<code>API: 修改get_suggested_questions接口，按照问题下的回答的点赞总数从大到小排序</code>。</li>
+<li>单次commit最好对应<code>confluence</code>中的一个需求，或是解决了一个bug。</li>
+<li>除了紧急修复运行中的bug，其他情况不要直接在服务器上面改代码，网站容易崩。</li>
+</ul>
+<h3 id="数据库注意事项"><a href="#数据库注意事项" class="headerlink" title="数据库注意事项"></a>数据库注意事项</h3><ul>
+<li>⚠尽量不要直接操作数据库，而是通过已经写好的API来操作。</li>
+<li>tips：下载<code>mysql workbench</code>来可视化管理数据库，进行敏感操作（更改/删除）时要小心。</li>
+<li><code>/ciwkbe/settings.py</code>里面选好数据库的<code>.cnf</code>文件</li>
+<li><code>python manage.py makemigrations qa</code></li>
+<li><code>python manage.py migrate qa</code></li>
+<li><code>migrate</code>迁移过程中发生错误怎么办？<ul>
+<li>首先查看错误信息，常见的有：将某个字段改为<code>unique</code>时，由于该字段已经存在重复的数据，不满足<code>unique constraint</code>，数据库会报错。</li>
+<li>有些错误可以通过django的引导来更改，比如提供一个<code>default</code>值。</li>
+<li>而像上面所提到的错误则需要手动更改重复的数据，使该列满足<code>unique constraint</code>。</li>
+<li>有时候<code>migrate</code>进行了一部分，剩下另一部分由于出错而没有进行，或已经直接对数据库进行了相应更改。此时可以找到对应的迁移文件<code>/qa/migrations/xxxx_auto_yyyy.py</code>，手动将已经迁移的部分删除，再进行<code>migrate</code>。为了避免下次<code>migrate</code>因<code>migrate</code>不完整而出错，我的解决方法是：<code>migrate</code>全部完成后，将对应的迁移文件<code>/qa/migrations/xxxx_auto_yyyy.py</code>删除，再<code>python manage.py makemigrations qa</code>重新生成完整的迁移文件，然后通过该命令跳过该迁移<code>python manage.py migrate qa xxxx --fake</code>（<code>xxxx</code>是当次迁移文件的编号）</li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -632,7 +671,7 @@ response<span class="token punctuation">.</span>set_cookie<span class="token pun
         repo: 'doutv.github.io',
         owner: 'doutv',
         admin: ["doutv"],
-        id: '2020-07-10T08-46-51',
+        id: '2020-09-02T08-46-51',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -656,29 +695,91 @@ response<span class="token punctuation">.</span>set_cookie<span class="token pun
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/13/2020/path-with-maximum-probability/">
+                <a href="/2020/09/02/2020/developciwk/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="path-with-maximum-probability">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="TeaBreak网站后端笔记">
                         
-                        <span class="card-title">path-with-maximum-probability</span>
+                        <span class="card-title">TeaBreak网站后端笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
+                            TeaBreak网站后端笔记TeaBreak是一个类知乎的校内问答网站，目前提供问答与文章功能。
+我负责的是网站的后端，框架是django。我之前从未用过django，那就现学呗。把django tutorial过一遍，了解了里面的一些概念
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Backend/" class="post-category">
+                                    Backend
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Database/">
+                        <span class="chip bg-color">Database</span>
+                    </a>
+                    
+                    <a href="/tags/Backend/">
+                        <span class="chip bg-color">Backend</span>
+                    </a>
+                    
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/08/27/2020/google-kickstart-round-e/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Google-KickStart-Round-E">
+                        
+                        <span class="card-title">Google-KickStart-Round-E</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Google KickStart Round E这次做的有点菜😓
+High Buildings题意：构造一个以a[1]为首且长度为a的最长不下降序列，以a[n]为尾且长度为b的最长不上升序列，这两个序列的公共部分长度为c。
+考场上不知道哪
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -696,63 +797,6 @@ response<span class="token punctuation">.</span>set_cookie<span class="token pun
                     
                     <a href="/tags/Algorithm/">
                         <span class="chip bg-color">Algorithm</span>
-                    </a>
-                    
-                    <a href="/tags/Leetcode/">
-                        <span class="chip bg-color">Leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/shortest-path/">
-                        <span class="chip bg-color">shortest path</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/10/2020/blogconfigure/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客折腾日记">
-                        
-                        <span class="card-title">博客折腾日记</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            博客折腾日记主题一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。他用的是hexo+next，我一开始用的主题是yilia，这个主题配置简单，就是有点丑，而且很久没更新了。配置好后发现：文章预览有问题，主页展示了整篇文章
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
@@ -948,7 +992,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44k</span>&nbsp;字
+                class="white-color">44.9k</span>&nbsp;字
             
             
             

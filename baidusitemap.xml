@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jasonblog.xyz/2020/07/13/2020/googlekickstartroundd/</loc>
+    <lastmod>2020-09-02</lastmod>
+  </url>
+  <url>
+    <loc>https://jasonblog.xyz/2020/09/02/2020/developciwk/</loc>
+    <lastmod>2020-09-02</lastmod>
+  </url>
+  <url>
     <loc>https://jasonblog.xyz/2020/08/27/2020/google-kickstart-round-e/</loc>
     <lastmod>2020-08-27</lastmod>
   </url>
@@ -17,10 +25,6 @@
     <lastmod>2020-07-27</lastmod>
   </url>
   <url>
-    <loc>https://jasonblog.xyz/2020/07/10/2020/developciwk/</loc>
-    <lastmod>2020-07-24</lastmod>
-  </url>
-  <url>
     <loc>https://jasonblog.xyz/2020/07/20/2020/find-a-value-of-a-mysterious-function-closest-to-target/</loc>
     <lastmod>2020-07-20</lastmod>
   </url>
@@ -31,10 +35,6 @@
   <url>
     <loc>https://jasonblog.xyz/2020/07/16/2020/introduction-to-cs/</loc>
     <lastmod>2020-07-17</lastmod>
-  </url>
-  <url>
-    <loc>https://jasonblog.xyz/2020/07/13/2020/googlekickstartroundd/</loc>
-    <lastmod>2020-07-13</lastmod>
   </url>
   <url>
     <loc>https://jasonblog.xyz/2020/07/13/2020/path-with-maximum-probability/</loc>
