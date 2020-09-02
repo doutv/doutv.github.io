@@ -20,11 +20,13 @@
       
         <tags>
             
-            <tag> Database </tag>
-            
             <tag> Backend </tag>
             
             <tag> Django </tag>
+            
+            <tag> Database </tag>
+            
+            <tag> Project </tag>
             
         </tags>
       
@@ -494,9 +496,9 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> CSAPP </tag>
+            
+            <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
             
@@ -634,11 +636,11 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -763,9 +765,9 @@
       
         <tags>
             
-            <tag> Tools </tag>
-            
             <tag> Python Spider </tag>
+            
+            <tag> Tools </tag>
             
         </tags>
       
@@ -889,13 +891,13 @@
       
         <tags>
             
+            <tag> Algorithm </tag>
+            
             <tag> Python </tag>
             
             <tag> Pygame </tag>
             
             <tag> Data Structure </tag>
-            
-            <tag> Algorithm </tag>
             
         </tags>
       
@@ -956,11 +958,11 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Sequelize </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> C++ </tag>
             
