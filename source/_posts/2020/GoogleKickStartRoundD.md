@@ -1,7 +1,7 @@
 ---
 title: Google-Kick-Start-RoundD
 top: false
-cover: true
+cover: false
 toc: true
 mathjax: true
 tags:

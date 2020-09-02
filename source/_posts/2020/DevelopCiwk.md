@@ -1,22 +1,22 @@
 ---
-title: 学校迎新网站设计
-top: false
-cover: false
+title: TeaBreak网站后端笔记
+top: true
+cover: true
 toc: true
 mathjax: true
 tags:
   - Backend
   - Django
   - Database
+  - Project
 categories:
   - Backend
-date: 2020-07-10 08:46:51
+date: 2020-09-02 08:46:51
 summary:
 ---
 
-# 学校迎新网站设计
-又是一天早上，我坐在电脑前摸鱼。突然，杨同学发来了消息，邀请我参与学校迎新网站（CUHKSZ Welcome Wall）的设计。
-其实我一直都想做一个网站，就是懒而已，需要一个项目来驱动。既然他都主动邀请我了，那肯定上啊。
+# TeaBreak网站后端笔记
+[TeaBreak](http://lguwelcome.online/)是一个类知乎的校内问答网站，目前提供问答与文章功能。
 
 我负责的是网站的后端，框架是`django`。我之前从未用过`django`，那就现学呗。
 把[django tutorial](https://docs.djangoproject.com/zh-hans/3.0/intro/tutorial01/)过一遍，了解了里面的一些概念和整个开发的流程。
@@ -130,3 +130,36 @@ user.expired_date = datetime.now() + timedelta(days=TOKEN_DURING_DAYS)
 response = HttpResponse({"message": "User register successfully"}, content_type='application/json')
 response.set_cookie("token", user.token)
 ```
+## 后端项目规范
+随着我们团队开发人员的增多（前端2人+后端2人），提高协作效率显得尤为重要，为此我定义了后端项目规范。
+
+### 后端工作流程workflow
++ 流程：`API Document` -> `git checkout feature`切换到`feature`分支进行开发 -> `models.py` -> `views.py` -> `urls.py` -> `postman testing on localhost` -> `git commit & sync` -> `postman testing on cloud server`这一步可以省略，一般在本地通过测试以后，服务器上应该也不会出现问题 -> 通过测试后将`feature`分支合并到`master` -> 上线部署 -> `API Document`
++ `models.py`数据库设计
+  + 一般情况不需要更改，更改过多时迁移`migrate`会遇到错误，遇到错误的解决方法见`Database`。
++ `views.py`API设计:
+  + 大部分的工作会在这里完成。最好是先在API文档中定义好request和response。
+  + 查django官方文档或者google解决，也可参考之前的代码，POST和GET两种接口的写法几乎是固定的。
++ `urls.py`后端路由:
+  + 将`views.py`里面的函数映射到某个url上，一般在完成`views.py`后修改。
+  + 小心两个url发生冲突。例如：`api/handbook/<str:category>/<int:order>/`与`api/handbook/category/<str:category>/`会发生冲突
++ 注意API文档要与`views.py`，`urls.py`同步更新。
+
+
+### git使用规范
++ 双分支管理：`master+feature`分支，`master`是服务器上跑的稳定版本，`feature`是开发中的不稳定版本，`feature`分支需要经过测试以及前后端沟通后才能发布到`master`分支。
++ commit信息要写完整，写详细，解决了某某需求，修复了某某bug，建议用中文来写，这样容易表达出自己的意思，如：`API: 修改get_suggested_questions接口，按照问题下的回答的点赞总数从大到小排序`。
++ 单次commit最好对应`confluence`中的一个需求，或是解决了一个bug。
++ 除了紧急修复运行中的bug，其他情况不要直接在服务器上面改代码，网站容易崩。
+
+### 数据库注意事项
+- ⚠尽量不要直接操作数据库，而是通过已经写好的API来操作。
+- tips：下载`mysql workbench`来可视化管理数据库，进行敏感操作（更改/删除）时要小心。
+- `/ciwkbe/settings.py`里面选好数据库的`.cnf`文件
+- `python manage.py makemigrations qa`
+- `python manage.py migrate qa`
+- `migrate`迁移过程中发生错误怎么办？
+  - 首先查看错误信息，常见的有：将某个字段改为`unique`时，由于该字段已经存在重复的数据，不满足`unique constraint`，数据库会报错。
+  - 有些错误可以通过django的引导来更改，比如提供一个`default`值。
+  - 而像上面所提到的错误则需要手动更改重复的数据，使该列满足`unique constraint`。
+  - 有时候`migrate`进行了一部分，剩下另一部分由于出错而没有进行，或已经直接对数据库进行了相应更改。此时可以找到对应的迁移文件`/qa/migrations/xxxx_auto_yyyy.py`，手动将已经迁移的部分删除，再进行`migrate`。为了避免下次`migrate`因`migrate`不完整而出错，我的解决方法是：`migrate`全部完成后，将对应的迁移文件`/qa/migrations/xxxx_auto_yyyy.py`删除，再`python manage.py makemigrations qa`重新生成完整的迁移文件，然后通过该命令跳过该迁移`python manage.py migrate qa xxxx --fake`（`xxxx`是当次迁移文件的编号）
