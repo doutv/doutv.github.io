@@ -433,28 +433,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-10
+                    2020-09-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-10
+                    2020-09-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    301
+                    590
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -476,6 +476,20 @@
 </ol>
 <p>其实博客关键还是内容，内容为王，外观再漂亮也只是衬托罢了。</p>
 <h2 id="搜索引擎收录"><a href="#搜索引擎收录" class="headerlink" title="搜索引擎收录"></a>搜索引擎收录</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>上<a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Google Search Console</a>，有多种验证方式来确认网站是归属你所有的。<br>我用了最简单的那种方式：在<code>/public</code>下加一个<code>.html</code>文件，但是每次部署网站<code>hexo clean</code> <code>hexo d</code>都要手动把这个文件加进去</p>
+<h2 id="从github-pages转到腾讯云服务器"><a href="#从github-pages转到腾讯云服务器" class="headerlink" title="从github pages转到腾讯云服务器"></a>从github pages转到腾讯云服务器</h2><p>由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。</p>
+<p><a href="http://www.buhuo996.com/posts/65504/" target="_blank" rel="noopener">通过Git钩子将hexo博客自动部署到ubuntu服务器</a>：这篇文章写的很好，设置成功后，只需要<code>hexo d</code>就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone root@server_ip:/var/repo/hexo_static.git</code></pre>
+<p>这一步中会提示没有权限，但是我明明已经给服务器添加了密钥对，并将私钥保存到本地了啊，这是为什么呢？<br>在我的windows电脑上.ssh/config是这样的：</p>
+<pre><code>Host blog
+    HostName 106.52.xxx.xxx
+    User ubuntu
+    IdentityFile C:\\Users\\Jason\\.ssh\\blog.pem</code></pre><p>而且我用这条命令也是可以正常登录服务器的</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -o <span class="token string">"IdentitiesOnly=yes"</span> -i C:\\Users\\Jason\\.ssh\\blog.pem ubuntu@106.52.xxx.xxx</code></pre>
+<p>事实上这条命令与</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> blog</code></pre>
+<p>是等价的，<code>Host</code>相当于给这个ssh配置起了一个别名</p>
+<p>所以在<code>_config.yml</code>中</p>
+<p>然而我发现备案太麻烦了，而且不能开留言功能，先放着吧呜呜。</p>
 
             </div>
             <hr/>
@@ -535,7 +549,7 @@
         repo: 'doutv.github.io',
         owner: 'doutv',
         admin: ["doutv"],
-        id: '2020-07-10T08-32-26',
+        id: '2020-09-03T08-32-26',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -559,54 +573,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/13/2020/path-with-maximum-probability/">
+                <a href="/2020/09/03/2020/blogconfigure/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="path-with-maximum-probability">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="博客折腾日记">
                         
-                        <span class="card-title">path-with-maximum-probability</span>
+                        <span class="card-title">博客折腾日记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
+                            博客折腾日记主题一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。他用的是hexo+next，我一开始用的主题是yilia，这个主题配置简单，就是有点丑，而且很久没更新了。配置好后发现：文章预览有问题，主页展示了整篇文章
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
-                    </a>
-                    
-                    <a href="/tags/Leetcode/">
-                        <span class="chip bg-color">Leetcode</span>
-                    </a>
-                    
-                    <a href="/tags/shortest-path/">
-                        <span class="chip bg-color">shortest path</span>
+                    <a href="/tags/hexo/">
+                        <span class="chip bg-color">hexo</span>
                     </a>
                     
                 </div>
@@ -620,40 +628,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/05/2020/submatrices/">
+                <a href="/2020/09/02/2020/developciwk/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="submatrices">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="TeaBreak网站后端笔记">
                         
-                        <span class="card-title">submatrices</span>
+                        <span class="card-title">TeaBreak网站后端笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            5454. 统计全 1 子矩形
-给你一个只包含 0 和 1 的 rows * columns 矩阵 mat ，请你返回有多少个 子矩形 的元素全部都是 1 。
-
-
-
-这题比较像dp（直觉），矩形这类问题挺套路的，基本状态定义都是以当前坐标为
+                            TeaBreak网站后端笔记TeaBreak是一个类知乎的校内问答网站，目前提供问答与文章功能。
+我负责的是网站的后端，框架是django。我之前从未用过django，那就现学呗。把django tutorial过一遍，了解了里面的一些概念
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                </a>
-                            
-                            <a href="/categories/Algorithm/dp/" class="post-category">
-                                    dp
+                            <a href="/categories/Backend/" class="post-category">
+                                    Backend
                                 </a>
                             
                             
@@ -663,16 +663,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/Database/">
+                        <span class="chip bg-color">Database</span>
                     </a>
                     
-                    <a href="/tags/Leetcode/">
-                        <span class="chip bg-color">Leetcode</span>
+                    <a href="/tags/Backend/">
+                        <span class="chip bg-color">Backend</span>
                     </a>
                     
-                    <a href="/tags/dp/">
-                        <span class="chip bg-color">dp</span>
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
+                    </a>
+                    
+                    <a href="/tags/Project/">
+                        <span class="chip bg-color">Project</span>
                     </a>
                     
                 </div>
@@ -868,7 +872,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">44.9k</span>&nbsp;字
+                class="white-color">45k</span>&nbsp;字
             
             
             

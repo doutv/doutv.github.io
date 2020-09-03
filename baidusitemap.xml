@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jasonblog.xyz/2020/09/03/2020/blogconfigure/</loc>
+    <lastmod>2020-09-03</lastmod>
+  </url>
+  <url>
     <loc>https://jasonblog.xyz/2020/09/02/2020/developciwk/</loc>
     <lastmod>2020-09-02</lastmod>
   </url>
@@ -41,10 +45,6 @@
     <lastmod>2020-07-13</lastmod>
   </url>
   <url>
-    <loc>https://jasonblog.xyz/2020/07/10/2020/blogconfigure/</loc>
-    <lastmod>2020-07-10</lastmod>
-  </url>
-  <url>
     <loc>https://jasonblog.xyz/2020/04/12/2020/4-12/</loc>
     <lastmod>2020-07-06</lastmod>
   </url>
@@ -75,10 +75,6 @@
   <url>
     <loc>https://jasonblog.xyz/2020/03/01/2020/3-1/</loc>
     <lastmod>2020-07-06</lastmod>
-  </url>
-  <url>
-    <loc>https://jasonblog.xyz/2020/06/22/2020/hexo-deployment/</loc>
-    <lastmod>2020-07-04</lastmod>
   </url>
   <url>
     <loc>https://jasonblog.xyz/2019/12/02/2019/12.2/</loc>

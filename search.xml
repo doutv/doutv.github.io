@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>博客折腾日记</title>
+      <link href="/2020/09/03/2020/blogconfigure/"/>
+      <url>/2020/09/03/2020/blogconfigure/</url>
+      
+        <content type="html"><![CDATA[<h1 id="博客折腾日记"><a href="#博客折腾日记" class="headerlink" title="博客折腾日记"></a>博客折腾日记</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。<br>他用的是<code>hexo+next</code>，我一开始用的主题是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>，这个主题配置简单，就是有点丑，而且很久没更新了。<br>配置好后发现：文章预览有问题，主页展示了整篇文章，这个地方折腾了好久，有一天突然又能自动截断了……  </p><p>但是后来我上Github找到一个非常好看的主题<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">hexo-theme-matery</a>，这个的配置教程超级好，基本都覆盖到了。<br>有一些没覆盖到的内容可以去Issues找或者搜索代码，比如：</p><ol><li><code>mathjax</code>默认全局打开:<code>/layout/post.ejs</code>的最后一个<code>if(xxx)</code>改成<code>if(1)</code>即可</li></ol><p>其实博客关键还是内容，内容为王，外观再漂亮也只是衬托罢了。</p><h2 id="搜索引擎收录"><a href="#搜索引擎收录" class="headerlink" title="搜索引擎收录"></a>搜索引擎收录</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>上<a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Google Search Console</a>，有多种验证方式来确认网站是归属你所有的。<br>我用了最简单的那种方式：在<code>/public</code>下加一个<code>.html</code>文件，但是每次部署网站<code>hexo clean</code> <code>hexo d</code>都要手动把这个文件加进去</p><h2 id="从github-pages转到腾讯云服务器"><a href="#从github-pages转到腾讯云服务器" class="headerlink" title="从github pages转到腾讯云服务器"></a>从github pages转到腾讯云服务器</h2><p>由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。</p><p><a href="http://www.buhuo996.com/posts/65504/" target="_blank" rel="noopener">通过Git钩子将hexo博客自动部署到ubuntu服务器</a>：这篇文章写的很好，设置成功后，只需要<code>hexo d</code>就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：</p><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone root@server_ip:/var/repo/hexo_static.git</code></pre><p>这一步中会提示没有权限，但是我明明已经给服务器添加了密钥对，并将私钥保存到本地了啊，这是为什么呢？<br>在我的windows电脑上.ssh/config是这样的：</p><pre><code>Host blog    HostName 106.52.xxx.xxx    User ubuntu    IdentityFile C:\\Users\\Jason\\.ssh\\blog.pem</code></pre><p>而且我用这条命令也是可以正常登录服务器的</p><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -o <span class="token string">"IdentitiesOnly=yes"</span> -i C:\\Users\\Jason\\.ssh\\blog.pem ubuntu@106.52.xxx.xxx</code></pre><p>事实上这条命令与</p><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> blog</code></pre><p>是等价的，<code>Host</code>相当于给这个ssh配置起了一个别名</p><p>所以在<code>_config.yml</code>中</p><p>然而我发现备案太麻烦了，而且不能开留言功能，先放着吧呜呜。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TeaBreak网站后端笔记</title>
       <link href="/2020/09/02/2020/developciwk/"/>
       <url>/2020/09/02/2020/developciwk/</url>
@@ -153,9 +178,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> Leetcode </tag>
             
         </tags>
       
@@ -182,9 +207,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> Leetcode </tag>
             
             <tag> greedy </tag>
             
@@ -262,31 +287,6 @@
             <tag> Leetcode </tag>
             
             <tag> shortest path </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>博客折腾日记</title>
-      <link href="/2020/07/10/2020/blogconfigure/"/>
-      <url>/2020/07/10/2020/blogconfigure/</url>
-      
-        <content type="html"><![CDATA[<h1 id="博客折腾日记"><a href="#博客折腾日记" class="headerlink" title="博客折腾日记"></a>博客折腾日记</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。<br>他用的是<code>hexo+next</code>，我一开始用的主题是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>，这个主题配置简单，就是有点丑，而且很久没更新了。<br>配置好后发现：文章预览有问题，主页展示了整篇文章，这个地方折腾了好久，有一天突然又能自动截断了……  </p><p>但是后来我上Github找到一个非常好看的主题<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">hexo-theme-matery</a>，这个的配置教程超级好，基本都覆盖到了。<br>有一些没覆盖到的内容可以去Issues找或者搜索代码，比如：</p><ol><li><code>mathjax</code>默认全局打开:<code>/layout/post.ejs</code>的最后一个<code>if(xxx)</code>改成<code>if(1)</code>即可</li></ol><p>其实博客关键还是内容，内容为王，外观再漂亮也只是衬托罢了。</p><h2 id="搜索引擎收录"><a href="#搜索引擎收录" class="headerlink" title="搜索引擎收录"></a>搜索引擎收录</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>上<a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Google Search Console</a>，有多种验证方式来确认网站是归属你所有的。<br>我用了最简单的那种方式：在<code>/public</code>下加一个<code>.html</code>文件，但是每次部署网站<code>hexo clean</code> <code>hexo d</code>都要手动把这个文件加进去</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> blog </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
             
         </tags>
       
@@ -446,25 +446,6 @@
     
     
     <entry>
-      <title>hexo-deployment</title>
-      <link href="/2020/06/22/2020/hexo-deployment/"/>
-      <url>/2020/06/22/2020/hexo-deployment/</url>
-      
-        <content type="html"><![CDATA[<h1 id="travis-yml"><a href="#travis-yml" class="headerlink" title=".travis.yml"></a>.travis.yml</h1><p>官方教程有点问题，因为现在Github Pages只能部署在master分支上，所以源文件(markdown/theme)要放在其他分支(hexo)，使用Travis CL或者其他CL自动化部署时，要将目标分支<code>target_branch</code>设为<code>master</code>。</p><pre class=" language-yml"><code class="language-yml">sudo: falselanguage: node_jsnode_js:  - 10 # use nodejs v10 LTScache: npmbranches:  only:    - hexo  # build on hexo branchscript:  - hexo generate # generate static filesdeploy:  provider: pages  skip-cleanup: true  github-token: $GH_TOKEN  keep-history: true  on:    all_branches: true # solve a permission problem  target_branch: master   local-dir: public</code></pre><h1 id="文章截断"><a href="#文章截断" class="headerlink" title="文章截断"></a>文章截断</h1><p>似乎没有自动截断的功能，需要手动截断，在截断的地方加<code>&lt;!-- more --&gt;</code></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>6.7 Notes</title>
       <link href="/2020/06/07/2020/6-7/"/>
       <url>/2020/06/07/2020/6-7/</url>
@@ -496,9 +477,9 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> CSAPP </tag>
+            
+            <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
             
@@ -569,9 +550,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> Leetcode </tag>
             
         </tags>
       
@@ -594,9 +575,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Google Code Jam </tag>
-            
             <tag> dp </tag>
+            
+            <tag> Google Code Jam </tag>
             
         </tags>
       
@@ -636,11 +617,11 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -692,9 +673,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Google Kick Start </tag>
-            
             <tag> dp </tag>
+            
+            <tag> Google Kick Start </tag>
             
             <tag> cdq分治 </tag>
             
@@ -721,9 +702,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> dp </tag>
-            
             <tag> Tree </tag>
+            
+            <tag> dp </tag>
             
             <tag> dfs </tag>
             
@@ -765,9 +746,9 @@
       
         <tags>
             
-            <tag> Tools </tag>
-            
             <tag> Python Spider </tag>
+            
+            <tag> Tools </tag>
             
         </tags>
       
@@ -891,13 +872,13 @@
       
         <tags>
             
+            <tag> Algorithm </tag>
+            
             <tag> Python </tag>
             
             <tag> Pygame </tag>
             
             <tag> Data Structure </tag>
-            
-            <tag> Algorithm </tag>
             
         </tags>
       
@@ -958,11 +939,11 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Sequelize </tag>
             
             <tag> Node.js </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> C++ </tag>
             
