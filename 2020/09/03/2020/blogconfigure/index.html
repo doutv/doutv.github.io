@@ -447,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    590
+                    714
                 </div>
                 
 
@@ -475,7 +475,12 @@
 <li><code>mathjax</code>默认全局打开:<code>/layout/post.ejs</code>的最后一个<code>if(xxx)</code>改成<code>if(1)</code>即可</li>
 </ol>
 <p>其实博客关键还是内容，内容为王，外观再漂亮也只是衬托罢了。</p>
-<h2 id="搜索引擎收录"><a href="#搜索引擎收录" class="headerlink" title="搜索引擎收录"></a>搜索引擎收录</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>上<a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Google Search Console</a>，有多种验证方式来确认网站是归属你所有的。<br>我用了最简单的那种方式：在<code>/public</code>下加一个<code>.html</code>文件，但是每次部署网站<code>hexo clean</code> <code>hexo d</code>都要手动把这个文件加进去</p>
+<h2 id="搜索引擎收录"><a href="#搜索引擎收录" class="headerlink" title="搜索引擎收录"></a>搜索引擎收录</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>上<a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Google Search Console</a>，有多种验证方式来确认网站是归属你所有的。<br>我用了最简单的那种方式：在<code>/public</code>下加一个<code>.html</code>文件。</p>
+<h3 id="一个小技巧"><a href="#一个小技巧" class="headerlink" title="一个小技巧"></a>一个小技巧</h3><p>将需要放在<code>/public</code>的文件放在<code>/source</code>下面，这样每次<code>hexo d</code>，这些文件都会自动复制到<code>/public</code>下面。</p>
+<ul>
+<li><code>CNAME</code> github自定义域名所需文件</li>
+<li><code>googlexxxx.html</code> google域名验证文件</li>
+</ul>
 <h2 id="从github-pages转到腾讯云服务器"><a href="#从github-pages转到腾讯云服务器" class="headerlink" title="从github pages转到腾讯云服务器"></a>从github pages转到腾讯云服务器</h2><p>由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。</p>
 <p><a href="http://www.buhuo996.com/posts/65504/" target="_blank" rel="noopener">通过Git钩子将hexo博客自动部署到ubuntu服务器</a>：这篇文章写的很好，设置成功后，只需要<code>hexo d</code>就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：</p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone root@server_ip:/var/repo/hexo_static.git</code></pre>
@@ -490,6 +495,8 @@
 <p>是等价的，<code>Host</code>相当于给这个ssh配置起了一个别名</p>
 <p>所以在<code>_config.yml</code>中</p>
 <p>然而我发现备案太麻烦了，而且不能开留言功能，先放着吧呜呜。</p>
+<h2 id="hexo-d-某些时候不好用的原因"><a href="#hexo-d-某些时候不好用的原因" class="headerlink" title="hexo d 某些时候不好用的原因"></a><code>hexo d</code> 某些时候不好用的原因</h2><p>明明我变更了文章内容，但是<code>hexo d</code>有时候并不会将它推送上去，目前推测到的原因是hexo不会识别某篇文章内部的变更，它只会跟踪有没有新增/减少文章。</p>
+<p>这时候我们就需要<code>hexo clean</code>, <code>hexo g</code>, <code>hexo d</code>。</p>
 
             </div>
             <hr/>
@@ -872,7 +879,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.3k</span>&nbsp;字
+                class="white-color">45.4k</span>&nbsp;字
             
             
             

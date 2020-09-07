@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jasonblog.xyz/2020/09/03/2020/blogconfigure/</loc>
+    
+    <lastmod>2020-09-07T10:34:43.342Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jasonblog.xyz/tags/index.html</loc>
     
     <lastmod>2020-09-07T10:18:34.385Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/05/2020/submatrices/</loc>
+    <loc>https://jasonblog.xyz/2020/07/13/2020/path-with-maximum-probability/</loc>
     
     <lastmod>2020-09-07T10:18:34.363Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/13/2020/path-with-maximum-probability/</loc>
+    <loc>https://jasonblog.xyz/2020/07/05/2020/submatrices/</loc>
     
     <lastmod>2020-09-07T10:18:34.363Z</lastmod>
     
@@ -135,21 +142,14 @@
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/09/03/2020/blogconfigure/</loc>
-    
-    <lastmod>2020-09-07T10:18:34.338Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jasonblog.xyz/2020/06/28/2020/6-28/</loc>
+    <loc>https://jasonblog.xyz/2020/06/07/2020/6-7/</loc>
     
     <lastmod>2020-09-07T10:18:34.337Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/06/07/2020/6-7/</loc>
+    <loc>https://jasonblog.xyz/2020/06/28/2020/6-28/</loc>
     
     <lastmod>2020-09-07T10:18:34.337Z</lastmod>
     
