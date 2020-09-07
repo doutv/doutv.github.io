@@ -28,7 +28,12 @@ summary:
 ## 搜索引擎收录
 ### Google
 上[Google Search Console](https://search.google.com/search-console/welcome)，有多种验证方式来确认网站是归属你所有的。  
-我用了最简单的那种方式：在`/public`下加一个`.html`文件，但是每次部署网站`hexo clean` `hexo d`都要手动把这个文件加进去
+我用了最简单的那种方式：在`/public`下加一个`.html`文件。
+
+### 一个小技巧
+将需要放在`/public`的文件放在`/source`下面，这样每次`hexo d`，这些文件都会自动复制到`/public`下面。
++ `CNAME` github自定义域名所需文件
++ `googlexxxx.html` google域名验证文件
 
 ## 从github pages转到腾讯云服务器
 由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。
