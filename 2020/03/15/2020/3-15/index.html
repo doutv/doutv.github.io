@@ -451,21 +451,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-03
+                    2020-09-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    17 分
                 </div>
                 
 
@@ -757,9 +757,8 @@ f<span class="token punctuation">[</span><span class="token number">2</span><spa
 <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
 <h1 id="Eight-Queens"><a href="#Eight-Queens" class="headerlink" title="Eight Queens"></a>Eight Queens</h1><h2 id="求解决方案"><a href="#求解决方案" class="headerlink" title="求解决方案"></a>求解决方案</h2><p>dfs+回溯</p>
 <p>从第一行开始放，一直放到最后一行<br>用四个bool数组判断行，列，左对角线，右对角线有没有皇后<br>dfs出来记得把状态恢复原位</p>
-<h3 id="只要一个方案"><a href="#只要一个方案" class="headerlink" title="只要一个方案"></a>只要一个方案</h3><p>CSC1001 Assignment2</p>
-<p>找到一个直接<code>exit()</code></p>
-<h3 id="求所有方案"><a href="#求所有方案" class="headerlink" title="求所有方案"></a><a href="https://leetcode-cn.com/problems/n-queens/" target="_blank" rel="noopener">求所有方案</a></h3><h2 id="求方案个数"><a href="#求方案个数" class="headerlink" title="求方案个数"></a><a href="https://leetcode-cn.com/problems/n-queens-ii/" target="_blank" rel="noopener">求方案个数</a></h2><h3 id="进阶-状态压缩-位运算"><a href="#进阶-状态压缩-位运算" class="headerlink" title="进阶:状态压缩+位运算"></a>进阶:状态压缩+位运算</h3><p>先上代码</p>
+<h3 id="只要一个方案"><a href="#只要一个方案" class="headerlink" title="只要一个方案"></a>只要一个方案</h3><p>找到一个直接<code>exit()</code></p>
+<h2 id="求方案个数"><a href="#求方案个数" class="headerlink" title="求方案个数"></a><a href="https://leetcode-cn.com/problems/n-queens-ii/" target="_blank" rel="noopener">求方案个数</a></h2><h3 id="进阶-状态压缩-位运算"><a href="#进阶-状态压缩-位运算" class="headerlink" title="进阶:状态压缩+位运算"></a>进阶:状态压缩+位运算</h3><p>先上代码</p>
 <h4 id="code-6"><a href="#code-6" class="headerlink" title="code"></a>code</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">class</span> <span class="token class-name">Solution</span>
@@ -823,7 +822,61 @@ leftdown=11000
 0 0 0 1 1
 
 rightdown=00011
-实际上最右侧的1被舍去了，位运算的overflow</code></pre><h1 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">LIS</a></h1><h2 id="O-n-2-dp"><a href="#O-n-2-dp" class="headerlink" title="O(n^2) dp"></a>O(n^2) dp</h2><pre><code>Lis[i]表示以nums[i]为结尾的最长上升序列的长度
+实际上最右侧的1被舍去了，位运算的overflow</code></pre><h3 id="求所有方案"><a href="#求所有方案" class="headerlink" title="求所有方案"></a><a href="https://leetcode-cn.com/problems/n-queens/" target="_blank" rel="noopener">求所有方案</a></h3><p>算法核心是一样的，只不过需要在每一步记录下皇后的位置。</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>string<span class="token operator">>></span> ans<span class="token punctuation">;</span>
+    vector<span class="token operator">&lt;</span>string<span class="token operator">></span> cur<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> full<span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> col<span class="token punctuation">,</span> <span class="token keyword">int</span> leftdown<span class="token punctuation">,</span> <span class="token keyword">int</span> rightdown<span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>col <span class="token operator">==</span> full<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//每一列都已经有皇后了，说明满了</span>
+        <span class="token punctuation">{</span>
+            ans<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>cur<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment" spellcheck="true">// col|leftdown|rightdown 任何一个是1都不行，表示在皇后攻击范围内</span>
+        <span class="token comment" spellcheck="true">// 取反后，1是可以放的位置，0是不能放的</span>
+        <span class="token comment" spellcheck="true">// 与 11111(n个1)与运算后把高位舍去，剩下的位数为棋盘的边长</span>
+        <span class="token keyword">int</span> now <span class="token operator">=</span> full <span class="token operator">&amp;</span> <span class="token operator">~</span><span class="token punctuation">(</span>col <span class="token operator">|</span> leftdown <span class="token operator">|</span> rightdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>now<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 取最低一位1，表示在这里放一个皇后</span>
+            <span class="token keyword">int</span> lowbit <span class="token operator">=</span> now <span class="token operator">&amp;</span> <span class="token operator">-</span>now<span class="token punctuation">;</span>
+            now <span class="token operator">-</span><span class="token operator">=</span> lowbit<span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 更新3个状态</span>
+            <span class="token comment" spellcheck="true">// row是没有用的，因为row已经包含在col里面了</span>
+            <span class="token comment" spellcheck="true">// col=col+lowbit</span>
+            <span class="token comment" spellcheck="true">// leftdown=(leftdown+lowbit)&lt;&lt;1</span>
+            <span class="token comment" spellcheck="true">// rightdown=(rightdown+lowbit)>>1</span>
+            string s<span class="token punctuation">;</span>
+            <span class="token keyword">int</span> tmp<span class="token operator">=</span>lowbit<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>tmp<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>tmp<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span>
+                    s<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">'Q'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span>
+                    s<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                tmp<span class="token operator">=</span>tmp<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>n<span class="token punctuation">)</span>
+                s<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">reverse</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>s<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cur<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token function">dfs</span><span class="token punctuation">(</span>col <span class="token operator">+</span> lowbit<span class="token punctuation">,</span> <span class="token punctuation">(</span>leftdown <span class="token operator">+</span> lowbit<span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>rightdown <span class="token operator">+</span> lowbit<span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">1</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            cur<span class="token punctuation">.</span><span class="token function">pop_back</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>string<span class="token operator">>></span> <span class="token function">solveNQueens</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ans<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        cur<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        full <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> n<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="Dancing-Link-听说更快哦"><a href="#Dancing-Link-听说更快哦" class="headerlink" title="Dancing Link 听说更快哦"></a>Dancing Link 听说更快哦</h3><p><a href="https://blog.csdn.net/WhereIsHeroFrom/article/details/79220897/" target="_blank" rel="noopener">夜深人静写算法（九）- Dancing Links X（跳舞链）</a></p>
+<h1 id="LIS"><a href="#LIS" class="headerlink" title="LIS"></a><a href="https://leetcode-cn.com/problems/longest-increasing-subsequence/" target="_blank" rel="noopener">LIS</a></h1><h2 id="O-n-2-dp"><a href="#O-n-2-dp" class="headerlink" title="O(n^2) dp"></a>O(n^2) dp</h2><pre><code>Lis[i]表示以nums[i]为结尾的最长上升序列的长度
 Lis[i]=max(Lis[j]+1) j&lt;i and nums[j]&lt;nums[i]</code></pre><h2 id="O-nlogn-二分-贪心"><a href="#O-nlogn-二分-贪心" class="headerlink" title="O(nlogn) 二分+贪心"></a>O(nlogn) 二分+贪心</h2><pre><code>Lis[]存储当前的最长上升序列
 如果当前的数比Lis中最后一位还要大，Lis[++ans]=nums[i]
 如果小的话，就在Lis数组（单调递增）中二分查找大于等于nums[i]的第一个数</code></pre><p><a href="https://zhuanlan.zhihu.com/p/40579713" target="_blank" rel="noopener">二分查找教程</a></p>
@@ -1387,7 +1440,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45k</span>&nbsp;字
+                class="white-color">45.3k</span>&nbsp;字
             
             
             
