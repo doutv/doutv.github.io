@@ -8,7 +8,7 @@ tags:
   - hexo
 categories:
   - [blog]
-date: 2020-07-10 08:32:26
+date: 2020-09-03 08:32:26
 summary:
 ---
 
@@ -29,3 +29,32 @@ summary:
 ### Google
 上[Google Search Console](https://search.google.com/search-console/welcome)，有多种验证方式来确认网站是归属你所有的。  
 我用了最简单的那种方式：在`/public`下加一个`.html`文件，但是每次部署网站`hexo clean` `hexo d`都要手动把这个文件加进去
+
+## 从github pages转到腾讯云服务器
+由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。
+
+[通过Git钩子将hexo博客自动部署到ubuntu服务器](http://www.buhuo996.com/posts/65504/)：这篇文章写的很好，设置成功后，只需要`hexo d`就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：
+```bash
+git clone root@server_ip:/var/repo/hexo_static.git
+```
+这一步中会提示没有权限，但是我明明已经给服务器添加了密钥对，并将私钥保存到本地了啊，这是为什么呢？
+在我的windows电脑上.ssh/config是这样的：
+```
+Host blog
+    HostName 106.52.xxx.xxx
+    User ubuntu
+    IdentityFile C:\\Users\\Jason\\.ssh\\blog.pem
+```
+而且我用这条命令也是可以正常登录服务器的
+```bash
+ssh -o "IdentitiesOnly=yes" -i C:\\Users\\Jason\\.ssh\\blog.pem ubuntu@106.52.xxx.xxx
+```
+事实上这条命令与
+```bash
+ssh blog
+```
+是等价的，`Host`相当于给这个ssh配置起了一个别名
+
+所以在`_config.yml`中
+
+然而我发现备案太麻烦了，而且不能开留言功能，先放着吧呜呜。
