@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jasonblog.xyz/2020/09/17/2020/di-yi-ci-ji-zhu-mian-shi/</loc>
+    <lastmod>2020-09-17</lastmod>
+  </url>
+  <url>
+    <loc>https://jasonblog.xyz/2020/09/17/2020/du-shu-bi-ji/</loc>
+    <lastmod>2020-09-17</lastmod>
+  </url>
+  <url>
+    <loc>https://jasonblog.xyz/2020/07/16/2020/introduction-to-cs/</loc>
+    <lastmod>2020-09-17</lastmod>
+  </url>
+  <url>
     <loc>https://jasonblog.xyz/2020/09/03/2020/blogconfigure/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>
@@ -33,10 +45,6 @@
     <lastmod>2020-09-07</lastmod>
   </url>
   <url>
-    <loc>https://jasonblog.xyz/2020/07/16/2020/introduction-to-cs/</loc>
-    <lastmod>2020-09-07</lastmod>
-  </url>
-  <url>
     <loc>https://jasonblog.xyz/2020/07/04/2020/convert-sorted-array-to-binary-search-tree/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>
@@ -61,11 +69,11 @@
     <lastmod>2020-09-07</lastmod>
   </url>
   <url>
-    <loc>https://jasonblog.xyz/2020/06/07/2020/6-7/</loc>
+    <loc>https://jasonblog.xyz/2020/06/28/2020/6-28/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>
   <url>
-    <loc>https://jasonblog.xyz/2020/06/28/2020/6-28/</loc>
+    <loc>https://jasonblog.xyz/2020/06/07/2020/6-7/</loc>
     <lastmod>2020-09-07</lastmod>
   </url>
   <url>
