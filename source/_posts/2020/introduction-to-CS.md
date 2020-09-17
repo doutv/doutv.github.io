@@ -6,6 +6,7 @@ toc: true
 mathjax: true
 tags:
     - Essay 
+    - Thinking
 date: 2020-07-16 20:05:22
 summary:
 ---
