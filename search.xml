@@ -4,11 +4,86 @@
   
     
     <entry>
+      <title>learning-notes-november</title>
+      <link href="/2020/11/29/2020/learning-notes-november/"/>
+      <url>/2020/11/29/2020/learning-notes-november/</url>
+      
+        <content type="html"><![CDATA[<h1 id="移动语义及拷贝优化"><a href="#移动语义及拷贝优化" class="headerlink" title="移动语义及拷贝优化"></a>移动语义及拷贝优化</h1><p>来源：</p><ul><li><p><a href="https://theonegis.github.io/cxx/C-%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89%E5%8F%8A%E6%8B%B7%E8%B4%9D%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">https://theonegis.github.io/cxx/C-%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89%E5%8F%8A%E6%8B%B7%E8%B4%9D%E4%BC%98%E5%8C%96/</a></p></li><li><p><a href="https://jonasdevlieghere.com/guaranteed-copy-elision/" target="_blank" rel="noopener">https://jonasdevlieghere.com/guaranteed-copy-elision/</a></p></li><li><p>lvalue &amp; 可寻址的变量</p></li><li><p>rvalue &amp;&amp; 不可寻址的字面常量或者是在表达式求值过程中创建的可寻址的无名临时对象</p></li></ul><h2 id="移动构造copy-constructor和移动赋值move-constructor"><a href="#移动构造copy-constructor和移动赋值move-constructor" class="headerlink" title="移动构造copy constructor和移动赋值move constructor"></a>移动构造copy constructor和移动赋值move constructor</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Foo <span class="token punctuation">{</span>  <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Constructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token keyword">const</span> Foo <span class="token operator">&amp;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Copy-constructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// lvalue</span>  <span class="token function">Foo</span><span class="token punctuation">(</span>Foo <span class="token operator">&amp;&amp;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Move-constructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// rvalue</span>  <span class="token operator">~</span><span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Destructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>拷贝构造函数中是对传进来的对象进行了实实在在的拷贝工作；而移动构造函数中只是对传进来的对象进行了所有权的转让，即掏空传进来的对象，然后把所有权转给当前对象。</p><h2 id="std-move"><a href="#std-move" class="headerlink" title="std::move"></a>std::move</h2><p>编译器只对右值引用才能调用转移构造函数和转移赋值函数，而所有命名对象都只能是左值引用。如果已知一个命名对象不再被使用而想对它调用转移构造函数和转移赋值函数，也就是把一个左值引用当做右值引用来使用，应该使用<code>std::move</code>，这个函数以非常简单的方式将左值引用转换为右值引用。</p><p><code>std::move</code>的实现即使将一个对象强制转型为右值引用类型的对象而已，并不做任何移动工作。</p><h2 id="拷贝优化Copy-Elision"><a href="#拷贝优化Copy-Elision" class="headerlink" title="拷贝优化Copy Elision"></a>拷贝优化Copy Elision</h2><p>减少不必要的拷贝构造</p><ul><li>RVO Regular Return Value Optimization: <ul><li>If you return an object by value, the compiler is allowed to elude copying.</li><li><pre><code>Foo f() {return Foo();}</code></pre></li></ul></li><li>NRVO Named Return Value Optimization: <ul><li><pre><code>Foo f() {    Foo foo;    return foo;}</code></pre></li></ul></li><li>Guaranteed copy elision<ul><li>为什么需要 Guaranteed copy elision ？因为要写 copy constructor 和 move constructor</li><li>The main problem is that, without guaranteed elision, you cannot get rid of the move and copy constructor, because elision might not take place.</li><li><a href="https://zhuanlan.zhihu.com/p/22821671" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22821671</a></li></ul></li></ul><h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><ul><li><code>const_cast</code> 转型掉（移除）常量性或易变性</li><li><code>static_cast</code> 一般类型转换，用隐式和用户定义转换的组合在类型间转换</li><li><code>dynamic_cast</code> 类指针转换，沿继承层级向上、向下及侧向，安全地转换到其他类的指针和引用</li><li><code>reinterpret_cast</code> 强制转换，通过重新解释底层位模式在类型间转换</li></ul><h1 id="overload-operator"><a href="#overload-operator" class="headerlink" title="overload operator"></a>overload operator</h1><p>参考：<a href="https://zh.cppreference.com/w/cpp/language/operators" target="_blank" rel="noopener">https://zh.cppreference.com/w/cpp/language/operators</a><br>pay attention to signatures and parameters</p><ul><li>+<ul><li>复制赋值 copy assignment<ul><li><code>T&amp; T::operator=(const T&amp;)</code></li></ul></li><li>移动赋值 move assignment<ul><li><code>T&amp; T::operator=(T&amp;&amp;)</code></li></ul></li></ul></li><li>+=</li><li>=</li></ul><h1 id="ub-undefined-behavior"><a href="#ub-undefined-behavior" class="headerlink" title="ub undefined behavior"></a>ub undefined behavior</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>随感-GPA</title>
+      <link href="/2020/11/15/2020/sui-gan-gpa/"/>
+      <url>/2020/11/15/2020/sui-gan-gpa/</url>
+      
+        <content type="html"><![CDATA[<p>我最近一直在思索这个问题：为什么当代大学生&amp;工作后年轻人似乎压力这么大？据我观察，GPA是压力的一大来源。我校不少人执着于GPA，甚至心情由GPA决定。<br>从现实角度出发：<br>不管是就业/授课型研究生/研究型研究生&amp;博士，GPA都是一个重要的评价标准，所以如果自己现在不能确定毕业去向，那么卷GPA是最佳选择。</p><ul><li>如果选择了就业，以互联网行业为例，GPA就显得不那么重要了，实习&amp;项目经历，技术水平这些会更加重要，混个3.0就好。</li><li>如果选择了授课型研究生，那么GPA几乎是最重要的了。</li><li>如果选择了走科研方向，读研究型研究生&amp;博士，那么科研成果&amp;科研能力更重要。</li></ul><p>上大学后评价体系是变得多元化了，但是这也意味着我们需要在多个赛道上面与他人竞争：GPA，科研，比赛，活动，社会实践，实习，人际关系，身体&amp;心理健康，甚至感情经历。</p><p>那么怎样才能走出竞争（卷）的怪圈呢？<br>在社会竞争愈演愈烈的当下，为了生存适当地竞争是有必要的，但是我觉得不能把人生意义寄托在外在事物（如GPA）之上，而应该寄托在一些自洽，超越的东西之上，那样我的人生意义就不依赖于外物，它是最高的，自我满足的。正如《尼各马可伦理学》中所言：<code>Good must be the ultimate end or object of human life: something that is in itself completely satisfying.</code> 每个人心中的<code>good</code>可能不一样，但是应该满足这个原则。<br>个人认为读哲学，了解不同的哲学思想，寻找自己的人生意义，或许会有一点帮助。通过了解不同的哲学思想，我可以从一个超越的角度去看待世界。时时刻刻用超越的角度来看待世界太难了，偶尔用用还是很好的。最近我喜欢上了老庄哲学，相对主义和道法自然太妙了。我是从实用主义的角度来读哲学的，不必全部采纳一派哲学思想，完全可以根据个人喜好挑选部分观点。读哲学还是一个动态发展的过程，5年前的我喜爱的哲学观点就跟现在不太一样。</p><p>诚然，在很多人看来人生意义只是活着的一个借口罢了，人还是活在现实中的，还是需要卷的。但找到意义后，会卷地更开心吧哈哈。</p><p>现在的我想当鲲鹏，退出卷的行列。然而我修为不够，不敢不做作业，不敢放弃GPA，不敢放弃读研的机会，不敢忍受物质的贫乏，不敢当一个自由职业者，不敢在25岁时辞职去旅游/换完全不同的工作，不敢放弃那“光明”的未来–这就是有所待吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>compile-linux-kernel</title>
+      <link href="/2020/10/19/2020/compile-linux-kernel/"/>
+      <url>/2020/10/19/2020/compile-linux-kernel/</url>
+      
+        <content type="html"><![CDATA[<h1 id="编译并导入Linux内核"><a href="#编译并导入Linux内核" class="headerlink" title="编译并导入Linux内核"></a>编译并导入Linux内核</h1><p>reference:</p><ul><li>CSC3150 Tutorial 2&amp;3</li><li><a href="https://www.cnblogs.com/acm-icpcer/p/8029656.html" target="_blank" rel="noopener">https://www.cnblogs.com/acm-icpcer/p/8029656.html</a></li></ul><ul><li>虚拟机硬盘空间要足够大，否则编译过程中空间会炸掉</li><li>首次编译且安装的命令：<pre class=" language-sh"><code class="language-sh">  sudo make mrproper   sudo make clean   sudo make menuconfig  sudo make -j4   sudo make modules_install  sudo make install  reboot</code></pre></li><li>更改某些源文件后不需要重新编译：<pre class=" language-sh"><code class="language-sh">  sudo make bzImage  sudo make modules_install  sudo make install  reboot</code></pre></li><li>按住<code>shift</code>键进入grub启动菜单选择内核</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>读书笔记</title>
       <link href="/2020/09/17/2020/du-shu-bi-ji/"/>
       <url>/2020/09/17/2020/du-shu-bi-ji/</url>
       
-        <content type="html"><![CDATA[<h1 id="读书笔记，持续更新ing"><a href="#读书笔记，持续更新ing" class="headerlink" title="读书笔记，持续更新ing~"></a>读书笔记，持续更新ing~</h1><p><code>IRIS说：“不做读书笔记的人没有思想。”</code></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="读书笔记，持续更新ing"><a href="#读书笔记，持续更新ing" class="headerlink" title="读书笔记，持续更新ing~"></a>读书笔记，持续更新ing~</h1><p><code>IRIS说：“不做读书笔记的人没有思想。”</code></p><ul><li><p>So love is neither right nor wrong in itself. Done rightly, it is right; done wrongly, it is wrong. It is wrong if you satisfy the wrong person, for the wrong reasons, and right if you satisfy the right person, for the right reasons. – Symposium</p></li><li><p>爱的阶梯</p><ul><li><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-2020-09-20-10-12-51" alt="读书笔记-2020-09-20-10-12-51"></li></ul></li></ul>]]></content>
       
       
       
@@ -621,9 +696,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Google Code Jam </tag>
-            
             <tag> dp </tag>
+            
+            <tag> Google Code Jam </tag>
             
         </tags>
       
@@ -748,9 +823,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> dp </tag>
-            
             <tag> Tree </tag>
+            
+            <tag> dp </tag>
             
             <tag> dfs </tag>
             
