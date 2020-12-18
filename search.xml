@@ -4,23 +4,17 @@
   
     
     <entry>
-      <title>learning-notes-november</title>
-      <link href="/2020/11/29/2020/learning-notes-november/"/>
-      <url>/2020/11/29/2020/learning-notes-november/</url>
+      <title>cpp-learning</title>
+      <link href="/2020/11/29/2020/cpp-learning/"/>
+      <url>/2020/11/29/2020/cpp-learning/</url>
       
         <content type="html"><![CDATA[<h1 id="移动语义及拷贝优化"><a href="#移动语义及拷贝优化" class="headerlink" title="移动语义及拷贝优化"></a>移动语义及拷贝优化</h1><p>来源：</p><ul><li><p><a href="https://theonegis.github.io/cxx/C-%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89%E5%8F%8A%E6%8B%B7%E8%B4%9D%E4%BC%98%E5%8C%96/" target="_blank" rel="noopener">https://theonegis.github.io/cxx/C-%E7%A7%BB%E5%8A%A8%E8%AF%AD%E4%B9%89%E5%8F%8A%E6%8B%B7%E8%B4%9D%E4%BC%98%E5%8C%96/</a></p></li><li><p><a href="https://jonasdevlieghere.com/guaranteed-copy-elision/" target="_blank" rel="noopener">https://jonasdevlieghere.com/guaranteed-copy-elision/</a></p></li><li><p>lvalue &amp; 可寻址的变量</p></li><li><p>rvalue &amp;&amp; 不可寻址的字面常量或者是在表达式求值过程中创建的可寻址的无名临时对象</p></li></ul><h2 id="移动构造copy-constructor和移动赋值move-constructor"><a href="#移动构造copy-constructor和移动赋值move-constructor" class="headerlink" title="移动构造copy constructor和移动赋值move constructor"></a>移动构造copy constructor和移动赋值move constructor</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Foo <span class="token punctuation">{</span>  <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Constructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token keyword">const</span> Foo <span class="token operator">&amp;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Copy-constructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// lvalue</span>  <span class="token function">Foo</span><span class="token punctuation">(</span>Foo <span class="token operator">&amp;&amp;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Move-constructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// rvalue</span>  <span class="token operator">~</span><span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> cout <span class="token operator">&lt;&lt;</span> <span class="token string">"Destructed"</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>拷贝构造函数中是对传进来的对象进行了实实在在的拷贝工作；而移动构造函数中只是对传进来的对象进行了所有权的转让，即掏空传进来的对象，然后把所有权转给当前对象。</p><h2 id="std-move"><a href="#std-move" class="headerlink" title="std::move"></a>std::move</h2><p>编译器只对右值引用才能调用转移构造函数和转移赋值函数，而所有命名对象都只能是左值引用。如果已知一个命名对象不再被使用而想对它调用转移构造函数和转移赋值函数，也就是把一个左值引用当做右值引用来使用，应该使用<code>std::move</code>，这个函数以非常简单的方式将左值引用转换为右值引用。</p><p><code>std::move</code>的实现即使将一个对象强制转型为右值引用类型的对象而已，并不做任何移动工作。</p><h2 id="拷贝优化Copy-Elision"><a href="#拷贝优化Copy-Elision" class="headerlink" title="拷贝优化Copy Elision"></a>拷贝优化Copy Elision</h2><p>减少不必要的拷贝构造</p><ul><li>RVO Regular Return Value Optimization: <ul><li>If you return an object by value, the compiler is allowed to elude copying.</li><li><pre><code>Foo f() {return Foo();}</code></pre></li></ul></li><li>NRVO Named Return Value Optimization: <ul><li><pre><code>Foo f() {    Foo foo;    return foo;}</code></pre></li></ul></li><li>Guaranteed copy elision<ul><li>为什么需要 Guaranteed copy elision ？因为要写 copy constructor 和 move constructor</li><li>The main problem is that, without guaranteed elision, you cannot get rid of the move and copy constructor, because elision might not take place.</li><li><a href="https://zhuanlan.zhihu.com/p/22821671" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/22821671</a></li></ul></li></ul><h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><ul><li><code>const_cast</code> 转型掉（移除）常量性或易变性</li><li><code>static_cast</code> 一般类型转换，用隐式和用户定义转换的组合在类型间转换</li><li><code>dynamic_cast</code> 类指针转换，沿继承层级向上、向下及侧向，安全地转换到其他类的指针和引用</li><li><code>reinterpret_cast</code> 强制转换，通过重新解释底层位模式在类型间转换</li></ul><h1 id="overload-operator"><a href="#overload-operator" class="headerlink" title="overload operator"></a>overload operator</h1><p>参考：<a href="https://zh.cppreference.com/w/cpp/language/operators" target="_blank" rel="noopener">https://zh.cppreference.com/w/cpp/language/operators</a><br>pay attention to signatures and parameters</p><ul><li>+<ul><li>复制赋值 copy assignment<ul><li><code>T&amp; T::operator=(const T&amp;)</code></li></ul></li><li>移动赋值 move assignment<ul><li><code>T&amp; T::operator=(T&amp;&amp;)</code></li></ul></li></ul></li><li>+=</li><li>=</li></ul><h1 id="ub-undefined-behavior"><a href="#ub-undefined-behavior" class="headerlink" title="ub undefined behavior"></a>ub undefined behavior</h1>]]></content>
       
       
-      <categories>
-          
-          <category> Algorithm </category>
-          
-      </categories>
-      
       
         <tags>
             
-            <tag> Algorithm </tag>
+            <tag> c++ </tag>
             
         </tags>
       
@@ -38,14 +32,14 @@
       
       <categories>
           
-          <category> Algorithm </category>
+          <category> Essay </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Algorithm </tag>
+            <tag> Essay </tag>
             
         </tags>
       
@@ -86,12 +80,16 @@
         <content type="html"><![CDATA[<h1 id="读书笔记，持续更新ing"><a href="#读书笔记，持续更新ing" class="headerlink" title="读书笔记，持续更新ing~"></a>读书笔记，持续更新ing~</h1><p><code>IRIS说：“不做读书笔记的人没有思想。”</code></p><ul><li><p>So love is neither right nor wrong in itself. Done rightly, it is right; done wrongly, it is wrong. It is wrong if you satisfy the wrong person, for the wrong reasons, and right if you satisfy the right person, for the right reasons. – Symposium</p></li><li><p>爱的阶梯</p><ul><li><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-2020-09-20-10-12-51" alt="读书笔记-2020-09-20-10-12-51"></li></ul></li></ul>]]></content>
       
       
+      <categories>
+          
+          <category> Essay </category>
+          
+      </categories>
+      
       
         <tags>
             
             <tag> Essay </tag>
-            
-            <tag> Thinking </tag>
             
         </tags>
       
@@ -598,9 +596,9 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> CSAPP </tag>
+            
+            <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
             
@@ -738,11 +736,11 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> Algorithm </tag>
             
             <tag> Leetcode </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -993,13 +991,13 @@
       
         <tags>
             
+            <tag> Algorithm </tag>
+            
             <tag> Python </tag>
             
             <tag> Pygame </tag>
             
             <tag> Data Structure </tag>
-            
-            <tag> Algorithm </tag>
             
         </tags>
       
@@ -1018,9 +1016,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -1060,11 +1058,11 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
+            <tag> Machine Learning </tag>
             
             <tag> Node.js </tag>
             
-            <tag> Machine Learning </tag>
+            <tag> Sequelize </tag>
             
             <tag> C++ </tag>
             
@@ -1087,9 +1085,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -1152,9 +1150,9 @@
       
         <tags>
             
-            <tag> Node.js </tag>
-            
             <tag> Mysql </tag>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
