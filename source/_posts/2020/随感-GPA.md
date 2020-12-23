@@ -5,9 +5,9 @@ cover: false
 toc: true
 mathjax: true
 tags:
-  - Algorithm
+  - Essay
 categories:
-  - - Algorithm
+  - [Essay]
 date: 2020-11-15 23:57:57
 summary:
 ---

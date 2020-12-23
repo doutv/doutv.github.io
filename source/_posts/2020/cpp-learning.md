@@ -1,13 +1,12 @@
 ---
-title: learning-notes-november
+title: cpp-learning 
 top: false
 cover: false
 toc: true
 mathjax: true
 tags:
-  - Algorithm
+  - c++
 categories:
-  - - Algorithm
 date: 2020-11-29 00:27:50
 summary:
 ---
