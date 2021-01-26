@@ -482,7 +482,7 @@
 <li><code>googlexxxx.html</code> google域名验证文件</li>
 </ul>
 <h2 id="从github-pages转到腾讯云服务器"><a href="#从github-pages转到腾讯云服务器" class="headerlink" title="从github pages转到腾讯云服务器"></a>从github pages转到腾讯云服务器</h2><p>由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。</p>
-<p>文章没了（感谢zjh的反馈<del>） ~</del><a href="http://www.buhuo996.com/posts/65504/" target="_blank" rel="noopener">通过Git钩子将hexo博客自动部署到ubuntu服务器</a>：这篇文章写的很好，设置成功后，只需要<code>hexo d</code>就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：~~ </p>
+<p>文章没了（感谢zjh的反馈<del>）<br>~</del><a href="http://www.buhuo996.com/posts/65504/" target="_blank" rel="noopener">通过Git钩子将hexo博客自动部署到ubuntu服务器</a>：这篇文章写的很好，设置成功后，只需要<code>hexo d</code>就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：~~ </p>
 <pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone root@server_ip:/var/repo/hexo_static.git</code></pre>
 <p>这一步中会提示没有权限，但是我明明已经给服务器添加了密钥对，并将私钥保存到本地了啊，这是为什么呢？<br>在我的windows电脑上.ssh/config是这样的：</p>
 <pre><code>Host blog
