@@ -38,7 +38,8 @@ summary:
 ## 从github pages转到腾讯云服务器
 由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。
 
-文章没了（感谢zjh的反馈~） ~~[通过Git钩子将hexo博客自动部署到ubuntu服务器](http://www.buhuo996.com/posts/65504/)：这篇文章写的很好，设置成功后，只需要`hexo d`就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：~~ 
+文章没了（感谢zjh的反馈）  
+~~[通过Git钩子将hexo博客自动部署到ubuntu服务器](http://www.buhuo996.com/posts/65504/)：这篇文章写的很好，设置成功后，只需要`hexo d`就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：~~ 
 ```bash
 git clone root@server_ip:/var/repo/hexo_static.git
 ```
