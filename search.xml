@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Non-decreasing-Array</title>
+      <link href="/2021/02/08/2021/non-decreasing-array/"/>
+      <url>/2021/02/08/2021/non-decreasing-array/</url>
+      
+        <content type="html"><![CDATA[<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>解题关键是遇到$nums[i]&gt;nums[i+1]$时，应该怎么处理？</p><ol><li>找到第一处 $nums[i]&gt;nums[i+1]$ ，改 $nums[i]$ 还是 $nums[i+1]$ 呢？<ol><li>改 $nums[i]=nums[i+1]$ : 当且仅当 $nums[i-1]\leq nums[i+1]$ 时，因为需要保证 $nums[i-1] \leq nums[i] = nums[i+1]$</li><li>改 $nums[i+1] = nums[i]$ , $nums[i-1] \leq nums[i] = nums[i+1]$ 一定成立</li><li>然而我们应该优先改第一种情况 $nums[i]=nums[i+1]$ ，因为这样做是无后效性的，而第二种情况更改了 $nums[i+1]$ 的值，可能会破坏后面的单调递增序列，如这样一个序列： <code>1 100 2 3</code></li></ol></li></ol><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span><span class="token keyword">public</span><span class="token operator">:</span>    <span class="token keyword">bool</span> <span class="token function">checkPossibility</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>        <span class="token keyword">int</span> cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>        <span class="token punctuation">{</span>            <span class="token keyword">if</span> <span class="token punctuation">(</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">></span>nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>            <span class="token punctuation">{</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>cnt<span class="token punctuation">)</span>                    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>                <span class="token operator">++</span>cnt<span class="token punctuation">;</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>                    <span class="token keyword">continue</span><span class="token punctuation">;</span>                <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">></span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span>nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>                <span class="token punctuation">{</span>                    nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>                    <span class="token keyword">continue</span><span class="token punctuation">;</span>                <span class="token punctuation">}</span>                nums<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>            <span class="token punctuation">}</span>        <span class="token punctuation">}</span>        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>分析完才发现这居然是一道贪心题。<br>做这种题不能面向用例测试，若是在面试时遇到这题我估计就凉了，简单题一点也不简单呀，不能小看简单题！我们需要认真拿出纸笔分析题目。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Algorithm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Algorithm </tag>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> Greedy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>cpp-learning</title>
       <link href="/2020/11/29/2020/cpp-learning/"/>
       <url>/2020/11/29/2020/cpp-learning/</url>
@@ -598,9 +627,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> CSAPP </tag>
+            
+            <tag> Leetcode </tag>
             
             <tag> Codeforces </tag>
             
@@ -694,9 +723,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> Google Code Jam </tag>
-            
             <tag> dp </tag>
+            
+            <tag> Google Code Jam </tag>
             
         </tags>
       
@@ -821,9 +850,9 @@
             
             <tag> Leetcode </tag>
             
-            <tag> dp </tag>
-            
             <tag> Tree </tag>
+            
+            <tag> dp </tag>
             
             <tag> dfs </tag>
             

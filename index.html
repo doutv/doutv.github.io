@@ -413,29 +413,6 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/9.jpg');">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <div class="title center-align">path-with-maximum-probability</div>
-                            <div class="description center-align">
-                                
-                                    5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
-                                
-                            </div>
-                            <div class="cover-btns">
-                                <a href="/2020/07/13/2020/path-with-maximum-probability/" class="waves-effect waves-light btn"
-                                   target="_blank">
-                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            
-            <div class="carousel-item amber white-text carousel-post bg-cover"
                  style="background-image: url('/medias/featureimages/18.jpg');">
                 <div class="container">
                     <div class="row">
@@ -464,23 +441,18 @@
         
             
             <div class="carousel-item amber white-text carousel-post bg-cover"
-                 style="background-image: url('/medias/featureimages/11.jpg');">
+                 style="background-image: url('/medias/featureimages/9.jpg');">
                 <div class="container">
                     <div class="row">
                         <div class="col s10 offset-s1">
-                            <div class="title center-align">vertical-order-traversal-of-a-binary-tree</div>
+                            <div class="title center-align">path-with-maximum-probability</div>
                             <div class="description center-align">
                                 
-                                    偶然打开面试页面发现的一道好题：二叉树的垂序遍历
-
-
-思路
-一开始看题，很简单嘛，dfs走起，算出每个点的X，加到数组里面就完事了，而且树的结点数介于 1 和 1000 之间，开个vector&lt;int&gt; res[2005]即可
-
+                                    5211. 概率最大的路径dfs我第一反应是用dfs，无奈dfs怎么优化都超时，后来看了评论区才知道，加上if (curp&lt;1e-4) return;就可以过了，原理也很简单：只要答案与标准答案的误差不超过 1e-5 ，就会被视作正确
                                 
                             </div>
                             <div class="cover-btns">
-                                <a href="/2020/07/04/2020/vertical-order-traversal-of-a-binary-tree/" class="waves-effect waves-light btn"
+                                <a href="/2020/07/13/2020/path-with-maximum-probability/" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -532,6 +504,34 @@ So love is neither right nor wrong in itself. Done rightly, it is right; done wr
                             </div>
                             <div class="cover-btns">
                                 <a href="/2020/09/17/2020/di-yi-ci-ji-zhu-mian-shi/" class="waves-effect waves-light btn"
+                                   target="_blank">
+                                    <i class="icon fa fa-eye fa-fw"></i>阅读更多
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="carousel-item amber white-text carousel-post bg-cover"
+                 style="background-image: url('/medias/featureimages/11.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s10 offset-s1">
+                            <div class="title center-align">vertical-order-traversal-of-a-binary-tree</div>
+                            <div class="description center-align">
+                                
+                                    偶然打开面试页面发现的一道好题：二叉树的垂序遍历
+
+
+思路
+一开始看题，很简单嘛，dfs走起，算出每个点的X，加到数组里面就完事了，而且树的结点数介于 1 和 1000 之间，开个vector&lt;int&gt; res[2005]即可
+
+                                
+                            </div>
+                            <div class="cover-btns">
+                                <a href="/2020/07/04/2020/vertical-order-traversal-of-a-binary-tree/" class="waves-effect waves-light btn"
                                    target="_blank">
                                     <i class="icon fa fa-eye fa-fw"></i>阅读更多
                                 </a>
@@ -751,6 +751,64 @@ So love is neither right nor wrong in itself. Done rightly, it is right; done wr
     <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
         <div class="row article-row">
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/02/08/2021/non-decreasing-array/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Non-decreasing-Array">
+                            
+                            <span class="card-title">Non-decreasing-Array</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                解题思路解题关键是遇到$nums[i]&gt;nums[i+1]$时，应该怎么处理？
+
+找到第一处 $nums[i]&gt;nums[i+1]$ ，改 $nums[i]$ 还是 $nums[i+1]$ 呢？
+改 $nums[i]=nums[
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Algorithm/">
+                            <span class="chip bg-color">Algorithm</span>
+                        </a>
+                        
+                        <a href="/tags/Leetcode/">
+                            <span class="chip bg-color">Leetcode</span>
+                        </a>
+                        
+                        <a href="/tags/Greedy/">
+                            <span class="chip bg-color">Greedy</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -1305,64 +1363,6 @@ High Buildings题意：构造一个以a[1]为首且长度为a的最长不下降�
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/20/2020/find-a-value-of-a-mysterious-function-closest-to-target/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Find a Value of a Mysterious Function Closest to Target">
-                            
-                            <span class="card-title">Find a Value of a Mysterious Function Closest to Target</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1521. 找到最接近目标值的函数值当时卡在第三题了，第四题还没看过😓
-后面看了一下题目，感觉跟前缀和相关，然后懒懒的我就去看题解了~
-位运算这个题解讲得很好，建议认真吸收。
-根据按位与的两个性质，尤其是第二个性质，使得我们可以轻松地遍历
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Algorithm/">
-                            <span class="chip bg-color">Algorithm</span>
-                        </a>
-                        
-                        <a href="/tags/Leetcode/">
-                            <span class="chip bg-color">Leetcode</span>
-                        </a>
-                        
-                        <a href="/tags/Competition/">
-                            <span class="chip bg-color">Competition</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 
@@ -1407,7 +1407,7 @@ High Buildings题意：构造一个以a[1]为首且长度为a的最长不下降�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.2k</span>&nbsp;字
+                class="white-color">48.5k</span>&nbsp;字
             
             
             
