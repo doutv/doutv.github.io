@@ -1,13 +1,13 @@
 ---
-title: MIPS-Assembler
+title: MIPS-Assembler-Simulator
 top: false
 cover: false
 toc: true
 mathjax: true
 tags:
-  - Algorithm
+  - Project
 categories:
-  - - Algorithm
+  - - System Programming
 date: 2021-03-23 06:47:19
 summary:
 ---
@@ -69,6 +69,32 @@ if (opcode == R_opcode[0] || opcode == R_opcode[1])
     if (it == opcode_funct_to_func.end())
         signal_exception("function not found!");
     (it->second)(mc);
+}
+```
+### Throw exception instead of exit
+Ref:
+* https://stackoverflow.com/questions/32257840/properly-terminating-program-using-exceptions
+
+`exit()` will not go back through the call stack up to main cleaning everything up. 
+I define `istream` and `ostream` in `main()` function, if I call `exit()` during the program, 
+the streams cannot destruct properly, thus no output to files.
+
+```cpp
+static void signal_exception(const string &err)
+{
+    throw invalid_argument(err);
+}
+// in main()
+try
+{
+    if it should exit
+    {
+        signal_exception(exit_msg);
+    }
+}
+catch (const exception &e)
+{
+    cerr << e.what() << endl;
 }
 ```
 ### Test multiple cases with makefile
