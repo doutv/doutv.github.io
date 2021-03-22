@@ -447,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    858
+                    945
                 </div>
                 
 
@@ -517,6 +517,27 @@ m<span class="token punctuation">.</span><span class="token function">emplace</s
     <span class="token keyword">if</span> <span class="token punctuation">(</span>it <span class="token operator">==</span> opcode_funct_to_func<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token function">signal_exception</span><span class="token punctuation">(</span><span class="token string">"function not found!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">(</span>it<span class="token operator">-</span><span class="token operator">></span>second<span class="token punctuation">)</span><span class="token punctuation">(</span>mc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h3 id="Throw-exception-instead-of-exit"><a href="#Throw-exception-instead-of-exit" class="headerlink" title="Throw exception instead of exit"></a>Throw exception instead of exit</h3><p>Ref:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/32257840/properly-terminating-program-using-exceptions" target="_blank" rel="noopener">https://stackoverflow.com/questions/32257840/properly-terminating-program-using-exceptions</a></li>
+</ul>
+<p><code>exit()</code> will not go back through the call stack up to main cleaning everything up.<br>I define <code>istream</code> and <code>ostream</code> in <code>main()</code> function, if I call <code>exit()</code> during the program,<br>the streams cannot destruct properly, thus no output to files.</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">signal_exception</span><span class="token punctuation">(</span><span class="token keyword">const</span> string <span class="token operator">&amp;</span>err<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token function">invalid_argument</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// in main()</span>
+<span class="token keyword">try</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">if</span> it should exit
+    <span class="token punctuation">{</span>
+        <span class="token function">signal_exception</span><span class="token punctuation">(</span>exit_msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token keyword">const</span> exception <span class="token operator">&amp;</span>e<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    cerr <span class="token operator">&lt;&lt;</span> e<span class="token punctuation">.</span><span class="token function">what</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
 <h3 id="Test-multiple-cases-with-makefile"><a href="#Test-multiple-cases-with-makefile" class="headerlink" title="Test multiple cases with makefile"></a>Test multiple cases with makefile</h3><p>Ref:</p>
 <ul>
@@ -986,7 +1007,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49.3k</span>&nbsp;字
+                class="white-color">49.4k</span>&nbsp;字
             
             
             
