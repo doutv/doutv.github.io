@@ -44,6 +44,7 @@ class Assembler
     };
 }
 ```
+
 ### Hash table mapping machine code to function pointer
 Ref:
 * https://stackoverflow.com/questions/2136998/using-a-stl-map-of-function-pointers
