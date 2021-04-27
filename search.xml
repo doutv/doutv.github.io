@@ -218,11 +218,11 @@
             
             <tag> Database </tag>
             
+            <tag> Project </tag>
+            
             <tag> Backend </tag>
             
             <tag> Django </tag>
-            
-            <tag> Project </tag>
             
         </tags>
       
@@ -349,9 +349,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> Leetcode </tag>
             
         </tags>
       
@@ -378,9 +378,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> Leetcode </tag>
             
             <tag> greedy </tag>
             
@@ -723,9 +723,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> Leetcode </tag>
             
         </tags>
       
@@ -1070,9 +1070,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -1112,9 +1112,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
             <tag> Machine Learning </tag>
             
@@ -1139,9 +1139,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -1204,9 +1204,9 @@
       
         <tags>
             
-            <tag> Node.js </tag>
-            
             <tag> Mysql </tag>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
