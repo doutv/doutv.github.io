@@ -1,0 +1,1196 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="LeetCode Week Contest 241, Jason&#39;s Blog">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>LeetCode Week Contest 241 | Jason&#39;s Blog</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <meta name="google-site-verification" content="6el-Tvv6abrnunnnklVRRAEZHZsBUvTKz7jJAeu1isY" />
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.ico" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jason&#39;s Blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.ico" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jason&#39;s Blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/doutv/doutv.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/doutv/doutv.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">LeetCode Week Contest 241</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Algorithm/">
+                                <span class="chip bg-color">Algorithm</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Algorithm/" class="post-category">
+                                Algorithm
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-16
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-05-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    6 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="LeetCode-241-周赛"><a href="#LeetCode-241-周赛" class="headerlink" title="LeetCode 241 周赛"></a>LeetCode 241 周赛</h1><blockquote>
+<p>好久没写题解&amp;总结了T^T</p>
+</blockquote>
+<h2 id="5759-找出所有子集的异或总和再求和"><a href="#5759-找出所有子集的异或总和再求和" class="headerlink" title="5759. 找出所有子集的异或总和再求和"></a><a href="https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/" target="_blank" rel="noopener">5759. 找出所有子集的异或总和再求和</a></h2><h3 id="dfs遍历"><a href="#dfs遍历" class="headerlink" title="dfs遍历"></a>dfs遍历</h3><p>开始写的时候还在想怎么遍历数组的所有子集，后来憋了个dfs出来：</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">calSubset</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">,</span><span class="token keyword">int</span> cur<span class="token punctuation">,</span><span class="token keyword">int</span> xorval<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>cur <span class="token operator">>=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        xorval <span class="token operator">^</span><span class="token operator">=</span> nums<span class="token punctuation">[</span>cur<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        sum <span class="token operator">+</span><span class="token operator">=</span> xorval<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 尝试选择后面的任意一个数字进行组合</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>cur<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+            sum <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">calSubset</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span>i<span class="token punctuation">,</span>xorval<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> sum<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">int</span> <span class="token function">subsetXORSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 子集可以从 [0,n) 任意数字开始</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+            res <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">calSubset</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span>i<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<p>后来看题解看到了两种很好的办法：</p>
+<h3 id="二进制枚举所有子集"><a href="#二进制枚举所有子集" class="headerlink" title="二进制枚举所有子集"></a><a href="https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/solution/c-er-jin-zhi-mei-ju-zi-ji-mo-ban-ti-by-e-ab05/" target="_blank" rel="noopener">二进制枚举所有子集</a></h3><ul>
+<li>用一个长度等于数组长度的二进制数来表示子集的情况，这个二进制数的每一位对应数组每一位是取还是不取（取为1，不取为0）。  </li>
+<li>e.g. <code>1001</code> 表示取数组的第一位和第四位</li>
+<li>这个二进制数的所有可能的取值与数组的所有子集是一一对应的，所以我们只需要从<code>0</code>枚举到<code>1&lt;&lt;数组长度n</code></li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">subsetXORSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> n <span class="token operator">=</span> nums<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 枚举所有子集</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 枚举子集中要取的位置</span>
+            <span class="token keyword">int</span> cur <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>j<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&amp;</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">&lt;&lt;</span>j<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    cur <span class="token operator">^</span><span class="token operator">=</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            ans <span class="token operator">+</span><span class="token operator">=</span> cur<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="数学方法"><a href="#数学方法" class="headerlink" title="数学方法"></a>数学方法</h3><ul>
+<li>我们考虑最终结果中每个bit的来源</li>
+<li>证明见：<a href="https://leetcode-cn.com/circle/discuss/COaQbh/view/z7mqn9/" target="_blank" rel="noopener">https://leetcode-cn.com/circle/discuss/COaQbh/view/z7mqn9/</a></li>
+<li>（反正我还没想懂）</li>
+<li>代码来源：<a href="https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/solution/</a></li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">subsetXORSum</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> t<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> 
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> i<span class="token operator">:</span>a<span class="token punctuation">)</span>
+            t<span class="token operator">|</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+        <span class="token keyword">return</span> t<span class="token operator">&lt;&lt;</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h2 id="5760-构成交替字符串需要的最小交换次数"><a href="#5760-构成交替字符串需要的最小交换次数" class="headerlink" title="5760. 构成交替字符串需要的最小交换次数"></a><a href="https://leetcode-cn.com/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating/" target="_blank" rel="noopener">5760. 构成交替字符串需要的最小交换次数</a></h2><p>题意：将任意一个01字符串串转化为01必须相邻的字符串，可任意交换两个字符</p>
+<ol>
+<li><p>先判断是否有解，有解的条件：</p>
+<ol>
+<li>字符串长度为奇数：0和1的个数相差1</li>
+<li>字符串长度为偶数：0和1的个数相等</li>
+</ol>
+</li>
+<li><p>求最小交换次数</p>
+<ol>
+<li><p>我们不需要关心具体交换了哪两个字符，因为所有01都是等价的，可任意交换的。</p>
+</li>
+<li><p>目标字符串是已知的</p>
+<ol>
+<li>字符串长度为奇数：”010…010” 或 “101…101”</li>
+<li>字符串长度为偶数：”101…010” 或 “010…010”</li>
+<li>所以无论字符串长度是奇数还是偶数，目标字符串只有两种：<ol>
+<li>“0101…”</li>
+<li>“1010…”</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>我们只需要比较当前字符串与目标字符串不同的字符数量即可</p>
+<ol>
+<li><p>因为每交换一次会使不同的字符数量 <code>-2</code></p>
+</li>
+<li><p>如果不同的字符数量是奇数的话，那说明我们是无法得到这个目标字符串的</p>
+</li>
+<li><p>如果不同的字符数量是偶数的话，交换次数就是不同的字符数量/2</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+<span class="token keyword">int</span> <span class="token function">minSwaps</span><span class="token punctuation">(</span>string s<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">int</span> cnt1 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> cnt0 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 判断是否有解</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">char</span> ch<span class="token operator">:</span>s<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token string">'0'</span><span class="token punctuation">)</span>
+       <span class="token operator">++</span>cnt0<span class="token punctuation">;</span>
+   <span class="token keyword">else</span>
+       <span class="token operator">++</span>cnt1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>cnt0<span class="token operator">-</span>cnt1<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>cnt0 <span class="token operator">!=</span> cnt1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+   <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 求最小交换次数</span>
+<span class="token comment" spellcheck="true">// 求当前字符串与 "1010..." 的不同的字符数量</span>
+<span class="token keyword">int</span> ans0 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">char</span> ch <span class="token operator">=</span> <span class="token punctuation">(</span>i<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token string">'0'</span><span class="token operator">:</span><span class="token string">'1'</span><span class="token punctuation">;</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> ch<span class="token punctuation">)</span>
+       <span class="token operator">++</span>ans0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 求当前字符串与 "0101..." 的不同的字符数量</span>
+<span class="token keyword">int</span> ans1<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+   <span class="token keyword">char</span> ch <span class="token operator">=</span> <span class="token punctuation">(</span>i<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">?</span> <span class="token string">'1'</span><span class="token operator">:</span><span class="token string">'0'</span><span class="token punctuation">;</span>
+   <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> ch<span class="token punctuation">)</span>
+       <span class="token operator">++</span>ans1<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 因为每交换一次会使不同的字符数量-2</span>
+<span class="token comment" spellcheck="true">// 如果不同的字符数量是奇数的话，那说明我们是无法得到这个目标字符串的</span>
+<span class="token comment" spellcheck="true">// 如果不同的字符数量是偶数的话，交换次数就是不同的字符数量/2</span>
+ans0 <span class="token operator">=</span> <span class="token punctuation">(</span>ans0 <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">?</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>ans0<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ans1 <span class="token operator">=</span> <span class="token punctuation">(</span>ans1 <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">?</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token punctuation">(</span>ans1<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ans <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>ans1<span class="token punctuation">,</span>ans0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="5761-找出和为指定值的下标对"><a href="#5761-找出和为指定值的下标对" class="headerlink" title="5761. 找出和为指定值的下标对"></a><a href="https://leetcode-cn.com/problems/finding-pairs-with-a-certain-sum/" target="_blank" rel="noopener">5761. 找出和为指定值的下标对</a></h2><ul>
+<li><p>注意观察数据范围，用哈希表即可解决。</p>
+</li>
+<li><p>先给nums1排序，这样在<code>count()</code>中当<code>tot-x &lt; 1</code>时可以直接结束</p>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">FindSumPairs</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+  vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
+  unordered_map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token operator">></span> m<span class="token punctuation">;</span>
+  <span class="token function">FindSumPairs</span><span class="token punctuation">(</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums1<span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span><span class="token operator">&amp;</span> nums2<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">a</span><span class="token punctuation">(</span>nums1<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">b</span><span class="token punctuation">(</span>nums2<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">sort</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>a<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> each<span class="token operator">:</span>b<span class="token punctuation">)</span>
+          <span class="token operator">++</span>m<span class="token punctuation">[</span>each<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">void</span> <span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> index<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token operator">--</span>m<span class="token punctuation">[</span>b<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      b<span class="token punctuation">[</span>index<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> val<span class="token punctuation">;</span>
+      <span class="token operator">++</span>m<span class="token punctuation">[</span>b<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">int</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token keyword">int</span> tot<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token operator">:</span>a<span class="token punctuation">)</span>
+      <span class="token punctuation">{</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>tot<span class="token operator">-</span>x <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span>
+              <span class="token keyword">break</span><span class="token punctuation">;</span>
+          res <span class="token operator">+</span><span class="token operator">=</span> m<span class="token punctuation">[</span>tot<span class="token operator">-</span>x<span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+</li>
+</ul>
+<h2 id="5762-恰有-K-根木棍可以看到的排列数目"><a href="#5762-恰有-K-根木棍可以看到的排列数目" class="headerlink" title="5762. 恰有 K 根木棍可以看到的排列数目"></a><a href="https://leetcode-cn.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible/" target="_blank" rel="noopener">5762. 恰有 K 根木棍可以看到的排列数目</a></h2><ul>
+<li>当时时间不太够，猜是斯特林数，去查了查觉得也不太像，于是就去吃饭啦</li>
+</ul>
+<h3 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h3><ul>
+<li>状态定义：<code>f(i,j)</code>表示用长度从<code>1</code>到<code>i</code>的木棍排成一排，从左侧可以看到恰好<code>j</code>根木棍的方案数</li>
+<li>最优子结构：<ul>
+<li>如何证明？</li>
+</ul>
+</li>
+<li>状态转移<ul>
+<li><code>f(i,j) = f(i-1,j-1) + (i-1)*f(i-1,j)</code></li>
+<li><code>i-1</code> -&gt; <code>i</code> <code>j</code>不变：在原<code>i-1</code>根木棍中插入，在原方案数上进行排列</li>
+<li><code>i-1</code> -&gt; <code>i</code> <code>j-1</code> -&gt; <code>j</code>：加入长度为<code>i</code>的木棍，让它排在最后面</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token keyword">typedef</span> <span class="token keyword">long</span> <span class="token keyword">long</span> ll<span class="token punctuation">;</span>
+    ll f<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> <span class="token function">rearrangeSticks</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> ll mod <span class="token operator">=</span> <span class="token number">1000000007</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>i<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token punctuation">(</span>i<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">*</span>f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">%</span><span class="token operator">=</span> mod<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<h3 id="斯特林数"><a href="#斯特林数" class="headerlink" title="斯特林数"></a>斯特林数</h3><ul>
+<li>见：<a href="https://leetcode-cn.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible/solution/zhuan-huan-cheng-di-yi-lei-si-te-lin-shu-2y1k/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible/solution/zhuan-huan-cheng-di-yi-lei-si-te-lin-shu-2y1k/</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E6%96%AF%E7%89%B9%E7%81%B5%E6%95%B0" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E6%96%AF%E7%89%B9%E7%81%B5%E6%95%B0</a></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Algorithm/">
+                                    <span class="chip bg-color">Algorithm</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '45dc1237807387ccf759',
+        clientSecret: '67b4e116118fea843634f98b65816c61ffa0592a',
+        repo: 'doutv.github.io',
+        owner: 'doutv',
+        admin: ["doutv"],
+        id: '2021-05-16T15-49-50',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/05/16/2021/leetcode-week-contest-241/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LeetCode Week Contest 241">
+                        
+                        <span class="card-title">LeetCode Week Contest 241</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            LeetCode 241 周赛
+好久没写题解&amp;总结了T^T
+
+5759. 找出所有子集的异或总和再求和dfs遍历开始写的时候还在想怎么遍历数组的所有子集，后来憋了个dfs出来：
+class Solution {
+public:
+  
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/23/2021/mips-assembler-simulator/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="MIPS-Assembler-Simulator">
+                        
+                        <span class="card-title">MIPS-Assembler-Simulator</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            CSC3050 Project 1 MIPS Assembler &amp; SimulatorThis project implements a MIPS assembler and simulator in a single simul
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/System-Programming/" class="post-category">
+                                    System Programming
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Project/">
+                        <span class="chip bg-color">Project</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Jason&#39;s Blog<br />'
+            + '文章作者: Jason<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者Jason所有，任何形式的转载都请注明出处https://doutv.github.io/。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('3'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] }
+    });
+</script>
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">Jason</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">50.8k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/doutv" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1765941460@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1765941460" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1765941460" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
