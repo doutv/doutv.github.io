@@ -3,12 +3,12 @@ title: path-with-maximum-probability
 date: 2020-07-13 8:59:36
 tags:
     - Algorithm
-    - Leetcode
+    - LeetCode
     - shortest path
 mathjax: true
 categories:
     - [Algorithm]
-cover: true
+cover: false
 ---
 
 # 5211. 概率最大的路径

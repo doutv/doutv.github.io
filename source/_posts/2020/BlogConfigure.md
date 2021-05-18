@@ -6,8 +6,6 @@ toc: true
 mathjax: true
 tags:
   - hexo
-categories:
-  - [blog]
 date: 2020-09-03 08:32:26
 summary:
 ---

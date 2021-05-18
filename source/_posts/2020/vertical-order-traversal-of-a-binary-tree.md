@@ -3,14 +3,13 @@ title: vertical-order-traversal-of-a-binary-tree
 date: 2020-07-04 00:12:34
 tags: 
     - Algorithm
-    - Leetcode
+    - LeetCode
     - STL
     - Tree
 mathjax: true
 categories:
     - Algorithm
-    - Tree
-cover: true
+cover: false
 ---
 
 偶然打开[面试页面](https://leetcode-cn.com/interview/)发现的一道好题：[二叉树的垂序遍历](https://leetcode-cn.com/problems/vertical-order-traversal-of-a-binary-tree/)

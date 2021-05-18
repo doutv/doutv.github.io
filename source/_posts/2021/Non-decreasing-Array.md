@@ -6,7 +6,7 @@ toc: true
 mathjax: true
 tags:
   - Algorithm
-  - Leetcode
+  - LeetCode
   - Greedy
 categories:
   - - Algorithm

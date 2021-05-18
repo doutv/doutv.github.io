@@ -3,11 +3,11 @@ title: convert-sorted-array-to-binary-search-tree
 date: 2020-07-04 08:50:00
 tags:
     - Algorithm
-    - Leetcode
+    - LeetCode
     - Tree
     - Recursion
 categories:
-    - [Algorithm, Tree]
+    - [Algorithm]
 mathjax: true
 
 ---

@@ -1,7 +1,7 @@
 ---
 title: 对计算机专业的思考
 top: false
-cover: true
+cover: false
 toc: true
 mathjax: true
 tags:
