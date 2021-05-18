@@ -72,7 +72,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> Greedy </tag>
             
@@ -152,36 +152,11 @@
     
     
     <entry>
-      <title>读书笔记</title>
-      <link href="/2020/09/17/2020/du-shu-bi-ji/"/>
-      <url>/2020/09/17/2020/du-shu-bi-ji/</url>
-      
-        <content type="html"><![CDATA[<h1 id="读书笔记，持续更新ing"><a href="#读书笔记，持续更新ing" class="headerlink" title="读书笔记，持续更新ing~"></a>读书笔记，持续更新ing~</h1><p><code>IRIS说：“不做读书笔记的人没有思想。”</code></p><ul><li><p>So love is neither right nor wrong in itself. Done rightly, it is right; done wrongly, it is wrong. It is wrong if you satisfy the wrong person, for the wrong reasons, and right if you satisfy the right person, for the right reasons. – Symposium</p></li><li><p>爱的阶梯</p><ul><li><img src="https://raw.githubusercontent.com/doutv/Picbed/master/img/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-2020-09-20-10-12-51" alt="读书笔记-2020-09-20-10-12-51"></li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Essay </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Essay </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>第一次技术面试</title>
       <link href="/2020/09/17/2020/di-yi-ci-ji-zhu-mian-shi/"/>
       <url>/2020/09/17/2020/di-yi-ci-ji-zhu-mian-shi/</url>
       
-        <content type="html"><![CDATA[<h1 id="第一次技术面试"><a href="#第一次技术面试" class="headerlink" title="第一次技术面试"></a>第一次技术面试</h1><p>我的第一次技术面试献给了字节跳动。</p><p>考完期末考以后，可能觉得自己期末考考得太差了，GPA准备升天，再加上看清了学校CS课程的不足之处，所以想在其他方面证明自己的能力，于是想到了去找实习~</p><ul><li>第一个投的是腾讯，因为腾讯有员工班车接送，实习会比较方便，而且听说腾讯的工作强度相对较小，是我的理想公司之一。投了腾讯以后等了好几天没有回音，</li><li>于是去投华为，想着我前几个月刚拿的华为软挑32强应该会有点用吧，说不定可以直接录取我，毕竟只是去实习而不是秋招。事实上华为回应也蛮快的，HR过几天就加我微信了，然而她告诉我现在是秋招的时间，日常实习生要到12月才开始招。</li><li>最后我才想到了字节跳动，找到了在字节任职的一位学长，问了他一些职业发展相关的问题，他也给了我很多指导。在此也要感谢给我职场&amp;人生指导的几位学长学姐，让我对将来发展的路径清晰了很多~谢谢你们！投了字节后几天就收到了HR电话约面试时间，我决定就约这几天的，不把这事情往后面拖了，再多准备一周时间也没必要。</li><li>面试前根据学长的建议看了一下操作系统、计算机网络、数据库一些相关的知识点，但是我又不想像应试教育那样背下来，一方面是觉得这样对我的技术并无提升，另一方面如果面试官换一个问法/深入追问我照样答不出来。其实如果是从通过面试的角度来说，背知识点肯定是有用的，能够应付很多面试官的提问。我还刷了leetcode上字节的几道算法题。</li><li>其实整个面试的过程我觉得我个人还是比较放松的，能够放平自己的心态，和面试官以一种对话的方式去交流，和面试官的沟通也比较顺畅，但是嘛，就是自己的硬实力不足。<ul><li>第一道算法题没做出来，我后来上网搜了下这题，其实真的很有难度，<a href="https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/" target="_blank" rel="noopener">440. 字典序的第K小数字</a>，就算我不在面试环境下我也很难在短时间内想到正确的解法。</li><li>第二道题是数据库相关的，给你一个业务需求，存储用户及订单信息，要求设计数据库结构及实现几个查询，如何用索引来优化查询？这题蛮好的，可惜我对数据库索引的了解几乎为零😂。</li><li>还有以下问题：c++中<code>static</code>作用；http和https区别，ssl原理，非对称加密。</li><li>最后还考了一道智力题：在岛上有100只老虎和1只羊，老虎可以吃草，但他们更愿意吃羊。如果每次只有一只老虎可以吃羊，而且一旦他吃了羊，他自己就变成羊；而且所有的老虎都是聪明而且完全理性的，他们的第一要务是生存。 请问最后这只羊会不会被吃？如果是n只老虎和一只羊呢？这道题我想到了它有点像递归，如果有一个老虎吃了羊，那么问题规模就缩小为99只老虎和1只羊。然而我以为没有一只老虎会吃羊，其实在想到递归以后，应该去找递归的初始状态，从底向上地推，1只老虎和1只羊-&gt;2只老虎和1只羊-&gt;…，这样就能发现规律了：如果老虎数目是奇数，那么羊肯定被吃，如果是偶数，那么羊肯定不会被吃。真的蛮有趣的</li></ul></li><li>其实面试完以后我是松了一口气的，对于面试的结果我早有预料，因为字节招实习生的标准和招正式员工的标准是一样的，我的确还有许多知识、技术要学，所以过面试反而是小概率事件。主要是来体验互联网大厂面试的流程，反正面试不用钱🐶。</li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="第一次技术面试"><a href="#第一次技术面试" class="headerlink" title="第一次技术面试"></a>第一次技术面试</h1><p>我的第一次技术面试献给了字节跳动。</p><p>考完期末考以后，可能觉得自己期末考考得太差了，GPA准备升天，再加上看清了学校CS课程的不足之处，所以想在其他方面证明自己的能力，于是想到了去找实习~</p><ul><li>第一个投的是腾讯，因为腾讯有员工班车接送，实习会比较方便，而且听说腾讯的工作强度相对较小，是我的理想公司之一。投了腾讯以后等了好几天没有回音，</li><li>于是去投华为，想着我前几个月刚拿的华为软挑32强应该会有点用吧，说不定可以直接录取我，毕竟只是去实习而不是秋招。事实上华为回应也蛮快的，HR过几天就加我微信了，然而她告诉我现在是秋招的时间，日常实习生要到12月才开始招。</li><li>最后我才想到了字节跳动，找到了在字节任职的一位学长，问了他一些职业发展相关的问题，他也给了我很多指导。在此也要感谢给我职场&amp;人生指导的几位学长学姐，让我对将来发展的路径清晰了很多~谢谢你们！投了字节后几天就收到了HR电话约面试时间，我决定就约这几天的，不把这事情往后面拖了，再多准备一周时间也没必要。</li><li>面试前根据学长的建议看了一下操作系统、计算机网络、数据库一些相关的知识点，但是我又不想像应试教育那样背下来，一方面是觉得这样对我的技术并无提升，另一方面如果面试官换一个问法/深入追问我照样答不出来。其实如果是从通过面试的角度来说，背知识点肯定是有用的，能够应付很多面试官的提问。我还刷了LeetCode上字节的几道算法题。</li><li>其实整个面试的过程我觉得我个人还是比较放松的，能够放平自己的心态，和面试官以一种对话的方式去交流，和面试官的沟通也比较顺畅，但是嘛，就是自己的硬实力不足。<ul><li>第一道算法题没做出来，我后来上网搜了下这题，其实真的很有难度，<a href="https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/" target="_blank" rel="noopener">440. 字典序的第K小数字</a>，就算我不在面试环境下我也很难在短时间内想到正确的解法。</li><li>第二道题是数据库相关的，给你一个业务需求，存储用户及订单信息，要求设计数据库结构及实现几个查询，如何用索引来优化查询？这题蛮好的，可惜我对数据库索引的了解几乎为零😂。</li><li>还有以下问题：c++中<code>static</code>作用；http和https区别，ssl原理，非对称加密。</li><li>最后还考了一道智力题：在岛上有100只老虎和1只羊，老虎可以吃草，但他们更愿意吃羊。如果每次只有一只老虎可以吃羊，而且一旦他吃了羊，他自己就变成羊；而且所有的老虎都是聪明而且完全理性的，他们的第一要务是生存。 请问最后这只羊会不会被吃？如果是n只老虎和一只羊呢？这道题我想到了它有点像递归，如果有一个老虎吃了羊，那么问题规模就缩小为99只老虎和1只羊。然而我以为没有一只老虎会吃羊，其实在想到递归以后，应该去找递归的初始状态，从底向上地推，1只老虎和1只羊-&gt;2只老虎和1只羊-&gt;…，这样就能发现规律了：如果老虎数目是奇数，那么羊肯定被吃，如果是偶数，那么羊肯定不会被吃。真的蛮有趣的</li></ul></li><li>其实面试完以后我是松了一口气的，对于面试的结果我早有预料，因为字节招实习生的标准和招正式员工的标准是一样的，我的确还有许多知识、技术要学，所以过面试反而是小概率事件。主要是来体验互联网大厂面试的流程，反正面试不用钱🐶。</li></ul>]]></content>
       
       
       
@@ -191,7 +166,7 @@
             
             <tag> Essay </tag>
             
-            <tag> Thinking </tag>
+            <tag> Interview </tag>
             
         </tags>
       
@@ -206,12 +181,6 @@
       
         <content type="html"><![CDATA[<h1 id="博客折腾日记"><a href="#博客折腾日记" class="headerlink" title="博客折腾日记"></a>博客折腾日记</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>一次偶然的机会打开了别人的博客，它的界面很好看，于是我自己也想做一个。<br>他用的是<code>hexo+next</code>，我一开始用的主题是<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>，这个主题配置简单，就是有点丑，而且很久没更新了。<br>配置好后发现：文章预览有问题，主页展示了整篇文章，这个地方折腾了好久，有一天突然又能自动截断了……  </p><p>但是后来我上Github找到一个非常好看的主题<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank" rel="noopener">hexo-theme-matery</a>，这个的配置教程超级好，基本都覆盖到了。<br>有一些没覆盖到的内容可以去Issues找或者搜索代码，比如：</p><ol><li><code>mathjax</code>默认全局打开:<code>/layout/post.ejs</code>的最后一个<code>if(xxx)</code>改成<code>if(1)</code>即可</li></ol><p>其实博客关键还是内容，内容为王，外观再漂亮也只是衬托罢了。</p><h2 id="搜索引擎收录"><a href="#搜索引擎收录" class="headerlink" title="搜索引擎收录"></a>搜索引擎收录</h2><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><p>上<a href="https://search.google.com/search-console/welcome" target="_blank" rel="noopener">Google Search Console</a>，有多种验证方式来确认网站是归属你所有的。<br>我用了最简单的那种方式：在<code>/public</code>下加一个<code>.html</code>文件。</p><h3 id="一个小技巧"><a href="#一个小技巧" class="headerlink" title="一个小技巧"></a>一个小技巧</h3><p>将需要放在<code>/public</code>的文件放在<code>/source</code>下面，这样每次<code>hexo d</code>，这些文件都会自动复制到<code>/public</code>下面。</p><ul><li><code>CNAME</code> github自定义域名所需文件</li><li><code>googlexxxx.html</code> google域名验证文件</li></ul><h2 id="从github-pages转到腾讯云服务器"><a href="#从github-pages转到腾讯云服务器" class="headerlink" title="从github pages转到腾讯云服务器"></a>从github pages转到腾讯云服务器</h2><p>由于某些不可描述的原因，github pages被墙了，正逢腾讯云做活动，买了个100/年的小服务器做blog。</p><p>文章没了（感谢zjh的反馈）<br><del><a href="http://www.buhuo996.com/posts/65504/" target="_blank" rel="noopener">通过Git钩子将hexo博客自动部署到ubuntu服务器</a>：这篇文章写的很好，设置成功后，只需要<code>hexo d</code>就可以将博客自动部署到服务器上。在这里我补充一点我遇到的问题：</del> </p><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> clone root@server_ip:/var/repo/hexo_static.git</code></pre><p>这一步中会提示没有权限，但是我明明已经给服务器添加了密钥对，并将私钥保存到本地了啊，这是为什么呢？<br>在我的windows电脑上.ssh/config是这样的：</p><pre><code>Host blog    HostName 106.52.xxx.xxx    User ubuntu    IdentityFile C:\\Users\\Jason\\.ssh\\blog.pem</code></pre><p>而且我用这条命令也是可以正常登录服务器的</p><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> -o <span class="token string">"IdentitiesOnly=yes"</span> -i C:\\Users\\Jason\\.ssh\\blog.pem ubuntu@106.52.xxx.xxx</code></pre><p>事实上这条命令与</p><pre class=" language-bash"><code class="language-bash"><span class="token function">ssh</span> blog</code></pre><p>是等价的，<code>Host</code>相当于给这个ssh配置起了一个别名</p><p>所以在<code>_config.yml</code>中</p><p>然而我发现备案太麻烦了，而且不能开留言功能，先放着吧呜呜。</p><h2 id="hexo-d-某些时候不好用的原因"><a href="#hexo-d-某些时候不好用的原因" class="headerlink" title="hexo d 某些时候不好用的原因"></a><code>hexo d</code> 某些时候不好用的原因</h2><p>明明我变更了文章内容，但是<code>hexo d</code>有时候并不会将它推送上去，目前推测到的原因是hexo不会识别某篇文章内部的变更，它只会跟踪有没有新增/减少文章。</p><p>这时候我们就需要<code>hexo clean</code>, <code>hexo g</code>, <code>hexo d</code>。</p>]]></content>
       
-      
-      <categories>
-          
-          <category> blog </category>
-          
-      </categories>
       
       
         <tags>
@@ -241,13 +210,13 @@
       
         <tags>
             
-            <tag> Project </tag>
-            
-            <tag> Database </tag>
-            
             <tag> Backend </tag>
             
             <tag> Django </tag>
+            
+            <tag> Database </tag>
+            
+            <tag> Project </tag>
             
         </tags>
       
@@ -374,9 +343,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -403,9 +372,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> greedy </tag>
             
@@ -482,7 +451,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> shortest path </tag>
             
@@ -493,7 +462,7 @@
     
     
     <entry>
-      <title>submatrices</title>
+      <title>统计全 1 子矩形</title>
       <link href="/2020/07/05/2020/submatrices/"/>
       <url>/2020/07/05/2020/submatrices/</url>
       
@@ -504,8 +473,6 @@
           
           <category> Algorithm </category>
           
-          <category> dp </category>
-          
       </categories>
       
       
@@ -513,7 +480,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> dp </tag>
             
@@ -535,8 +502,6 @@
           
           <category> Algorithm </category>
           
-          <category> greedy </category>
-          
       </categories>
       
       
@@ -544,7 +509,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> greedy </tag>
             
@@ -568,8 +533,6 @@
           
           <category> Algorithm </category>
           
-          <category> Tree </category>
-          
       </categories>
       
       
@@ -577,7 +540,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> Tree </tag>
             
@@ -601,8 +564,6 @@
           
           <category> Algorithm </category>
           
-          <category> Tree </category>
-          
       </categories>
       
       
@@ -610,7 +571,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> Tree </tag>
             
@@ -635,7 +596,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -677,9 +638,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> CSAPP </tag>
+            
+            <tag> LeetCode </tag>
             
             <tag> Codeforces </tag>
             
@@ -727,7 +688,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -748,9 +709,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Competition </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -771,7 +732,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> dp </tag>
             
@@ -796,7 +757,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -817,9 +778,9 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
-            
             <tag> Python </tag>
+            
+            <tag> LeetCode </tag>
             
         </tags>
       
@@ -840,7 +801,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> dp </tag>
             
@@ -869,7 +830,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> dp </tag>
             
@@ -898,7 +859,7 @@
             
             <tag> Algorithm </tag>
             
-            <tag> Leetcode </tag>
+            <tag> LeetCode </tag>
             
             <tag> Tree </tag>
             
@@ -944,9 +905,9 @@
       
         <tags>
             
-            <tag> Python Spider </tag>
-            
             <tag> Tools </tag>
+            
+            <tag> Python Spider </tag>
             
         </tags>
       
@@ -1095,9 +1056,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -1137,11 +1098,11 @@
       
         <tags>
             
-            <tag> Machine Learning </tag>
+            <tag> Node.js </tag>
             
             <tag> Sequelize </tag>
             
-            <tag> Node.js </tag>
+            <tag> Machine Learning </tag>
             
             <tag> C++ </tag>
             
@@ -1164,9 +1125,9 @@
       
         <tags>
             
-            <tag> Sequelize </tag>
-            
             <tag> Node.js </tag>
+            
+            <tag> Sequelize </tag>
             
         </tags>
       
@@ -1229,9 +1190,9 @@
       
         <tags>
             
-            <tag> Node.js </tag>
-            
             <tag> Mysql </tag>
+            
+            <tag> Node.js </tag>
             
         </tags>
       
