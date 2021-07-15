@@ -48,7 +48,7 @@ setuptools使用的配置，setup的参数很多，以下是部分参数的解�
 - `package_data` 要包含的静态文件
 
 
-```py
+```python
 # setup.py
 from setuptools import setup, find_packages
 
@@ -80,7 +80,7 @@ setup(
 - `click.argument()` 是必填参数 
 - `click.option()` 是选填参数
 
-```py
+```python
 # api.py
 from myproject.utils.common import prepare_init_data, get_rule, parse_data_by_rule
 import click
@@ -105,6 +105,7 @@ def rule():
 ```
 
 ### `common.py`
+
 `api.py`中需要用到的一些辅助函数
 
 - 读取Python包内自带的数据
@@ -112,7 +113,8 @@ def rule():
   - 第一个参数是数据所在的包名
   - 第二个参数是文件名
   - 这种方法的优点：https://stackoverflow.com/questions/6028000/how-to-read-a-static-file-from-inside-a-python-package
-```py
+
+```python
 # common.py
 RULE = {}
 
