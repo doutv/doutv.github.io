@@ -2,385 +2,392 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jasonblog.xyz/2020/09/17/2020/di-yi-ci-ji-zhu-mian-shi/</loc>
+    <loc>https://doutv.github.io/2021/07/14/2021/yi-ge-python-bao-shi-ru-he-chan-sheng-de/</loc>
+    
+    <lastmod>2021-07-15T02:43:43.897Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://doutv.github.io/2020/09/17/2020/di-yi-ci-ji-zhu-mian-shi/</loc>
     
     <lastmod>2021-05-18T11:55:24.187Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/05/2020/submatrices/</loc>
+    <loc>https://doutv.github.io/2020/07/05/2020/submatrices/</loc>
     
     <lastmod>2021-05-18T11:52:50.003Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/05/2020/number-of-submatrices-that-sum-to-target/</loc>
+    <loc>https://doutv.github.io/2020/07/05/2020/number-of-submatrices-that-sum-to-target/</loc>
     
     <lastmod>2021-05-18T11:52:22.767Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/03/15/2020/3-15/</loc>
+    <loc>https://doutv.github.io/2020/05/24/2020/5-24/</loc>
     
     <lastmod>2021-05-18T11:52:00.403Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/05/24/2020/5-24/</loc>
+    <loc>https://doutv.github.io/2020/03/15/2020/3-15/</loc>
     
     <lastmod>2021-05-18T11:52:00.403Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/03/22/2020/3-22/</loc>
+    <loc>https://doutv.github.io/2020/05/03/2020/5-3/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/13/2020/path-with-maximum-probability/</loc>
+    <loc>https://doutv.github.io/2020/07/04/2020/vertical-order-traversal-of-a-binary-tree/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/04/2020/convert-sorted-array-to-binary-search-tree/</loc>
+    <loc>https://doutv.github.io/2020/03/22/2020/3-22/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/20/2020/find-a-value-of-a-mysterious-function-closest-to-target/</loc>
+    <loc>https://doutv.github.io/2020/07/04/2020/convert-sorted-array-to-binary-search-tree/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/06/28/2020/6-28/</loc>
+    <loc>https://doutv.github.io/2020/06/28/2020/6-28/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/04/2020/vertical-order-traversal-of-a-binary-tree/</loc>
+    <loc>https://doutv.github.io/2020/07/13/2020/path-with-maximum-probability/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/05/03/2020/5-3/</loc>
+    <loc>https://doutv.github.io/2020/07/20/2020/find-a-value-of-a-mysterious-function-closest-to-target/</loc>
     
     <lastmod>2021-05-18T11:52:00.370Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/04/12/2020/4-12/</loc>
+    <loc>https://doutv.github.io/2020/03/29/2020/3-29/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/05/10/2020/5-10/</loc>
+    <loc>https://doutv.github.io/2020/04/05/2020/4-5/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/04/05/2020/4-5/</loc>
+    <loc>https://doutv.github.io/2020/04/19/2020/4-19/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/04/19/2020/4-19/</loc>
+    <loc>https://doutv.github.io/2020/04/12/2020/4-12/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2021/02/08/2021/non-decreasing-array/</loc>
+    <loc>https://doutv.github.io/2020/07/20/2020/maximum-number-of-non-overlapping-substrings/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/20/2020/maximum-number-of-non-overlapping-substrings/</loc>
+    <loc>https://doutv.github.io/2021/02/08/2021/non-decreasing-array/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/03/29/2020/3-29/</loc>
+    <loc>https://doutv.github.io/2020/05/10/2020/5-10/</loc>
     
     <lastmod>2021-05-18T11:52:00.369Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/09/03/2020/blogconfigure/</loc>
+    <loc>https://doutv.github.io/2020/09/03/2020/blogconfigure/</loc>
     
     <lastmod>2021-05-18T11:50:43.736Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/16/2020/introduction-to-cs/</loc>
+    <loc>https://doutv.github.io/2020/07/16/2020/introduction-to-cs/</loc>
     
     <lastmod>2021-05-18T11:44:52.678Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2021/05/16/2021/leetcode-week-contest-241/</loc>
+    <loc>https://doutv.github.io/2021/05/16/2021/leetcode-week-contest-241/</loc>
     
     <lastmod>2021-05-18T11:42:12.462Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2021/03/23/2021/mips-assembler-simulator/</loc>
+    <loc>https://doutv.github.io/2021/03/23/2021/mips-assembler-simulator/</loc>
     
     <lastmod>2021-03-22T23:40:36.988Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/11/29/2020/cpp-learning/</loc>
+    <loc>https://doutv.github.io/2020/11/29/2020/cpp-learning/</loc>
     
     <lastmod>2020-12-18T10:30:58.624Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/11/15/2020/sui-gan-gpa/</loc>
+    <loc>https://doutv.github.io/2020/11/15/2020/sui-gan-gpa/</loc>
     
     <lastmod>2020-12-18T10:30:38.079Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/10/19/2020/compile-linux-kernel/</loc>
+    <loc>https://doutv.github.io/2020/10/19/2020/compile-linux-kernel/</loc>
     
     <lastmod>2020-10-24T03:51:47.477Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/tags/index.html</loc>
+    <loc>https://doutv.github.io/tags/index.html</loc>
     
     <lastmod>2020-09-07T10:18:34.385Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/friends/index.html</loc>
+    <loc>https://doutv.github.io/friends/index.html</loc>
     
     <lastmod>2020-09-07T10:18:34.384Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/contact/index.html</loc>
+    <loc>https://doutv.github.io/contact/index.html</loc>
     
     <lastmod>2020-09-07T10:18:34.382Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/categories/index.html</loc>
+    <loc>https://doutv.github.io/categories/index.html</loc>
     
     <lastmod>2020-09-07T10:18:34.380Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/about/index.html</loc>
+    <loc>https://doutv.github.io/about/index.html</loc>
     
     <lastmod>2020-09-07T10:18:34.366Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/08/26/2020/bing-cha-ji-wei-hu-xu-lie-xin-xi/</loc>
+    <loc>https://doutv.github.io/2020/08/26/2020/bing-cha-ji-wei-hu-xu-lie-xin-xi/</loc>
     
     <lastmod>2020-09-07T10:18:34.365Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/27/2020/number-of-sub-arrays-with-odd-sum/</loc>
+    <loc>https://doutv.github.io/2020/07/27/2020/number-of-sub-arrays-with-odd-sum/</loc>
     
     <lastmod>2020-09-07T10:18:34.361Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/08/16/2020/minimum-number-of-days-to-eat-n-oranges/</loc>
+    <loc>https://doutv.github.io/2020/08/16/2020/minimum-number-of-days-to-eat-n-oranges/</loc>
     
     <lastmod>2020-09-07T10:18:34.360Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/07/13/2020/googlekickstartroundd/</loc>
+    <loc>https://doutv.github.io/2020/07/13/2020/googlekickstartroundd/</loc>
     
     <lastmod>2020-09-07T10:18:34.356Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/08/27/2020/google-kickstart-round-e/</loc>
+    <loc>https://doutv.github.io/2020/08/27/2020/google-kickstart-round-e/</loc>
     
     <lastmod>2020-09-07T10:18:34.355Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/09/02/2020/developciwk/</loc>
+    <loc>https://doutv.github.io/2020/09/02/2020/developciwk/</loc>
     
     <lastmod>2020-09-07T10:18:34.353Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/06/07/2020/6-7/</loc>
+    <loc>https://doutv.github.io/2020/06/07/2020/6-7/</loc>
     
     <lastmod>2020-09-07T10:18:34.337Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/05/17/2020/5-17/</loc>
+    <loc>https://doutv.github.io/2020/05/17/2020/5-17/</loc>
     
     <lastmod>2020-09-07T10:18:34.334Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/03/08/2020/3-8/</loc>
+    <loc>https://doutv.github.io/2020/03/08/2020/3-8/</loc>
     
     <lastmod>2020-09-07T10:18:34.329Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/03/01/2020/3-1/</loc>
+    <loc>https://doutv.github.io/2020/03/01/2020/3-1/</loc>
     
     <lastmod>2020-09-07T10:18:34.324Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2020/01/12/2020/1-6/</loc>
+    <loc>https://doutv.github.io/2020/01/12/2020/1-6/</loc>
     
     <lastmod>2020-09-07T10:18:34.323Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/12/24/2019/useful-command/</loc>
+    <loc>https://doutv.github.io/2019/12/24/2019/useful-command/</loc>
     
     <lastmod>2020-09-07T10:18:34.322Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/12/09/2019/12.9/</loc>
+    <loc>https://doutv.github.io/2019/12/09/2019/12.9/</loc>
     
     <lastmod>2020-09-07T10:18:34.321Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/12/02/2019/12.2/</loc>
+    <loc>https://doutv.github.io/2019/12/02/2019/12.2/</loc>
     
     <lastmod>2020-09-07T10:18:34.306Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/12/22/2019/12.16/</loc>
+    <loc>https://doutv.github.io/2019/12/22/2019/12.16/</loc>
     
     <lastmod>2020-09-07T10:18:34.304Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/11/03/2019/11.3/</loc>
+    <loc>https://doutv.github.io/2019/11/03/2019/11.3/</loc>
     
     <lastmod>2020-09-07T10:18:34.303Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/11/25/2019/11.25/</loc>
+    <loc>https://doutv.github.io/2019/11/25/2019/11.25/</loc>
     
     <lastmod>2020-09-07T10:18:34.302Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/11/18/2019/11.18/</loc>
+    <loc>https://doutv.github.io/2019/11/18/2019/11.18/</loc>
     
     <lastmod>2020-09-07T10:18:34.301Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/10/06/2019/10.6/</loc>
+    <loc>https://doutv.github.io/2019/10/06/2019/10.6/</loc>
     
     <lastmod>2020-09-07T10:18:34.300Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/10/27/2019/10.27/</loc>
+    <loc>https://doutv.github.io/2019/10/27/2019/10.27/</loc>
     
     <lastmod>2020-09-07T10:18:34.297Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/10/20/2019/10.20/</loc>
+    <loc>https://doutv.github.io/2019/10/20/2019/10.20/</loc>
     
     <lastmod>2020-09-07T10:18:34.296Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/10/13/2019/10.13/</loc>
+    <loc>https://doutv.github.io/2019/10/13/2019/10.13/</loc>
     
     <lastmod>2020-09-07T10:18:34.294Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/2019/10/10/2019/10.10/</loc>
+    <loc>https://doutv.github.io/2019/10/10/2019/10.10/</loc>
     
     <lastmod>2020-09-07T10:18:34.292Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://jasonblog.xyz/404.html</loc>
+    <loc>https://doutv.github.io/404.html</loc>
     
     <lastmod>2020-09-07T10:18:34.287Z</lastmod>
     
