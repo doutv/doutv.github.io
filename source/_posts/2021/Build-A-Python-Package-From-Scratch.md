@@ -15,6 +15,8 @@ summary:
 > 我们都用过`pip install`，但是你尝试过自己打包一个Python包并提供给他人下载使用吗？
 
 本文提供了一个使用setuptools+click实现的CLI示例，以帮助读者了解Python包的生成过程。
+
+代码已发布在GitHub上：https://github.com/doutv/Python-Package-Demo
 ## 目录架构及文件内容
 这是一个根据一定的语法规则翻译字符串的CLI，项目并未展示全部细节，只展示了与本文有关的部分代码。
 
